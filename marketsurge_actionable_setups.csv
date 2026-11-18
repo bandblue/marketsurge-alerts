@@ -1,0 +1,41 @@
+Ticker,Company,RS_Rating,Blue_Dot,MACD_Signal,Acc_Dist,Vol_vs_50D_Pct,EPS_YoY_Pct,Sales_YoY_Pct,Pattern,Price,Pivot_Buy,Pct_From_Pivot,Buy_Zone_Max,Stop_Loss_7.5Pct
+CRL,Charles River Laboratories,98,—,🔴 Bearish,D,-37.0,523.6,-2.2,Extended / No Base,332.16,379.63,-12.5,398.61,351.16
+VTRS,Viatris,97,🔵 YES,🟢 Bullish,B,9.8,-154.5,-0.3,Cup / Handle Base,20.45,21.2,-3.54,22.26,19.61
+TXN,Texas Instruments,97,—,🔴 Bearish,B,-17.3,77.0,27.7,Extended / No Base,295.86,317.2,-6.73,333.06,293.41
+HUM,Humana,97,—,🟢 Bullish,C,27.2,-16.7,26.1,Cup / Handle Base,443.34,462.87,-4.22,486.01,428.15
+SWK,Stanley Black & Decker,96,—,🔴 Bearish,C,82.3,438.2,-0.6,Extended / No Base,108.81,122.68,-11.31,128.81,113.48
+CNC,Centene Corporation,96,—,🟢 Bullish Cross,C,15.7,99.0,1.9,Cup / Handle Base,72.55,78.08,-7.08,81.98,72.22
+HAS,Hasbro,95,—,🔴 Bearish,B,-21.9,68.9,15.0,Extended / No Base,118.35,124.62,-5.03,130.85,115.27
+APA,APA Corporation,95,—,🟡 Turning Up,C,0.8,250.9,30.9,Extended / No Base,46.88,52.96,-11.48,55.61,48.99
+CBOE,Cboe Global Markets,94,—,🟢 Bullish,A,-10.8,43.2,19.0,Extended / No Base,370.07,379.76,-2.55,398.75,351.28
+TGT,Target Corporation,94,—,🟢 Bullish,C,53.3,100.5,5.3,Flat Base,159.53,166.43,-4.15,174.75,153.95
+WST,West Pharmaceutical Services,93,🔵 YES,🔴 Bearish,B,-24.7,57.3,8.7,Cup / Handle Base (Vol Dry-Up),414.12,437.99,-5.45,459.89,405.14
+CPAY,Corpay,93,—,🟢 Bullish,C,-49.9,44.8,17.9,Extended / No Base,452.31,479.53,-5.68,503.51,443.57
+SWKS,Skyworks Solutions,93,—,🟢 Bullish,C,-58.6,-84.0,-5.0,Extended / No Base,85.93,93.24,-7.84,97.9,86.25
+MAR,Marriott International,92,🔵 YES,🔴 Bearish,A,-1.9,13.9,8.0,Cup / Handle Base,422.74,433.3,-2.44,454.96,400.8
+HST,Host Hotels & Resorts,92,🔵 YES,🔴 Bearish,B,-39.7,-56.5,1.2,Cup / Handle Base,25.62,26.19,-2.18,27.5,24.23
+GWW,W. W. Grainger,92,—,🟢 Bullish,B,-3.9,102.9,11.3,Cup / Handle Base,1466.96,1518.78,-3.41,1594.72,1404.87
+MCK,McKesson,92,🔵 YES,🟢 Bullish,C,-6.6,17.0,7.6,Extended / No Base,1091.67,1121.5,-2.66,1177.58,1037.39
+BDX,Becton Dickinson,92,🔵 YES,🟢 Bullish,C,24.3,-31.5,5.4,Extended / No Base,215.42,220.36,-2.24,231.38,203.83
+BIIB,Biogen,91,🔵 YES,🔴 Bearish,C,-18.7,-104.4,10.6,Cup / Handle Base (Vol Dry-Up),250.79,261.0,-3.91,274.05,241.43
+EBAY,eBay Inc.,91,—,🔴 Bearish,C,20.9,-17.9,13.7,Cup / Handle Base (Vol Dry-Up),118.59,127.74,-7.16,134.13,118.16
+ULTA,Ulta Beauty,91,—,🔴 Bearish,C,-25.0,13.3,8.9,Extended / No Base,640.43,674.04,-4.99,707.74,623.49
+TRGP,Targa Resources,91,—,🟢 Bullish Cross,D,-0.4,38.2,34.9,Cup / Handle Base,291.35,316.6,-7.98,332.43,292.86
+CAH,Cardinal Health,90,—,🟢 Bullish,B,4.3,26.6,5.5,Cup / Handle Base (Vol Dry-Up),279.25,286.29,-2.46,300.6,264.82
+BBY,Best Buy,90,—,🔴 Bearish,C,11.7,70.1,3.6,Extended / No Base,98.4,106.83,-7.89,112.17,98.82
+BEN,Franklin Resources,90,—,🟢 Bullish,E,4.0,380.0,18.0,Cup / Handle Base,34.41,36.79,-6.47,38.63,34.03
+DLTR,Dollar Tree,89,—,🔴 Bearish,C,-23.3,196.7,7.0,Cup / Handle Base,139.71,148.54,-5.94,155.97,137.4
+GILD,Gilead Sciences,89,🔵 YES,🟡 Turning Up,C,2.4,-20.2,6.8,Cup / Handle Base (Vol Dry-Up),170.26,176.58,-3.58,185.41,163.34
+DG,Dollar General,88,—,🔴 Bearish,C,-13.2,33.3,5.2,Cup / Handle Base (Vol Dry-Up),133.53,144.61,-7.66,151.84,133.76
+COP,ConocoPhillips,88,—,🟡 Turning Up,C,14.3,142.0,29.3,Extended / No Base,139.48,153.27,-9.0,160.94,141.78
+MAS,Masco,88,—,🔴 Bearish,C,-22.3,30.0,2.6,Cup / Handle Base (Vol Dry-Up),83.22,87.52,-4.91,91.9,80.96
+AIZ,Assurant,87,🔵 YES,🟢 Bullish,A,-8.3,6.2,9.2,Cup / Handle Base,322.16,326.99,-1.48,343.34,302.47
+MSI,Motorola Solutions,87,🔵 YES,🟢 Bullish,B,-7.6,-8.1,12.2,Cup / Handle Base,526.15,548.29,-4.04,575.7,507.17
+MO,Altria,87,—,🔴 Bearish,B,-32.2,7.1,3.6,Cup / Handle Base (Vol Dry-Up),77.46,79.97,-3.14,83.97,73.97
+MTD,Mettler Toledo,86,🔵 YES,🔴 Bearish,A,-36.2,16.3,6.3,Extended / No Base,1712.95,1806.58,-5.18,1896.91,1671.09
+CHD,Church & Dwight,86,—,🟢 Bullish,B,11.6,18.7,1.0,Cup / Handle Base,112.48,115.46,-2.58,121.23,106.8
+LH,Labcorp,86,🔵 YES,🔴 Bearish,C,-7.6,3.2,6.9,Cup / Handle Base (Vol Dry-Up),368.24,375.1,-1.83,393.86,346.97
+REGN,Regeneron Pharmaceuticals,86,🔵 YES,🟢 Bullish,C,10.3,35.5,36.3,Extended / No Base,957.76,991.73,-3.43,1041.32,917.35
+EG,Everest Group,85,—,🟢 Bullish,B,-4.0,0.5,-14.9,Cup / Handle Base (Vol Dry-Up),424.47,437.77,-3.04,459.66,404.94
+LLY,Lilly (Eli),85,🔵 YES,🔴 Bearish,B,2.1,16.3,38.6,Cup / Handle Base,1415.55,1475.25,-4.05,1549.01,1364.61
+ABNB,Airbnb,85,—,🟢 Bullish,C,-24.2,43.0,18.9,Extended / No Base,180.94,197.87,-8.56,207.76,183.03
