@@ -309,4 +309,11 @@ with col_chart:
         row=2, col=1
     )
     fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["Vol_50_Avg"], line=dict(color="#eab308", width=1.4),
+         fig.add_trace(
+        go.Bar(x=plot_df.index, y=plot_df["Volume"], marker_color=vol_colors, opacity=0.75, name="Volume"),
+        row=2, col=1
+    )
+    fig.add_trace(
+        go.Scatter(x=plot_df.index, y=plot_df["Vol_50_Avg"], line=dict(color="#eab308", width=1.4), name="50D Vol Avg"),
+        row=2, col=1
+    )   
