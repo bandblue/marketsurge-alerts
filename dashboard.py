@@ -14,6 +14,10 @@ from google import genai
 from google.genai import types
 
 st.set_page_config(page_title="AI MarketSurge Terminal", layout="wide")
+app_pw = os.environ.get("APP_PASSWORD", "")
+if app_pw and st.sidebar.text_input("Dashboard Password", type="password") != app_pw:
+    st.info("Enter your dashboard password in the left sidebar to unlock.")
+    st.stop()
 st.title("📈 AI MarketSurge — CAN SLIM Screener & Chart Terminal")
 
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/bandblue/marketsurge-alerts/main"
