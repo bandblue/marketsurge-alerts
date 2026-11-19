@@ -1,0 +1,39 @@
+name: MarketSurge Daily Pre-Market Scan
+
+on:
+  schedule:
+    # Runs at 13:45 UTC (6:45 AM MST / 8:45 AM EDT) Mon-Fri before market open
+    - cron: '45 13 * * 1-5'
+  workflow_dispatch: # Allows manual refresh anytime from your phone or PC
+
+permissions:
+  contents: write
+
+jobs:
+  update-watchlist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance requests lxml beautifulsoup4
+
+      - name: Run 1/2 RS & Technical Screener
+        run: python screener.py
+
+      - name: Run 2/2 Base Pattern & EPS Scanner
+        run: python base_and_eps_scanner.py
+
+      - name: Commit and push updated watchlist
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add marketsurge_rankings.csv marketsurge_actionable_setups.csv
+          git diff --staged --quiet || git commit -m "Auto-update daily watchlist"
+          git push
