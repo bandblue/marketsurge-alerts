@@ -33,7 +33,7 @@ def save_state(today_str, alerted_set):
     with open(STATE_FILE, "w") as f:
         json.dump({"date": today_str, "alerted": sorted(list(alerted_set))}, f)
 
-def send_ntfy(title, message, priority="default"):
+def send_ntfy(title, message, priority="high"):
     if not NTFY_TOPIC:
         print("NTFY_TOPIC secret not set; skipping push notification.")
         return
