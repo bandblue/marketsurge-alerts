@@ -173,7 +173,27 @@ if bullish_macd_only and "MACD_Signal" in display_setups.columns:
 
 # --- TOP SECTION: ACTIONABLE BREAKOUT WATCHLIST ---
 st.subheader("🎯 Actionable Base Setups (Stage 2 + RS ≥ 85)")
-st.dataframe(display_setups, use_container_width=True, hide_index=True)
+display_setups = display_setups.reset_index(drop=True)
+
+table_event = st.dataframe(
+    display_setups,
+    use_container_width=True,
+    hide_index=True,
+    on_select="rerun",
+    selection_mode="single-row",
+    key="setups_table"
+)
+
+# Sync row selection to the chart dropdown
+selected_rows = table_event.selection.rows
+if selected_rows:
+    clicked_ticker = display_setups.iloc[selected_rows[0]]["Ticker"]
+    if st.session_state.get("last_clicked_ticker") != clicked_ticker:
+        st.session_state["last_clicked_ticker"] = clicked_ticker
+        st.session_state["chart_ticker_select"] = clicked_ticker
+else:
+    st.session_state["last_clicked_ticker"] = None
+
 if not display_setups.empty:
     c_exp1, c_exp2 = st.columns([1, 2])
     fidelity_csv = display_setups[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
@@ -197,9 +217,13 @@ with col_chart:
     ticker_options = source_df["Ticker"].tolist()
     name_lookup = dict(zip(df_all["Ticker"], df_all["Company"])) if "Company" in df_all.columns else {}
 
+    if st.session_state.get("chart_ticker_select") not in ticker_options and ticker_options:
+        st.session_state["chart_ticker_select"] = ticker_options[0]
+
     selected_ticker = st.selectbox(
         "Select Stock to Inspect:",
         ticker_options,
+        key="chart_ticker_select",
         format_func=lambda t: f"{t} — {name_lookup.get(t, t)}"
     )
 
@@ -285,143 +309,4 @@ with col_chart:
         row=2, col=1
     )
     fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["Vol_50_Avg"], line=dict(color="#eab308", width=1.4), name="50D Vol Avg"),
-        row=2, col=1
-    )
-
-    # Row 3: On-Balance Volume (OBV) + 20-Day EMA
-    fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["OBV"], line=dict(color="#10b981", width=1.8), name="OBV"),
-        row=3, col=1
-    )
-    fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["OBV_EMA20"], line=dict(color="#94a3b8", width=1.1, dash="dot"), name="OBV 20 EMA"),
-        row=3, col=1
-    )
-
-    # Row 4: 14-Day RSI + 70/30 Thresholds
-    fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["RSI_14"], line=dict(color="#c084fc", width=1.7), name="RSI (14)"),
-        row=4, col=1
-    )
-    fig.add_hline(y=70, line_dash="dash", line_color="#ef4444", line_width=1, row=4, col=1)
-    fig.add_hline(y=30, line_dash="dash", line_color="#22c55e", line_width=1, row=4, col=1)
-
-    # Row 5: MACD (12, 26, 9)
-    hist_colors = ["#22c55e" if val >= 0 else "#ef4444" for val in plot_df["MACD_Hist"]]
-    fig.add_trace(
-        go.Bar(x=plot_df.index, y=plot_df["MACD_Hist"], marker_color=hist_colors, opacity=0.5, name="MACD Hist"),
-        row=5, col=1
-    )
-    fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["MACD"], line=dict(color="#38bdf8", width=1.6), name="MACD (12,26)"),
-        row=5, col=1
-    )
-    fig.add_trace(
-        go.Scatter(x=plot_df.index, y=plot_df["MACD_Signal"], line=dict(color="#f97316", width=1.6), name="Signal (9)"),
-        row=5, col=1
-    )
-
-    # Pivot, 5% Buy Zone & 7.5% Stop-Loss overlays
-    default_entry = float(plot_df["Close"].iloc[-1])
-    default_stop = round(default_entry * 0.925, 2)
-
-    if not setup_row.empty and pd.notna(setup_row.iloc[0]["Pivot_Buy"]):
-        pivot = float(setup_row.iloc[0]["Pivot_Buy"])
-        buy_max = float(setup_row.iloc[0]["Buy_Zone_Max"])
-        stop_loss = float(setup_row.iloc[0]["Stop_Loss_7.5Pct"])
-        default_entry = pivot
-        default_stop = stop_loss
-
-        fig.add_hrect(y0=pivot, y1=buy_max, fillcolor="green", opacity=0.15, line_width=0, annotation_text="5% Buy Zone", row=1, col=1, secondary_y=False)
-        fig.add_hline(y=pivot, line_dash="dash", line_color="green", annotation_text=f"Pivot: ${pivot}", row=1, col=1, secondary_y=False)
-        fig.add_hline(y=stop_loss, line_dash="dot", line_color="red", annotation_text=f"7.5% Stop: ${stop_loss}", row=1, col=1, secondary_y=False)
-
-    fig.update_layout(
-        height=980,
-        xaxis_rangeslider_visible=False,
-        xaxis2_rangeslider_visible=False,
-        xaxis3_rangeslider_visible=False,
-        xaxis4_rangeslider_visible=False,
-        xaxis5_rangeslider_visible=False,
-        template="plotly_dark",
-        margin=dict(l=10, r=10, t=25, b=10)
-    )
-    fig.update_yaxes(title_text="Price ($)", row=1, col=1, secondary_y=False)
-    fig.update_yaxes(title_text="RS Line", showgrid=False, row=1, col=1, secondary_y=True)
-    fig.update_yaxes(title_text="Vol", row=2, col=1)
-    fig.update_yaxes(title_text="OBV", row=3, col=1)
-    fig.update_yaxes(title_text="RSI", range=[0, 100], row=4, col=1)
-    fig.update_yaxes(title_text="MACD", row=5, col=1)
-    st.plotly_chart(fig, use_container_width=True)
-
-with col_right:
-    # --- POSITION SIZE & 7.5% STOP-LOSS RISK CALCULATOR ---
-    st.subheader("🧮 Position Size & Risk Calculator")
-    with st.container(border=True):
-        st.caption(f"Auto-loaded for **{selected_ticker}** (7.5% CAN SLIM Stop Rule)")
-        acct_size = st.number_input("Account Size ($)", min_value=1000.0, value=100000.0, step=5000.0, format="%.2f")
-        risk_pct = st.slider("Max Account Risk per Trade (%)", min_value=0.25, max_value=3.0, value=1.0, step=0.25)
-
-        c1, c2 = st.columns(2)
-        entry_price = c1.number_input("Entry / Pivot ($)", min_value=0.01, value=float(round(default_entry, 2)), step=0.50, format="%.2f")
-        stop_price = c2.number_input("Stop-Loss ($)", min_value=0.01, value=float(round(default_stop, 2)), step=0.50, format="%.2f")
-
-        risk_per_share = entry_price - stop_price
-        if risk_per_share <= 0:
-            st.error("Stop-Loss must be lower than Entry Price.")
-        else:
-            max_dollar_risk = acct_size * (risk_pct / 100.0)
-            shares_to_buy = int(max_dollar_risk // risk_per_share)
-            position_cost = shares_to_buy * entry_price
-            portfolio_wt = (position_cost / acct_size) * 100
-            stop_pct_actual = (risk_per_share / entry_price) * 100
-            target_20_price = entry_price * 1.20
-            est_20_gain = shares_to_buy * (target_20_price - entry_price)
-
-            m1, m2 = st.columns(2)
-            m1.metric("Shares to Buy", f"{shares_to_buy:,}")
-            m2.metric("Position Cost", f"${position_cost:,.2f}", f"{portfolio_wt:.1f}% of Acct")
-
-            m3, m4 = st.columns(2)
-            m3.metric("Max Dollar Risk", f"-${shares_to_buy * risk_per_share:,.2f}", f"-{stop_pct_actual:.1f}% Stop")
-            m4.metric("+20% Target Gain", f"+${est_20_gain:,.2f}", f"${target_20_price:,.2f}")
-
-    st.divider()
-
-    # --- GEMINI CAN SLIM ASSISTANT ---
-    st.subheader("🤖 Gemini CAN SLIM Assistant")
-    latest_rsi = round(float(plot_df["RSI_14"].iloc[-1]), 1)
-    obv_rising = float(plot_df["OBV"].iloc[-1]) > float(plot_df["OBV_EMA20"].iloc[-1])
-    obv_trend_str = "Rising above 20D EMA" if obv_rising else "Below 20D EMA"
-
-    user_q = st.text_area(
-        "Ask about your watchlist or selected stock:",
-        value=f"Analyze {selected_ticker}'s setup, Blue Dot RS status, OBV ({obv_trend_str}), RSI ({latest_rsi}), MACD momentum, EPS growth, and exact buy/stop levels."
-    )
-    if st.button("Ask AI Analyst", type="primary"):
-        gemini_key = os.environ.get("GEMINI_API_KEY")
-        if not gemini_key:
-            st.error("GEMINI_API_KEY not found in environment variables.")
-        else:
-            with st.spinner("Analyzing watchlist & chart data..."):
-                client = genai.Client(api_key=gemini_key, http_options=types.HttpOptions(timeout=15000))
-                context_csv = df_setups.to_csv(index=False)
-                prompt = (
-                    f"You are an IBD MarketSurge portfolio analyst. Here is today's screened CAN SLIM setup table:\n"
-                    f"{context_csv}\n\nSelected ticker live technicals: {selected_ticker} | RSI(14): {latest_rsi} | OBV: {obv_trend_str}.\n"
-                    f"User question: {user_q}\n"
-                    f"Give a concise, actionable CAN SLIM assessment citing exact RS, Blue Dot status, OBV & RSI readings, "
-                    f"MACD momentum, EPS/Sales YoY %, Acc/Dist grade, pivot price, 5% buy zone, and 7.5% stop-loss."
-                )
-                for m in ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]:
-                    try:
-                        resp = client.models.generate_content(model=m, contents=prompt)
-                        st.markdown(resp.text)
-                        break
-                    except Exception:
-                        continue
-
-# --- BOTTOM SECTION: FULL RANKED UNIVERSE ---
-with st.expander("📋 View Full Ranked Watchlist"):
-    st.dataframe(filtered_df, use_container_width=True, hide_index=True)
+        go.Scatter(x=plot_df.index, y=plot_df["Vol_50_Avg"], line=dict(color="#eab308", width=1.4),
