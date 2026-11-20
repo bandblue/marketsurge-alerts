@@ -2,8 +2,8 @@ name: MarketSurge Daily Pre-Market Scan
 
 on:
   schedule:
-    # Runs at 13:45 UTC (6:45 AM MST / 8:45 AM EDT) Mon-Fri before market open
-    - cron: '45 13 * * 1-5'
+    # Runs at 13:37 UTC (6:37 AM MST / 8:37 AM EST) Mon-Fri before market open
+    - cron: '37 13 * * 1-5'
   workflow_dispatch: # Allows manual refresh anytime from your phone or PC
 
 permissions:
