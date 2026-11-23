@@ -2,9 +2,9 @@ name: MarketSurge Daily Pre-Market Scan
 
 on:
   schedule:
-    # Runs at 13:37 UTC (6:37 AM MST / 8:37 AM EST) Mon-Fri before market open
+    # Backup schedule at 13:37 UTC (6:37 AM MST) Mon-Fri
     - cron: '37 13 * * 1-5'
-  workflow_dispatch: # Allows manual refresh anytime from your phone or PC
+  workflow_dispatch: # Triggered reliably at 6:37 AM MST via cron-job.org
 
 permissions:
   contents: write
@@ -22,13 +22,18 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pandas numpy yfinance requests lxml beautifulsoup4
+        run: pip install pandas numpy yfinance requests lxml beautifulsoup4 google-api-python-client google-auth
 
       - name: Run 1/2 RS & Technical Screener
         run: python screener.py
 
       - name: Run 2/2 Base Pattern & EPS Scanner
         run: python base_and_eps_scanner.py
+
+      - name: Sync CSVs to Google Drive
+        env:
+          GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+        run: python sync_to_gdrive.py
 
       - name: Commit and push updated watchlist
         run: |
