@@ -1,515 +1,515 @@
 Ticker,Company,RS_Rating,Blue_Dot,MACD_Signal,Acc_Dist,Price,52W_High_Pivot,Pct_Off_52W_High,Stage2_Trend,Up_Down_Vol,Vol_vs_50D_Pct,Raw_RS
-OKTA,"Okta, Inc.",99,False,🟢 Bullish Cross,A,191.46,235.0,-18.53,False,1.67,-21.0,30.83
-MRNA,Moderna,99,False,🔴 Bearish,C,195.0,280.8,-30.56,False,1.11,-37.4,77.11
-SNDK,Sandisk,99,False,🟡 Turning Up,E,94.39,294.3,-67.93,False,0.61,43.8,43.53
-VTRS,Viatris,98,True,🔴 Bearish,B,19.63,21.2,-7.41,True,1.15,-2.8,18.65
-AMD,Advanced Micro Devices,98,False,🔴 Bearish,C,424.39,658.52,-35.55,False,1.13,134.4,21.46
-DELL,Dell Technologies,98,False,🔴 Bearish,C,278.02,594.69,-53.25,False,0.99,63.7,24.32
-CRWD,CrowdStrike,98,False,🟢 Bullish Cross,C,229.44,286.99,-20.05,False,0.97,29.5,23.76
-MU,Micron Technology,98,False,🔴 Bearish,D,594.51,1254.61,-52.61,False,0.77,102.2,26.56
-MPC,Marathon Petroleum,97,False,🔴 Bearish,B,367.19,492.61,-25.46,False,1.29,26.9,16.34
-TGT,Target Corporation,97,True,🟢 Bullish,C,165.83,171.91,-3.54,True,0.98,68.2,16.66
-APA,APA Corporation,97,False,🔴 Bearish,C,45.03,52.96,-14.97,False,0.96,-15.7,16.04
-PANW,Palo Alto Networks,97,False,🟢 Bullish Cross,D,343.32,432.33,-20.59,False,0.84,86.7,18.53
-CRL,Charles River Laboratories,97,False,🔴 Bearish,D,314.32,379.63,-17.2,False,0.78,4.6,18.59
-INTC,Intel,97,False,🟢 Bullish Cross,E,51.28,142.35,-63.98,False,0.7,65.8,16.95
-HPE,Hewlett Packard Enterprise,96,False,🔴 Bearish,C,40.91,73.56,-44.39,False,1.06,16.8,16.01
-HUM,Humana,96,False,🔴 Bearish,C,390.0,462.87,-15.74,False,1.03,44.5,16.03
-STX,Seagate Technology,96,False,🟢 Bullish,D,457.01,1143.27,-60.03,False,0.87,12.5,15.84
-MRVL,Marvell Technology,96,False,🔴 Bearish,D,122.28,329.73,-62.91,False,0.79,62.0,15.33
-WDC,Western Digital,96,False,🔴 Bearish,E,261.11,799.61,-67.35,False,0.7,25.4,15.05
-TXN,Texas Instruments,95,False,🔴 Bearish,C,263.75,330.71,-20.25,False,1.12,125.7,14.1
-VLO,Valero Energy,95,False,🔴 Bearish,C,334.18,461.52,-27.59,False,1.06,-8.7,14.92
-SWK,Stanley Black & Decker,95,False,🔴 Bearish,D,106.62,122.68,-13.09,True,0.89,31.8,13.67
-LITE,Lumentum,95,False,🔴 Bearish,D,460.54,1143.0,-59.71,False,0.84,4.8,12.7
-PSX,Phillips 66,95,False,🔴 Bearish,E,239.33,297.86,-19.65,False,0.67,99.3,14.07
-CBOE,Cboe Global Markets,94,True,🔴 Bearish,A,357.71,379.76,-5.81,True,1.38,-10.9,11.2
-HAS,Hasbro,94,True,🔴 Bearish,B,112.41,123.88,-9.26,True,1.29,0.9,12.05
-RVTY,Revvity,94,False,🔴 Bearish,C,145.22,171.74,-15.44,False,1.03,-16.3,11.63
-BDX,Becton Dickinson,94,True,🔴 Bearish,C,212.78,220.36,-3.44,True,0.92,4.4,11.72
-BE,Bloom Energy,94,False,🔴 Bearish,E,142.39,351.28,-59.47,False,0.74,66.9,11.75
-WST,West Pharmaceutical Services,93,True,🔴 Bearish,C,390.3,437.99,-10.89,True,1.12,-6.0,10.6
-ON,ON Semiconductor,93,False,🔴 Bearish,C,60.84,134.92,-54.91,False,1.08,33.9,10.81
-BBY,Best Buy,93,True,🔴 Bearish,C,97.95,106.83,-8.31,True,0.92,-0.8,11.03
-COP,ConocoPhillips,93,False,🟡 Turning Up,C,136.12,153.27,-11.19,False,0.92,22.0,11.04
-CNC,Centene Corporation,93,False,🔴 Bearish,D,63.78,78.08,-18.31,False,0.85,31.6,11.18
-TRGP,Targa Resources,93,False,🔴 Bearish,D,278.3,316.6,-12.1,False,0.84,-1.5,11.15
-DG,Dollar General,92,False,🔴 Bearish,C,130.53,155.91,-16.28,False,1.04,7.4,10.52
-DLTR,Dollar Tree,92,False,🔴 Bearish,C,137.96,148.54,-7.12,True,1.03,-0.1,10.24
-EBAY,eBay Inc.,92,True,🔴 Bearish,C,115.59,127.74,-9.51,True,0.95,29.2,10.48
-ALAB,Astera Labs,92,False,🔴 Bearish,D,180.35,499.48,-63.89,False,0.87,68.4,10.28
-RKLB,Rocket Lab,92,False,🔴 Bearish,D,45.42,151.0,-69.92,False,0.82,4.6,10.4
-LUV,Southwest Airlines,91,False,🔴 Bearish,A,44.08,54.38,-18.94,False,1.53,-12.3,10.13
-BIIB,Biogen,91,True,🔴 Bearish,C,249.59,261.0,-4.37,True,1.14,-6.3,9.95
-HST,Host Hotels & Resorts,91,True,🔴 Bearish,C,24.1,26.19,-7.98,True,1.11,2.6,9.85
-NUE,Nucor,91,False,🔴 Bearish,C,239.62,287.7,-16.71,False,0.91,147.0,9.87
-FTNT,Fortinet,91,False,🟢 Bullish Cross,E,124.56,197.13,-36.81,False,0.72,30.5,9.84
-MAR,Marriott International,90,True,🔴 Bearish,A,406.64,432.56,-5.99,True,1.35,27.8,9.76
-AIZ,Assurant,90,True,🔴 Bearish,B,316.65,326.99,-3.16,True,1.31,-12.8,9.76
-WMT,Walmart,90,False,🟡 Turning Up,B,127.95,134.84,-5.11,False,1.23,88.0,9.58
-MO,Altria,90,True,🔴 Bearish,C,74.87,79.97,-6.38,True,1.1,26.1,9.64
-MSI,Motorola Solutions,90,True,🔴 Bearish,C,520.21,548.29,-5.12,True,1.03,37.2,9.83
-PTC,PTC Inc.,89,True,🟡 Turning Up,A,195.1,196.79,-0.86,True,1.61,-14.3,9.42
-EG,Everest Group,89,True,🔴 Bearish,B,421.98,437.77,-3.61,True,1.21,44.3,9.44
-LH,Labcorp,89,True,🔴 Bearish,C,367.13,375.1,-2.12,True,1.0,17.2,9.53
-CPAY,Corpay,89,True,🔴 Bearish,C,429.84,479.53,-10.36,True,0.96,46.8,9.53
-ARM,Arm Holdings,89,False,🔴 Bearish,C,152.2,452.7,-66.38,False,0.92,81.1,9.4
-MAS,Masco,89,True,🔴 Bearish,D,82.6,87.52,-5.63,True,0.89,-21.7,9.52
-CAH,Cardinal Health,88,True,🔴 Bearish,B,272.81,286.29,-4.71,True,1.16,8.8,9.0
-MCK,McKesson,88,True,🔴 Bearish,C,1069.43,1121.5,-4.64,True,1.09,13.9,9.13
-GWW,W. W. Grainger,88,False,🔴 Bearish,C,1357.35,1518.78,-10.63,True,1.09,65.3,9.16
-CVX,Chevron Corporation,88,False,🟡 Turning Up,C,208.37,234.53,-11.16,False,0.95,34.4,8.99
-GILD,Gilead Sciences,88,True,🔴 Bearish,C,166.43,176.58,-5.75,True,0.9,22.0,9.34
-CHD,Church & Dwight,87,True,🔴 Bearish,B,110.84,115.46,-4.0,True,1.18,5.8,8.57
-GNRC,Generac,87,False,🟢 Bullish Cross,B,193.22,296.44,-34.82,False,1.18,30.7,8.86
-ADI,Analog Devices,87,False,🔴 Bearish,B,345.92,444.56,-22.19,False,1.16,149.0,8.5
-NXPI,NXP Semiconductors,87,False,🔴 Bearish,D,235.15,337.28,-30.28,False,0.86,119.4,8.71
-DGX,Quest Diagnostics,87,True,🔴 Bearish,D,258.28,263.19,-1.87,True,0.82,27.6,8.45
-TRV,Travelers Companies (The),86,True,🔴 Bearish,C,393.24,418.0,-5.92,True,1.08,-7.1,8.17
-EOG,EOG Resources,86,False,🔴 Bearish,C,148.6,165.93,-10.44,False,1.05,48.1,8.1
-KEYS,Keysight Technologies,86,False,🔴 Bearish,C,261.51,389.93,-32.93,False,0.92,133.2,8.21
-ULTA,Ulta Beauty,86,False,🔴 Bearish,D,615.74,714.97,-13.88,True,0.84,18.3,8.38
-ILMN,"Illumina, Inc.",86,False,🟡 Turning Up,E,192.82,309.35,-37.67,False,0.72,-37.0,8.41
-KDP,Keurig Dr Pepper,85,True,🟡 Turning Up,B,34.84,38.29,-9.01,True,1.34,-5.1,7.87
-KO,Coca-Cola Company (The),85,True,🔴 Bearish,B,96.99,100.56,-3.55,True,1.15,47.9,7.98
-SWKS,Skyworks Solutions,85,False,🔴 Bearish,C,73.91,93.24,-20.73,False,1.06,-48.5,8.07
-Q,Qnity Electronics,85,False,🔴 Bearish,D,103.47,177.16,-41.6,False,0.82,45.8,8.09
-BEN,Franklin Resources,85,False,🔴 Bearish,E,32.04,36.79,-12.91,False,0.67,16.1,7.96
-VLTO,Veralto,84,True,🔴 Bearish,A,116.63,120.35,-3.09,True,1.62,81.4,7.8
-COST,Costco,84,True,🟢 Bullish,A,1102.15,1123.67,-1.92,True,1.51,71.2,7.85
-MTD,Mettler Toledo,84,True,🔴 Bearish,A,1666.88,1806.58,-7.73,True,1.35,-29.1,7.75
-SJM,J.M. Smucker Company (The),84,True,🔴 Bearish,B,133.68,136.3,-1.92,True,1.3,8.5,7.85
-XOM,ExxonMobil,84,False,🟡 Turning Up,B,159.99,187.32,-14.59,False,1.24,36.8,7.8
-CF,CF Industries,84,False,🔴 Bearish,D,115.53,140.98,-18.05,False,0.88,-16.0,7.74
-PG,Procter & Gamble,83,True,🔴 Bearish,A,169.37,173.59,-2.43,True,1.37,27.2,7.48
-CCEP,Coca-Cola Europacific Partners,83,True,🔴 Bearish,B,115.53,118.76,-2.72,True,1.26,64.4,7.7
-LMT,Lockheed Martin,83,False,🔴 Bearish,C,565.5,683.27,-17.24,False,0.97,8.4,7.73
-ABNB,Airbnb,83,False,🔴 Bearish,C,170.36,197.87,-13.9,True,0.91,13.4,7.57
-DD,DuPont,83,False,🔴 Bearish,C,145.43,159.48,-8.81,False,0.9,39.1,7.5
-ABBV,AbbVie,82,True,🔴 Bearish,A,286.2,302.93,-5.52,True,1.47,73.2,7.34
-REGN,Regeneron Pharmaceuticals,82,True,🔴 Bearish,C,920.69,990.72,-7.07,True,1.0,2.1,7.29
-CIEN,Ciena,82,False,🔴 Bearish,C,234.37,637.51,-63.24,False,0.96,27.1,7.41
-BAX,Baxter International,82,False,🔴 Bearish,D,25.39,29.99,-15.33,False,0.76,-36.9,7.3
-CL,Colgate-Palmolive,82,True,🔴 Bearish,D,98.71,101.81,-3.04,True,0.75,22.3,7.29
-NTAP,NetApp,81,False,🔴 Bearish,C,157.65,240.87,-34.55,False,1.1,0.2,7.17
-DRI,Darden Restaurants,81,True,🔴 Bearish,C,225.74,240.28,-6.05,True,0.97,4.1,7.18
-VEEV,Veeva Systems,81,False,🔴 Bearish,C,266.22,325.99,-18.33,False,0.93,3.3,7.23
-FDX,FedEx,81,False,🔴 Bearish,D,303.99,342.73,-11.3,False,0.89,-11.6,7.25
-DOW,Dow Inc.,81,False,🔴 Bearish,D,29.03,41.82,-30.59,False,0.77,19.8,7.19
-CSX,CSX Corporation,81,False,🔴 Bearish,D,49.1,53.45,-8.14,False,0.75,22.6,7.22
-VRSN,Verisign,80,True,🔴 Bearish,A,306.87,323.78,-5.22,True,1.68,63.3,7.1
-HLT,Hilton Worldwide,80,True,🔴 Bearish,B,356.25,381.34,-6.58,True,1.25,55.1,7.15
-ED,Consolidated Edison,80,False,🔴 Bearish,C,119.36,122.0,-2.16,True,1.13,57.9,7.15
-ADP,Automatic Data Processing,80,True,🔴 Bearish,C,301.71,316.14,-4.56,True,1.02,23.6,7.01
-CDW,CDW Corporation,80,True,🔴 Bearish,D,161.78,175.19,-7.65,True,0.89,-12.7,7.1
-EXPD,Expeditors International,79,True,🟡 Turning Up,A,192.56,207.93,-7.39,False,1.48,45.8,6.89
-BALL,Ball Corporation,79,False,🔴 Bearish,C,63.49,69.58,-8.75,True,1.11,18.5,6.91
-LLY,Lilly (Eli),79,True,🔴 Bearish,C,1347.11,1475.25,-8.69,True,0.99,33.0,6.92
-KIM,Kimco Realty,79,True,🔴 Bearish,C,25.37,26.37,-3.79,True,0.9,52.5,6.88
-GRMN,Garmin,79,False,🔴 Bearish,E,268.04,313.07,-14.38,False,0.53,0.3,6.9
-TSN,Tyson Foods,78,False,🟢 Bullish,C,65.12,68.26,-4.6,False,1.14,90.1,6.78
-CB,Chubb Limited,78,True,🔴 Bearish,C,371.63,384.26,-3.29,True,0.98,40.4,6.76
-AAPL,Apple Inc.,78,True,🔴 Bearish,C,342.56,360.83,-5.06,True,0.95,86.5,6.79
-AMGN,Amgen,78,True,🔴 Bearish,C,435.64,481.21,-9.47,True,0.92,71.6,6.86
-ALLE,Allegion,78,True,🔴 Bearish,D,183.61,195.42,-6.04,True,0.88,-11.9,6.64
-EW,Edwards Lifesciences,77,True,🔴 Bearish,A,101.85,108.0,-5.69,True,1.5,-14.5,6.3
-CTAS,Cintas,77,True,🔴 Bearish,B,220.01,232.93,-5.55,True,1.15,74.5,6.21
-EXR,Extra Space Storage,77,True,🔴 Bearish,C,154.91,163.18,-5.07,True,1.04,40.3,6.32
-ALL,Allstate,77,True,🔴 Bearish,D,267.0,281.11,-5.02,True,0.83,-1.2,6.21
-JNJ,Johnson & Johnson,77,True,🔴 Bearish,D,270.47,290.25,-6.81,True,0.8,56.7,6.44
-FLEX,Flex Ltd.,77,False,🟢 Bullish,E,66.24,166.86,-60.3,False,0.6,33.3,6.43
-TWLO,Twilio,76,False,🔴 Bearish,B,172.1,308.4,-44.2,False,1.31,-18.2,5.98
-ECHO,EchoStar,76,False,🔴 Bearish,B,84.26,147.25,-42.78,False,1.17,34.1,6.18
-FDS,FactSet,76,False,🔴 Bearish,C,311.93,348.0,-10.36,True,1.13,-30.4,6.0
-FAST,Fastenal,76,False,🔴 Bearish,C,50.61,56.27,-10.06,False,1.05,61.5,5.96
-LYV,Live Nation Entertainment,76,True,🔴 Bearish,D,174.96,189.25,-7.55,True,0.85,111.3,6.14
-MET,MetLife,75,True,🔴 Bearish,B,95.67,106.72,-10.35,False,1.26,31.2,5.78
-SPG,Simon Property Group,75,True,🔴 Bearish,B,224.35,237.27,-5.45,True,1.15,2.1,5.91
-FTV,Fortive,75,True,🔴 Bearish,C,64.16,68.94,-6.93,True,1.03,-11.9,5.89
-PPG,PPG Industries,75,False,🔴 Bearish,C,117.12,130.22,-10.06,True,1.02,-20.8,5.9
-A,Agilent Technologies,75,True,🔴 Bearish,C,170.38,182.99,-6.89,False,0.99,-16.8,5.82
-KR,Kroger,74,False,🔴 Bearish,B,68.44,75.24,-9.04,True,1.29,21.0,5.74
-TMO,Thermo Fisher Scientific,74,True,🔴 Bearish,B,669.54,727.56,-7.97,False,1.2,3.0,5.74
-CME,CME Group,74,False,🔴 Bearish,C,307.56,321.39,-4.3,True,1.13,34.8,5.69
-LIN,Linde plc,74,False,🔴 Bearish,C,502.83,546.4,-7.97,False,1.0,65.4,5.72
-DE,Deere & Company,74,False,🔴 Bearish,D,609.25,719.5,-15.32,False,0.87,79.9,5.65
-DVA,DaVita,73,False,🟡 Turning Up,C,161.03,247.49,-34.93,False,1.13,-5.3,5.59
-DAL,Delta Air Lines,73,False,🔴 Bearish,C,80.01,95.18,-15.94,False,1.05,-0.4,5.38
-V,Visa Inc.,73,True,🔴 Bearish,C,401.87,441.41,-8.96,True,1.05,24.4,5.49
-RSG,Republic Services,73,True,🔴 Bearish,C,246.59,256.79,-3.97,True,0.93,5.5,5.58
-MPWR,Monolithic Power Systems,73,False,🔴 Bearish,C,1142.05,1708.95,-33.17,False,0.92,92.2,5.48
-WAB,Wabtec,72,False,🔴 Bearish,C,269.31,307.63,-12.46,False,1.03,51.0,5.33
-TECH,Bio-Techne,72,True,🔴 Bearish,C,72.67,72.86,-0.26,True,0.91,17.6,5.28
-MDLZ,Mondelez International,72,True,🔴 Bearish,D,66.28,68.92,-3.83,True,0.82,46.5,5.37
-PSA,Public Storage,72,True,🔴 Bearish,D,325.42,345.89,-5.92,True,0.8,-19.9,5.22
-AWK,American Water Works,72,True,🔴 Bearish,D,149.53,152.77,-2.12,True,0.79,4.2,5.23
-GPN,Global Payments,72,False,🟡 Turning Up,D,91.83,102.91,-10.77,True,0.79,209.6,5.32
-MRSH,Marsh McLennan,71,True,🔴 Bearish,B,206.22,214.0,-3.64,True,1.32,13.1,5.14
-ACGL,Arch Capital Group,71,True,🔴 Bearish,C,108.82,113.63,-4.23,True,1.14,-27.4,5.18
-NDSN,Nordson Corporation,71,True,🔴 Bearish,C,307.22,338.18,-9.15,False,1.06,3.3,5.17
-PWR,Quanta Services,71,False,🟢 Bullish,D,559.03,788.49,-29.1,False,0.89,68.6,5.12
-BRK-B,Berkshire Hathaway,70,True,🔴 Bearish,A,570.0,596.92,-4.51,True,1.64,35.6,5.1
-OXY,Occidental Petroleum,70,False,🟡 Turning Up,B,53.9,66.83,-19.35,False,1.22,-4.3,4.96
-IEX,IDEX Corporation,70,True,🔴 Bearish,C,219.64,243.03,-9.62,False,1.13,5.6,5.11
-UPS,United Parcel Service,70,False,🔴 Bearish,C,106.22,115.16,-7.76,False,1.08,25.8,4.94
-HPQ,HP Inc.,70,False,🟡 Turning Up,D,27.96,36.23,-22.83,False,0.83,0.9,5.11
-MRK,Merck & Co.,70,False,🔴 Bearish,E,133.72,156.0,-14.28,False,0.66,57.0,5.08
-ANET,Arista Networks,69,False,🟢 Bullish,C,167.62,217.41,-22.9,False,0.95,97.9,4.9
-CINF,Cincinnati Financial,69,True,🔴 Bearish,C,186.54,195.72,-4.69,True,0.94,30.7,4.7
-ROP,Roper Technologies,69,False,🔴 Bearish,D,459.83,507.24,-9.35,True,0.86,33.3,4.9
-SBUX,Starbucks,69,True,🔴 Bearish,D,103.13,110.85,-6.96,False,0.82,26.3,4.66
-SLB,Schlumberger,69,False,🔴 Bearish,E,45.89,60.15,-23.7,False,0.69,26.5,4.91
-WM,Waste Management,68,False,🔴 Bearish,B,239.63,247.4,-3.14,False,1.15,8.0,4.65
-UNP,Union Pacific Corporation,68,True,🔴 Bearish,C,287.29,314.53,-8.66,False,0.98,57.5,4.58
-COHR,Coherent Corp.,68,False,🟢 Bullish,C,187.22,440.0,-57.45,False,0.91,67.1,4.6
-RCL,Royal Caribbean Group,68,False,🔴 Bearish,D,296.48,350.59,-15.43,False,0.82,8.0,4.62
-LYB,LyondellBasell,68,False,🔴 Bearish,E,55.84,82.22,-32.09,False,0.73,55.9,4.62
-DIS,Walt Disney Company (The),67,True,🔴 Bearish,C,117.98,123.37,-4.37,True,1.03,35.1,4.55
-MA,Mastercard,67,True,🔴 Bearish,C,625.59,681.99,-8.27,True,1.02,17.9,4.55
-PM,Philip Morris International,67,False,🔴 Bearish,C,184.09,214.35,-14.12,False,1.0,92.3,4.41
-NDAQ,"Nasdaq, Inc.",67,True,🔴 Bearish,C,102.92,111.45,-7.65,True,0.92,36.5,4.52
-AJG,Arthur J. Gallagher & Co.,67,True,🔴 Bearish,D,279.26,294.53,-5.18,True,0.83,9.0,4.52
-TER,Teradyne,67,False,🔴 Bearish,E,204.78,487.72,-58.01,False,0.74,67.0,4.53
-EVRG,Evergy,66,False,🔴 Bearish,A,85.93,88.95,-3.4,True,1.64,6.2,4.25
-TDY,Teledyne Technologies,66,False,🔴 Bearish,B,598.56,697.67,-14.21,False,1.18,-21.6,4.29
-PNW,Pinnacle West Capital,66,False,🔴 Bearish,C,101.28,109.2,-7.25,True,1.01,5.0,4.34
-AFL,Aflac,66,True,🔴 Bearish,C,124.32,130.56,-4.78,True,0.93,17.7,4.37
-STLD,Steel Dynamics,66,False,🔴 Bearish,D,205.96,287.4,-28.34,False,0.89,50.4,4.31
-EQIX,Equinix,65,False,🔴 Bearish,C,968.22,1113.08,-13.01,False,1.06,119.1,4.18
-DDOG,Datadog,65,False,🟡 Turning Up,D,157.37,300.68,-47.66,False,0.87,30.8,4.18
-PFG,Principal Financial Group,65,False,🔴 Bearish,D,104.58,121.18,-13.7,False,0.81,21.1,4.18
-ELV,Elevance Health,65,False,🔴 Bearish,D,394.48,450.69,-12.47,False,0.77,47.7,4.19
-STT,State Street Corporation,65,False,🔴 Bearish,E,155.38,194.9,-20.28,False,0.7,7.6,4.18
-MSCI,MSCI,64,False,🔴 Bearish,B,610.48,678.9,-10.08,True,1.2,30.7,3.99
-WEC,WEC Energy Group,64,False,🔴 Bearish,C,117.07,119.18,-1.77,False,1.06,-11.0,4.02
-WAT,Waters Corporation,64,True,🔴 Bearish,C,440.45,483.33,-8.87,False,1.01,49.6,4.08
-IQV,IQVIA,64,False,🔴 Bearish,C,245.82,284.5,-13.6,False,0.91,-16.1,4.03
-ODFL,Old Dominion,64,False,🟢 Bullish,C,168.09,251.64,-33.2,False,0.9,45.5,4.13
-WRB,W. R. Berkley Corporation,63,True,🟢 Bullish,C,78.31,79.7,-1.74,True,1.09,-13.4,3.93
-WELL,Welltower,63,True,🔴 Bearish,C,240.34,253.37,-5.14,True,1.01,14.1,3.88
-JBHT,J.B. Hunt,63,False,🟢 Bullish,C,218.54,298.64,-26.82,False,0.95,-3.4,3.9
-HAL,Halliburton,63,False,🔴 Bearish,D,30.53,43.2,-29.34,False,0.82,23.0,3.95
-BMY,Bristol Myers Squibb,63,False,🔴 Bearish,D,58.8,67.94,-13.45,False,0.8,2.9,3.8
-BNY,BNY Mellon,63,False,🔴 Bearish,D,141.24,165.12,-14.46,False,0.79,49.5,3.95
-AES,AES Corporation,62,False,🟢 Bullish,A,15.02,17.03,-11.79,True,1.56,183.1,3.57
-OKE,Oneok,62,False,🔴 Bearish,C,84.37,98.75,-14.56,False,1.06,6.2,3.75
-J,Jacobs Solutions,62,True,🔴 Bearish,C,150.62,162.0,-7.02,True,1.0,16.6,3.67
-STZ,Constellation Brands,62,False,🔴 Bearish,C,141.87,164.86,-13.95,False,0.94,-16.6,3.76
-VZ,Verizon,62,False,🟢 Bullish,D,46.48,50.88,-8.65,False,0.87,15.4,3.63
-ICE,Intercontinental Exchange,62,False,🔴 Bearish,D,170.0,181.38,-6.27,True,0.84,48.2,3.57
-DUK,Duke Energy,61,False,🔴 Bearish,C,129.78,131.87,-1.58,False,1.14,24.7,3.54
-BF-B,Brown–Forman,61,False,🔴 Bearish,C,29.92,31.64,-5.44,True,1.04,-1.6,3.55
-VRTX,Vertex Pharmaceuticals,61,True,🔴 Bearish,C,515.02,568.67,-9.43,False,0.97,32.1,3.51
-DXCM,Dexcom,61,False,🔴 Bearish,C,79.32,92.59,-14.33,False,0.94,4.4,3.55
-KMI,Kinder Morgan,61,False,🔴 Bearish,D,30.36,34.44,-11.86,False,0.83,3.3,3.51
-EMR,Emerson Electric,60,False,🔴 Bearish,C,150.93,171.39,-11.94,False,0.99,23.3,3.47
-PKG,Packaging Corporation of America,60,False,🔴 Bearish,C,234.18,262.59,-10.82,False,0.99,-9.5,3.5
-GEHC,GE HealthCare,60,False,🔴 Bearish,C,80.64,89.59,-9.99,True,0.9,-4.9,3.48
-GLW,Corning Inc.,60,False,🔴 Bearish,D,94.38,270.63,-65.13,False,0.83,73.3,3.42
-OMC,Omnicom Group,60,True,🔴 Bearish,E,85.18,89.43,-4.75,True,0.7,-17.5,3.47
-ACN,Accenture,59,False,🔴 Bearish,A,221.17,282.94,-21.83,False,1.58,-16.2,3.38
-IDXX,Idexx Laboratories,59,False,🔴 Bearish,A,676.21,769.98,-12.18,True,1.49,5.2,3.35
-ITW,Illinois Tool Works,59,False,🔴 Bearish,C,273.57,299.98,-8.8,False,1.07,-4.5,3.29
-GEN,Gen Digital,59,True,🔴 Bearish,D,29.19,31.52,-7.39,True,0.88,5.0,3.33
-NTRS,Northern Trust,58,False,🔴 Bearish,B,162.2,194.86,-16.76,False,1.25,65.2,3.25
-NI,NiSource,58,False,🔴 Bearish,C,44.28,48.55,-8.8,False,1.13,4.1,3.25
-APD,Air Products,58,False,🔴 Bearish,D,297.09,324.0,-8.31,True,0.87,17.4,3.28
-CCL,Carnival Corporation,58,False,🔴 Bearish,D,26.59,33.32,-20.2,False,0.78,-20.4,3.23
-AMAT,Applied Materials,58,False,🔴 Bearish,E,302.63,737.77,-58.98,False,0.7,86.8,3.26
-FFIV,"F5, Inc.",58,False,🟢 Bullish Cross,E,303.99,483.3,-37.1,False,0.57,-13.5,3.28
-AEE,Ameren,57,False,🔴 Bearish,B,111.93,117.49,-4.73,False,1.23,5.3,3.07
-MDT,Medtronic,57,False,🔴 Bearish,B,99.94,106.2,-5.89,True,1.2,-52.1,2.98
-ECL,Ecolab,57,False,🔴 Bearish,D,294.7,318.93,-7.6,True,0.89,26.8,3.2
-TPR,"Tapestry, Inc.",57,False,🔴 Bearish,D,120.02,164.18,-26.9,False,0.82,24.2,3.19
-AVY,Avery Dennison,57,False,🔴 Bearish,E,181.15,196.15,-7.65,True,0.74,39.9,3.13
-ES,Eversource Energy,56,False,🟢 Bullish,B,71.04,75.68,-6.13,False,1.27,-3.7,2.97
-WSM,"Williams-Sonoma, Inc.",56,False,🔴 Bearish,C,210.7,274.45,-23.23,False,0.93,96.3,2.95
-IFF,International Flavors & Fragrances,56,False,🟡 Turning Up,C,79.62,95.27,-16.43,False,0.9,66.4,2.9
-IRM,Iron Mountain,56,False,🔴 Bearish,C,102.22,133.64,-23.51,False,0.9,29.5,2.91
-CASY,Casey's,56,False,🔴 Bearish,D,691.14,926.27,-25.38,False,0.89,29.9,2.94
-ZBRA,Zebra Technologies,56,False,🔴 Bearish,D,301.53,392.78,-23.23,False,0.77,-20.6,2.88
-PGR,Progressive Corporation,55,True,🔴 Bearish,C,231.39,241.02,-4.0,True,1.12,23.9,2.83
-AIG,American International Group,55,False,🔴 Bearish,C,79.68,85.64,-6.96,True,1.06,5.6,2.75
-QCOM,Qualcomm,55,False,🔴 Bearish,C,149.94,257.56,-41.78,False,1.05,66.1,2.74
-LNT,Alliant Energy,55,False,🔴 Bearish,C,71.62,77.62,-7.73,False,1.0,-6.8,2.77
-HRL,Hormel Foods,55,False,🟢 Bullish,D,23.54,26.03,-9.56,False,0.81,0.1,2.79
-URI,United Rentals,54,False,🔴 Bearish,C,973.43,1200.02,-18.88,False,1.0,53.6,2.63
-PFE,Pfizer,54,False,🔴 Bearish,C,27.4,30.99,-11.58,False,0.95,12.5,2.66
-ZBH,Zimmer Biomet,54,True,🔴 Bearish,D,101.1,112.55,-10.17,True,0.83,27.5,2.63
-CSCO,Cisco,54,False,🔴 Bearish,D,90.64,129.38,-29.94,False,0.81,60.6,2.67
-ASML,ASML Holding,54,False,🔴 Bearish,E,1266.22,1994.75,-36.52,False,0.72,99.6,2.68
-SO,Southern Company,53,False,🔴 Bearish,C,93.13,97.65,-4.63,False,1.01,-6.1,2.5
-PRU,Prudential Financial,53,True,🔴 Bearish,D,117.73,128.78,-8.58,True,0.89,28.1,2.59
-ROST,Ross Stores,53,False,🔴 Bearish,D,213.46,256.5,-16.78,False,0.79,170.9,2.61
-FRT,Federal Realty Investment Trust,53,False,🔴 Bearish,E,110.27,126.84,-13.06,False,0.68,15.4,2.62
-USB,U.S. Bancorp,53,False,🔴 Bearish,E,56.05,65.47,-14.38,False,0.68,18.5,2.61
-HON,Honeywell Technologies,52,False,🔴 Bearish,C,212.64,257.28,-17.35,False,1.13,17.8,2.41
-YUM,Yum! Brands,52,False,🔴 Bearish,C,160.7,169.29,-5.07,False,0.96,9.5,2.47
-D,Dominion Energy,52,True,🔴 Bearish,D,66.28,72.26,-8.28,False,0.88,8.5,2.37
-FITB,Fifth Third Bancorp,52,False,🔴 Bearish,D,49.39,59.01,-16.3,False,0.85,2.3,2.43
-HCA,HCA Healthcare,52,False,🔴 Bearish,E,475.57,553.56,-14.09,True,0.62,15.0,2.32
-CMG,Chipotle Mexican Grill,51,False,🟢 Bullish,B,35.55,41.42,-14.17,False,1.25,-1.8,2.27
-EL,Estée Lauder Companies (The),51,False,🔴 Bearish,C,99.46,120.38,-17.38,False,1.08,14.0,2.23
-AMT,American Tower,51,False,🟡 Turning Up,C,184.21,202.5,-9.03,True,1.02,-11.6,2.24
-TYL,Tyler Technologies,51,False,🔴 Bearish,C,404.44,473.72,-14.62,True,0.96,-27.7,2.27
-FANG,Diamondback Energy,51,False,🟡 Turning Up,E,175.75,215.49,-18.44,False,0.59,24.1,2.25
-CLX,Clorox,50,False,🟢 Bullish,B,104.73,124.03,-15.56,False,1.23,-2.9,2.19
-KHC,Kraft Heinz,50,False,🟢 Bullish,C,25.39,27.65,-8.17,True,1.04,28.8,1.9
-JCI,Johnson Controls,50,False,🔴 Bearish,C,130.18,160.41,-18.85,False,0.95,29.1,1.89
-GEV,GE Vernova,50,False,🔴 Bearish,C,699.33,1195.24,-41.49,False,0.9,87.5,2.21
-MNST,Monster Beverage,50,False,🔴 Bearish,D,43.69,50.17,-12.92,False,0.83,65.3,1.96
-ETR,Entergy,50,False,🔴 Bearish,D,104.38,117.03,-10.81,False,0.76,70.7,2.21
-ALGN,Align Technology,49,False,🔴 Bearish,D,155.17,200.44,-22.59,False,0.89,22.6,1.87
-DVN,Devon Energy,49,False,🔴 Bearish,D,41.54,52.28,-20.54,False,0.84,24.2,1.8
-AOS,A. O. Smith,49,False,🔴 Bearish,D,63.24,80.43,-21.38,False,0.79,24.9,1.79
-STE,Steris,49,False,🔴 Bearish,D,255.76,266.68,-4.09,True,0.75,5.7,1.78
-LRCX,Lam Research,49,False,🔴 Bearish,E,183.27,438.03,-58.16,False,0.64,106.2,1.83
-P,Everpure,48,False,🔴 Bearish,A,92.05,157.57,-41.58,False,1.98,-18.1,1.67
-AME,Ametek,48,False,🔴 Bearish,A,222.9,260.78,-14.53,False,1.43,19.6,1.75
-AEP,American Electric Power,48,False,🔴 Bearish,B,125.14,138.46,-9.62,False,1.33,9.9,1.77
-CCI,Crown Castle,48,False,🔴 Bearish,C,82.4,93.5,-11.87,False,1.06,-37.1,1.72
-HSIC,Henry Schein,48,False,🔴 Bearish,C,83.52,92.18,-9.39,False,0.95,-10.7,1.65
-HD,Home Depot (The),48,False,🔴 Bearish,D,339.04,389.18,-12.88,False,0.76,52.5,1.61
-RL,Ralph Lauren Corporation,47,False,🔴 Bearish,C,366.65,419.38,-12.57,False,1.13,21.0,1.5
-FERG,Ferguson Enterprises,47,False,🔴 Bearish,C,240.62,267.63,-10.09,False,0.99,26.7,1.4
-MMM,3M,47,True,🔴 Bearish,D,177.99,196.08,-9.22,True,0.88,62.7,1.58
-WTW,Willis Towers Watson,47,False,🔴 Bearish,E,331.01,350.34,-5.52,True,0.7,-1.2,1.52
-LOW,Lowe's,47,False,🔴 Bearish,E,220.84,288.04,-23.33,False,0.66,39.9,1.55
-DOV,Dover Corporation,46,False,🔴 Bearish,C,194.29,235.79,-17.6,False,0.99,-12.2,1.38
-IR,Ingersoll Rand,46,False,🔴 Bearish,C,78.3,100.86,-22.37,False,0.95,-20.0,1.23
-AMZN,Amazon,46,False,🔴 Bearish,D,246.82,287.2,-14.06,False,0.84,71.6,1.37
-DOC,Healthpeak Properties,46,False,🔴 Bearish,D,19.24,22.49,-14.44,False,0.84,2.3,1.34
-PNC,PNC Financial Services,46,False,🔴 Bearish,D,213.12,256.6,-16.94,False,0.82,-13.3,1.25
-EXC,Exelon,45,False,🔴 Bearish,A,45.7,49.7,-8.06,False,1.64,26.5,1.21
-FE,FirstEnergy,45,False,🔴 Bearish,C,47.03,50.79,-7.4,False,1.11,15.1,1.15
-XEL,Xcel Energy,45,False,🔴 Bearish,C,79.3,82.56,-3.95,False,0.94,28.2,1.15
-SYY,Sysco,45,False,🟢 Bullish Cross,D,78.17,89.92,-13.07,False,0.89,13.2,1.17
-XYZ,"Block, Inc.",45,False,🔴 Bearish,D,69.66,89.39,-22.08,False,0.79,129.4,1.22
-JBL,Jabil,44,False,🔴 Bearish,C,225.77,428.7,-47.34,False,1.08,-13.5,1.09
-WMB,Williams Companies,44,False,🔴 Bearish,C,64.31,78.92,-18.51,False,0.98,13.2,1.07
-MSFT,Microsoft,44,False,🔴 Bearish,D,484.52,558.07,-13.18,False,0.89,89.6,1.06
-CMCSA,Comcast,44,False,🟢 Bullish,D,24.9,31.56,-21.09,False,0.84,9.2,1.06
-VTR,Ventas,44,False,🔴 Bearish,D,86.55,100.99,-14.3,False,0.82,7.5,1.13
-JKHY,Jack Henry & Associates,43,False,🔴 Bearish,C,171.32,191.13,-10.37,True,1.06,-17.5,1.03
-PAYX,Paychex,43,False,🔴 Bearish,D,112.63,126.69,-11.1,True,0.88,14.1,1.03
-SW,Smurfit Westrock,43,False,🔴 Bearish,E,37.7,50.98,-26.05,False,0.73,72.5,1.03
-REG,Regency Centers,43,False,🔴 Bearish,E,73.64,82.82,-11.09,False,0.71,66.5,1.0
-MCHP,Microchip Technology,43,False,🔴 Bearish,E,55.44,104.75,-47.07,False,0.66,165.4,1.02
-DHR,Danaher Corporation,42,False,🔴 Bearish,C,220.36,241.35,-8.7,False,1.09,-6.9,0.95
-RTX,RTX Corporation,42,False,🔴 Bearish,C,190.17,225.56,-15.69,False,1.02,21.9,0.99
-BLK,BlackRock,42,False,🔴 Bearish,C,1101.72,1242.12,-11.3,False,0.95,84.0,0.96
-GM,General Motors,42,False,🔴 Bearish,D,78.71,93.7,-16.0,False,0.81,-4.8,0.94
-ERIE,Erie Indemnity,42,False,🔴 Bearish,D,272.43,294.2,-7.4,True,0.78,40.2,0.94
-KMB,Kimberly-Clark,42,False,🔴 Bearish,E,106.38,115.43,-7.84,True,0.68,-1.2,0.99
-ADM,Archer Daniels Midland,42,False,🔴 Bearish,E,66.95,88.09,-23.99,False,0.61,33.9,0.97
-PHM,PulteGroup,41,False,🟡 Turning Up,C,124.67,143.57,-13.17,False,0.95,17.7,0.88
-DTE,DTE Energy,41,False,🔴 Bearish,C,135.92,154.34,-11.93,False,0.93,-32.5,0.9
-KEY,KeyCorp,41,False,🔴 Bearish,D,19.45,23.84,-18.42,False,0.81,30.9,0.87
-AMCR,Amcor,41,False,🔴 Bearish,E,42.35,49.71,-14.81,False,0.72,9.0,0.82
-VMRK,Vivmark Residential,40,False,🔴 Bearish,C,63.04,70.66,-10.78,False,1.1,45.4,0.69
-PEP,PepsiCo,40,False,🔴 Bearish,C,140.54,166.41,-15.55,False,0.99,36.0,0.54
-O,Realty Income,40,False,🔴 Bearish,D,58.03,65.93,-11.98,False,0.79,-3.6,0.75
-UNH,UnitedHealth Group,40,False,🔴 Bearish,D,339.85,458.79,-25.93,False,0.77,108.5,0.67
-GL,Globe Life,40,False,🔴 Bearish,E,151.65,191.17,-20.67,False,0.71,5.4,0.78
-MTB,M&T Bank,40,False,🔴 Bearish,E,208.3,254.31,-18.09,False,0.62,21.3,0.7
-VRSK,Verisk Analytics,39,False,🔴 Bearish,B,202.09,225.48,-10.37,True,1.2,-22.2,0.46
-NEE,NextEra Energy,39,False,🔴 Bearish,C,83.45,97.3,-14.23,False,0.92,11.2,0.46
-CNP,CenterPoint Energy,39,False,🔴 Bearish,D,39.11,44.72,-12.55,False,0.87,-13.9,0.51
-NSC,Norfolk Southern,39,False,🔴 Bearish,D,311.01,355.72,-12.57,False,0.87,23.7,0.37
-NOC,Northrop Grumman,39,False,🔴 Bearish,D,534.31,767.12,-30.35,False,0.78,-20.6,0.37
-HIG,Hartford (The),38,False,🟡 Turning Up,D,136.84,145.43,-5.91,False,0.85,24.7,0.3
-HII,Huntington Ingalls Industries,38,False,🔴 Bearish,E,280.34,455.9,-38.51,False,0.73,-23.8,0.32
-CFG,Citizens Financial Group,38,False,🔴 Bearish,E,58.71,74.73,-21.44,False,0.66,0.6,0.32
-FCX,Freeport-McMoRan,38,False,🔴 Bearish,E,45.99,80.07,-42.56,False,0.58,142.9,0.33
-INCY,Incyte,38,False,🔴 Bearish,E,114.63,132.6,-13.55,False,0.58,-11.5,0.31
-COR,Cencora,37,False,🔴 Bearish,D,339.09,374.62,-9.48,True,0.86,-6.9,0.21
-L,Loews Corporation,37,False,🔴 Bearish,D,109.4,120.94,-9.54,False,0.81,28.7,0.21
-RF,Regions Financial Corporation,37,False,🔴 Bearish,D,26.6,32.14,-17.25,False,0.76,50.6,0.17
-ESS,Essex Property Trust,37,False,🔴 Bearish,E,269.65,300.48,-10.26,False,0.74,-23.2,0.29
-SHW,Sherwin-Williams,37,False,🔴 Bearish,E,339.74,374.24,-9.22,True,0.73,27.9,0.17
-CMS,CMS Energy,36,False,🟡 Turning Up,A,70.12,78.46,-10.63,False,1.35,29.2,0.11
-EIX,Edison International,36,False,🟢 Bullish,B,62.24,80.3,-22.49,False,1.16,-18.2,0.05
-SNPS,Synopsys,36,False,🔴 Bearish,C,396.17,539.48,-26.56,False,0.97,10.3,0.1
-CI,Cigna,36,False,🔴 Bearish,E,270.9,318.05,-14.82,False,0.74,53.3,-0.07
-IVZ,Invesco,36,False,🔴 Bearish,E,26.51,33.41,-20.64,False,0.73,40.1,-0.07
-FIX,Comfort Systems USA,36,False,🟢 Bullish,E,1042.47,2070.32,-49.65,False,0.69,54.8,0.07
-FISV,Fiserv,35,False,🔴 Bearish,C,55.88,70.41,-20.64,False,1.06,36.5,-0.21
-SPGI,S&P Global,35,False,🔴 Bearish,C,439.57,518.88,-15.29,False,1.01,11.5,-0.16
-DHI,D. R. Horton,35,False,🟡 Turning Up,D,145.44,169.71,-14.3,False,0.87,-4.9,-0.19
-BRO,Brown & Brown,35,False,🟡 Turning Up,D,73.07,81.75,-10.62,True,0.82,16.2,-0.21
-C,Citigroup,35,False,🔴 Bearish,D,110.62,146.41,-24.44,False,0.8,65.8,-0.13
-PPL,PPL Corporation,34,False,🔴 Bearish,C,34.65,39.46,-12.19,False,1.04,-2.6,-0.37
-OTIS,Otis Worldwide,34,False,🔴 Bearish,C,76.05,92.9,-18.13,False,0.95,-30.6,-0.37
-SNA,Snap-on,34,False,🔴 Bearish,C,348.88,417.18,-16.37,False,0.95,59.7,-0.27
-ATO,Atmos Energy,34,False,🔴 Bearish,C,168.28,190.28,-11.56,False,0.93,42.9,-0.25
-AMP,Ameriprise Financial,34,False,🔴 Bearish,D,480.29,570.62,-15.83,False,0.83,-20.0,-0.34
-UDR,"UDR, Inc.",34,False,🔴 Bearish,E,35.45,41.18,-13.91,False,0.73,-7.6,-0.33
-GE,GE Aerospace,33,False,🔴 Bearish,C,309.62,388.25,-20.25,False,0.96,11.4,-0.5
-TROW,T. Rowe Price,33,False,🔴 Bearish,C,100.99,120.5,-16.19,False,0.93,55.6,-0.43
-TFC,Truist Financial,33,False,🔴 Bearish,C,45.81,53.95,-15.09,False,0.9,23.5,-0.46
-CVS,CVS Health,33,False,🔴 Bearish,D,80.84,109.22,-25.98,False,0.8,1.2,-0.46
-SOLV,Solventum,32,False,🔴 Bearish,C,84.5,94.16,-10.26,False,1.08,-39.1,-0.69
-TJX,TJX Companies,32,False,🟢 Bullish Cross,C,139.62,168.87,-17.32,False,0.91,19.4,-0.74
-RMD,ResMed,32,False,🔴 Bearish,D,235.63,274.65,-14.21,True,0.87,5.7,-0.52
-TXT,Textron,32,False,🔴 Bearish,D,79.62,101.5,-21.56,False,0.86,9.4,-0.64
-PH,Parker Hannifin,32,False,🔴 Bearish,D,871.86,1095.44,-20.41,False,0.83,26.3,-0.72
-KLAC,KLA Corporation,32,False,🔴 Bearish,D,126.87,306.56,-58.61,False,0.76,87.8,-0.75
-ORLY,O'Reilly Automotive,31,False,🟢 Bullish,C,92.65,102.46,-9.57,False,1.06,23.4,-0.76
-HSY,Hershey Company (The),31,False,🟢 Bullish,C,175.48,233.83,-24.96,False,1.04,91.0,-0.77
-VMC,Vulcan Materials Company,31,False,🔴 Bearish,C,270.87,328.59,-17.57,False,0.95,3.4,-0.85
-MCD,McDonald's,31,False,🔴 Bearish,D,273.24,335.18,-18.48,False,0.77,-2.4,-0.77
-NEM,Newmont,31,False,🔴 Bearish,E,94.68,135.01,-29.87,False,0.74,109.4,-0.85
-PEG,Public Service Enterprise Group,30,False,🔴 Bearish,B,73.9,85.4,-13.47,False,1.16,-28.9,-0.95
-UAL,United Airlines Holdings,30,False,🔴 Bearish,C,101.03,138.77,-27.2,False,1.05,47.0,-1.05
-JPM,JPMorgan Chase,30,False,🔴 Bearish,C,310.53,364.68,-14.85,False,0.97,60.1,-0.86
-GD,General Dynamics,30,False,🔴 Bearish,D,341.5,398.07,-14.21,False,0.83,-3.3,-1.03
-TPL,Texas Pacific Land Corporation,30,False,🔴 Bearish,D,267.44,544.86,-50.92,False,0.82,21.0,-1.06
-TSCO,Tractor Supply,29,False,🟢 Bullish,C,38.44,55.2,-30.36,False,1.02,-3.8,-1.07
-RJF,Raymond James Financial,29,False,🔴 Bearish,D,155.82,182.11,-14.43,False,0.85,32.6,-1.14
-GPC,Genuine Parts Company,29,False,🔴 Bearish,D,118.51,147.43,-19.61,False,0.79,56.1,-1.21
-IBKR,Interactive Brokers,29,False,🔴 Bearish,E,71.19,98.66,-27.84,False,0.74,38.6,-1.11
-TKO,TKO Group Holdings,29,False,🔴 Bearish,E,177.99,224.23,-20.62,False,0.74,-18.8,-1.21
-NBIS,Nebius Group,29,False,🔴 Bearish,E,81.31,299.86,-72.88,False,0.68,106.0,-1.12
-AKAM,Akamai Technologies,28,False,🟢 Bullish,C,85.11,165.45,-48.56,False,1.11,9.6,-1.26
-AZO,AutoZone,28,False,🔴 Bearish,C,3255.43,3996.25,-18.54,False,1.04,-28.2,-1.42
-LHX,L3Harris,28,False,🔴 Bearish,C,249.89,374.59,-33.29,False,0.9,12.0,-1.41
-TEL,TE Connectivity,28,False,🔴 Bearish,E,199.97,249.68,-19.91,False,0.74,23.0,-1.41
-DECK,Deckers Brands,28,False,🔴 Bearish,E,77.94,122.29,-36.27,False,0.66,31.1,-1.42
-DLR,Digital Realty,27,False,🔴 Bearish,B,162.46,206.06,-21.16,False,1.28,56.1,-1.51
-APH,Amphenol,27,False,🔴 Bearish,C,69.72,89.93,-22.47,False,0.91,44.6,-1.55
-DPZ,Domino's,27,False,🟢 Bullish,D,348.61,434.73,-19.81,False,0.87,12.8,-1.5
-AON,Aon plc,27,False,🔴 Bearish,D,333.07,380.5,-12.46,False,0.86,-45.7,-1.5
-NCLH,Norwegian Cruise Line Holdings,27,False,🔴 Bearish,D,15.99,25.13,-36.37,False,0.83,-16.9,-1.49
-META,Meta Platforms,26,False,🔴 Bearish,C,560.84,779.82,-28.08,False,0.96,17.8,-1.93
-MCO,Moody's Corporation,26,False,🔴 Bearish,D,466.83,542.07,-13.88,False,0.84,-2.0,-1.8
-HWM,Howmet Aerospace,26,False,🟢 Bullish,D,209.16,309.63,-32.45,False,0.82,68.0,-1.94
-FOX,Fox Corporation (Class B),26,False,🔴 Bearish,E,56.14,67.48,-16.8,False,0.66,-7.4,-1.89
-FOXA,Fox Corporation (Class A),26,False,🔴 Bearish,E,62.91,75.68,-16.88,False,0.49,-23.6,-1.67
-WFC,Wells Fargo,25,False,🔴 Bearish,B,78.62,95.61,-17.77,False,1.19,8.6,-2.18
-WDAY,"Workday, Inc.",25,False,🔴 Bearish,D,174.52,236.8,-26.3,False,0.82,14.1,-2.2
-EME,Emcor,25,False,🟢 Bullish,E,603.32,950.96,-36.56,False,0.73,9.8,-2.03
-PCAR,Paccar,25,False,🟢 Bullish,E,102.2,138.41,-26.16,False,0.51,21.5,-2.3
-PLD,Prologis,25,False,🔴 Bearish,E,122.5,152.14,-19.48,False,0.51,32.7,-2.41
-HUBB,Hubbell Incorporated,24,False,🔴 Bearish,C,403.66,562.06,-28.18,False,0.93,13.6,-2.5
-BG,Bunge Global,24,False,🔴 Bearish,D,90.9,133.05,-31.68,False,0.87,-32.2,-2.42
-VRT,Vertiv,24,False,🔴 Bearish,D,166.24,379.76,-56.23,False,0.77,76.6,-2.62
-CARR,Carrier Global,24,False,🔴 Bearish,E,49.96,76.16,-34.4,False,0.68,28.6,-2.44
-INVH,Invitation Homes,24,False,🔴 Bearish,E,26.23,30.55,-14.14,False,0.58,57.3,-2.48
-APP,AppLovin,23,False,🟢 Bullish,D,348.29,738.01,-52.81,False,0.84,-12.1,-2.86
-BR,Broadridge Financial Solutions,23,False,🔴 Bearish,D,181.41,228.65,-20.66,False,0.83,23.5,-2.77
-CPT,Camden Property Trust,23,False,🔴 Bearish,E,95.8,118.52,-19.17,False,0.72,-2.3,-2.91
-NWSA,News Corp (Class A),23,False,🔴 Bearish,E,25.05,31.55,-20.61,False,0.71,33.8,-2.81
-SCHW,Charles Schwab Corporation,23,False,🟢 Bullish,E,90.16,114.13,-21.0,False,0.56,27.7,-2.66
-MS,Morgan Stanley,23,False,🔴 Bearish,E,165.67,229.58,-27.84,False,0.55,65.1,-2.76
-TRI,Thomson Reuters,22,False,🟡 Turning Up,B,101.56,130.18,-21.98,False,1.19,52.4,-3.02
-PYPL,PayPal,22,False,🔴 Bearish,C,53.29,63.37,-15.91,False,1.07,49.9,-3.02
-CHRW,C.H. Robinson,22,False,🟢 Bullish,C,134.0,209.43,-36.02,False,0.95,30.1,-3.15
-SBAC,SBA Communications,22,False,🔴 Bearish,D,173.33,220.13,-21.26,False,0.83,-21.7,-2.92
-CDNS,Cadence Design Systems,21,False,🔴 Bearish,C,281.58,416.69,-32.42,False,1.1,20.5,-3.31
-CVNA,Carvana,21,False,🔴 Bearish,D,63.85,97.38,-34.43,False,0.86,37.8,-3.46
-ADSK,Autodesk,21,False,🔴 Bearish,D,244.48,320.0,-23.6,False,0.78,29.0,-3.17
-FER,Ferrovial,21,False,🔴 Bearish,D,57.34,72.89,-21.33,False,0.77,50.6,-3.16
-VICI,Vici Properties,21,False,🔴 Bearish,E,24.2,28.95,-16.4,False,0.7,20.3,-3.16
-EXPE,Expedia Group,21,False,🔴 Bearish,E,234.96,340.83,-31.06,False,0.63,-2.4,-3.26
-UHS,Universal Health Services,20,False,🔴 Bearish,C,179.43,245.26,-26.84,False,1.02,23.4,-3.58
-TSLA,"Tesla, Inc.",20,False,🔴 Bearish,C,345.82,498.83,-30.67,False,0.92,26.6,-3.57
-ROK,Rockwell Automation,20,False,🔴 Bearish,D,361.93,494.05,-26.74,False,0.86,49.9,-3.54
-NWS,News Corp (Class B),20,False,🔴 Bearish,E,27.87,35.65,-21.83,False,0.72,21.6,-3.58
-GS,Goldman Sachs,20,False,🔴 Bearish,E,790.69,1148.37,-31.15,False,0.53,100.9,-3.5
-GDDY,GoDaddy,19,False,🔴 Bearish,C,99.53,131.74,-24.45,False,1.07,-26.8,-3.66
-T,AT&T,19,False,🟢 Bullish,C,22.31,28.43,-21.52,False,1.03,14.6,-3.88
-TT,Trane Technologies,19,False,🔴 Bearish,C,386.29,504.68,-23.46,False,0.9,-8.5,-3.63
-ABT,Abbott Laboratories,19,False,🔴 Bearish,D,103.0,126.7,-18.71,False,0.76,-20.7,-3.98
-EFX,Equifax,19,False,🔴 Bearish,D,177.19,226.62,-21.81,False,0.76,-26.3,-3.98
-BXP,"BXP, Inc.",19,False,🔴 Bearish,E,61.24,74.09,-17.34,False,0.73,9.1,-3.93
-TTWO,Take-Two Interactive,18,False,🔴 Bearish,D,210.0,265.94,-21.03,False,0.89,205.2,-4.13
-MLM,Martin Marietta Materials,18,False,🔴 Bearish,D,500.74,707.94,-29.27,False,0.85,1.4,-4.08
-SYK,Stryker Corporation,18,False,🔴 Bearish,D,310.0,386.02,-19.69,False,0.78,-18.8,-4.08
-MGM,MGM Resorts,18,False,🟢 Bullish,E,32.36,51.59,-37.27,False,0.72,4.9,-4.0
-HBAN,Huntington Bancshares,18,False,🔴 Bearish,E,14.28,18.9,-24.46,False,0.57,-2.9,-4.02
-TDG,TransDigm Group,17,False,🔴 Bearish,C,1121.22,1463.03,-23.36,False,0.96,16.6,-4.62
-GIS,General Mills,17,False,🟢 Bullish,D,35.74,47.04,-24.03,False,0.82,50.1,-4.5
-PLTR,Palantir Technologies,17,False,🔴 Bearish,D,143.49,212.94,-32.61,False,0.81,51.4,-4.4
-PNR,Pentair,17,False,🔴 Bearish,D,68.63,107.49,-36.15,False,0.79,27.8,-4.62
-SYF,Synchrony Financial,17,False,🔴 Bearish,E,67.76,87.28,-22.36,False,0.73,14.2,-4.25
-WY,Weyerhaeuser,17,False,🔴 Bearish,E,19.59,27.03,-27.52,False,0.68,-14.2,-4.27
-ARES,Ares Management,16,False,🔴 Bearish,C,123.3,173.99,-29.14,False,0.92,45.2,-4.68
-EQT,EQT Corporation,16,False,🔴 Bearish,D,48.89,67.62,-27.7,False,0.78,-8.3,-4.74
-ETN,Eaton Corporation,16,False,🔴 Bearish,D,311.33,476.54,-34.67,False,0.76,73.8,-4.8
-AXP,American Express,16,False,🔴 Bearish,E,301.7,383.18,-21.26,False,0.71,9.6,-4.78
-CTSH,Cognizant,15,False,🟡 Turning Up,C,58.06,85.04,-31.73,False,1.1,21.1,-5.02
-ISRG,Intuitive Surgical,15,False,🔴 Bearish,C,399.05,603.88,-33.92,False,1.07,12.6,-4.98
-BKR,Baker Hughes,15,False,🔴 Bearish,D,44.81,69.59,-35.61,False,0.75,76.2,-5.26
-F,Ford Motor Company,15,False,🔴 Bearish,E,11.17,17.38,-35.73,False,0.64,30.7,-5.17
-SRE,Sempra,15,False,🟡 Turning Up,E,76.16,99.49,-23.45,False,0.58,0.7,-5.17
-MAA,Mid-America Apartment Communities,15,False,🔴 Bearish,E,112.91,140.87,-19.85,False,0.51,20.3,-4.81
-TMUS,T-Mobile US,14,False,🟢 Bullish,B,165.6,221.19,-25.13,False,1.26,-1.1,-5.39
-IBM,IBM,14,False,🔴 Bearish,C,224.44,327.83,-31.54,False,0.94,46.3,-5.39
-IT,Gartner,14,False,🟡 Turning Up,D,174.49,256.9,-32.08,False,0.85,16.3,-5.32
-BAC,Bank of America,14,False,🔴 Bearish,D,47.04,64.9,-27.52,False,0.76,24.9,-5.32
-APO,Apollo Global Management,14,False,🔴 Bearish,E,111.16,150.66,-26.22,False,0.65,22.2,-5.39
-SHOP,Shopify,13,False,🔴 Bearish,D,123.72,180.88,-31.6,False,0.89,58.9,-5.5
-AVGO,Broadcom,13,False,🟢 Bullish,D,304.41,493.32,-38.29,False,0.87,129.5,-5.63
-IP,International Paper,13,False,🔴 Bearish,D,30.36,47.82,-36.51,False,0.85,52.7,-5.63
-CPRT,Copart,13,False,🔴 Bearish,E,31.09,41.79,-25.6,False,0.73,0.3,-5.66
-COF,Capital One,13,False,🔴 Bearish,E,178.66,255.59,-30.1,False,0.71,17.0,-5.59
-CAT,Caterpillar Inc.,13,False,🔴 Bearish,E,510.45,1068.93,-52.25,False,0.63,58.3,-5.66
-ZTS,Zoetis,12,False,🔴 Bearish,C,79.11,130.12,-39.2,False,1.1,36.2,-5.82
-CRH,CRH plc,12,False,🔴 Bearish,C,88.05,129.55,-32.03,False,1.01,-11.5,-5.77
-PCG,PG&E Corporation,12,False,🟢 Bullish,C,13.78,18.97,-27.37,False,0.95,1.4,-6.31
-CRM,Salesforce,12,False,🔴 Bearish,D,180.62,267.8,-32.55,False,0.76,0.3,-6.04
-ROL,"Rollins, Inc.",11,False,🔴 Bearish,C,37.82,65.06,-41.87,False,0.97,-26.4,-6.62
-GOOGL,Alphabet Inc. (Class A),11,False,🔴 Bearish,D,265.29,408.1,-34.99,False,0.8,72.2,-6.98
-MKC,McCormick & Company,11,False,🟡 Turning Up,D,47.4,70.38,-32.65,False,0.78,46.1,-6.78
-PDD,PDD Holdings,11,False,🟢 Bullish Cross,E,83.68,125.36,-33.25,False,0.72,150.6,-6.78
-CBRE,CBRE Group,11,False,🔴 Bearish,E,126.72,174.27,-27.29,False,0.66,8.1,-6.96
-BA,Boeing,11,False,🔴 Bearish,E,155.89,254.35,-38.71,False,0.55,21.1,-6.36
-GOOG,Alphabet Inc. (Class C),10,False,🔴 Bearish,D,264.0,403.96,-34.65,False,0.82,74.1,-7.06
-BX,Blackstone Inc.,10,False,🔴 Bearish,E,110.8,158.6,-30.14,False,0.67,28.1,-7.13
-CMI,Cummins,10,False,🔴 Bearish,E,403.61,731.18,-44.8,False,0.65,61.3,-7.31
-MOS,Mosaic Company (The),10,False,🔴 Bearish,E,18.66,31.66,-41.06,False,0.61,97.4,-6.99
-DASH,DoorDash,10,False,🔴 Bearish,E,152.6,239.0,-36.15,False,0.6,104.0,-7.32
-KKR,KKR & Co.,9,False,🔴 Bearish,E,88.54,143.72,-38.39,False,0.74,59.3,-8.16
-LII,Lennox International,9,False,🔴 Bearish,E,334.49,585.05,-42.83,False,0.74,11.7,-7.84
-ARE,Alexandria Real Estate Equities,9,False,🔴 Bearish,E,40.2,57.21,-29.73,False,0.65,-27.5,-7.41
-COO,Cooper Companies (The),9,False,🔴 Bearish,E,58.88,89.83,-34.45,False,0.61,-40.1,-7.37
-NVR,"NVR, Inc.",9,False,🔴 Bearish,E,5468.04,8200.0,-33.32,False,0.59,22.0,-7.93
-LDOS,Leidos,8,False,🔴 Bearish,C,122.21,203.11,-39.83,False,0.95,29.4,-9.03
-LEN,Lennar,8,False,🔴 Bearish,C,80.74,130.83,-38.29,False,0.93,-20.2,-8.73
-CHTR,Charter Communications,8,False,🟢 Bullish,D,128.73,254.11,-49.34,False,0.83,-6.3,-9.55
-EXE,Expand Energy,8,False,🔴 Bearish,D,81.27,123.62,-34.26,False,0.83,6.8,-9.05
-UBER,Uber,8,False,🔴 Bearish,E,63.47,92.78,-31.59,False,0.5,69.0,-8.78
-VST,Vistra Corp.,7,False,🔴 Bearish,C,115.25,181.76,-36.59,False,0.95,24.1,-11.04
-ADBE,Adobe Inc.,7,False,🔴 Bearish,D,217.71,362.71,-39.98,False,0.85,23.9,-10.57
-XYL,Xylem Inc.,7,False,🟢 Bullish Cross,D,94.66,144.93,-34.69,False,0.79,2.5,-10.4
-CEG,Constellation Energy,7,False,🔴 Bearish,E,237.41,378.52,-37.28,False,0.72,40.7,-10.34
-BKNG,Booking Holdings,7,False,🔴 Bearish,E,144.91,219.22,-33.9,False,0.6,-1.8,-9.74
-ALB,Albemarle Corporation,7,False,🔴 Bearish,E,79.7,219.7,-63.72,False,0.5,58.1,-9.61
-TRMB,Trimble Inc.,6,False,🔴 Bearish,E,50.62,84.42,-40.04,False,0.73,56.1,-11.07
-WYNN,Wynn Resorts,6,False,🟢 Bullish,E,80.4,133.35,-39.71,False,0.68,-10.5,-11.37
-LULU,Lululemon Athletica,6,False,🔴 Bearish,E,102.62,225.98,-54.59,False,0.66,2.3,-11.38
-MELI,Mercado Libre,6,False,🟡 Turning Up,E,1355.0,2342.0,-42.14,False,0.63,84.0,-12.34
-LVS,Las Vegas Sands,6,False,🔴 Bearish,E,38.85,68.67,-43.43,False,0.54,21.1,-12.7
-SMCI,Supermicro,5,False,🔴 Bearish,D,21.65,51.4,-57.88,False,0.8,17.7,-14.23
-HOOD,Robinhood Markets,5,False,🔴 Bearish,E,62.17,139.75,-55.51,False,0.62,36.3,-14.6
-NKE,"Nike, Inc.",5,False,🔴 Bearish,E,32.92,67.36,-51.13,False,0.58,-6.9,-13.62
-AXON,Axon Enterprise,5,False,🟡 Turning Up,E,291.14,665.07,-56.22,False,0.52,53.6,-14.89
-NVDA,Nvidia,5,False,🔴 Bearish,E,125.53,243.37,-48.42,False,0.48,251.3,-13.14
-NRG,NRG Energy,4,False,🟢 Bullish,D,87.8,187.78,-53.24,False,0.79,42.0,-15.26
-ORCL,Oracle Corporation,4,False,🔴 Bearish,E,101.19,248.46,-59.27,False,0.7,34.3,-15.74
-NOW,ServiceNow,4,False,🟡 Turning Up,E,87.61,175.0,-49.94,False,0.62,25.7,-14.92
-CSGP,CoStar Group,4,False,🟡 Turning Up,E,29.61,70.57,-58.04,False,0.6,31.3,-15.94
-NFLX,Netflix,4,False,🔴 Bearish,E,56.73,109.73,-48.3,False,0.58,65.7,-16.59
-PODD,Insulet Corporation,3,False,🔴 Bearish,C,133.17,342.13,-61.08,False,1.14,17.5,-17.09
-FSLR,First Solar,3,False,🔴 Bearish,D,137.59,320.95,-57.13,False,0.86,37.2,-17.15
-INTU,Intuit,3,False,🔴 Bearish,E,270.44,671.73,-59.74,False,0.72,183.8,-17.98
-BSX,Boston Scientific,3,False,🔴 Bearish,E,41.98,101.91,-58.81,False,0.69,-18.9,-18.35
-CRWV,CoreWeave,3,False,🟢 Bullish,E,39.51,138.25,-71.42,False,0.69,37.0,-17.11
-APTV,Aptiv,3,False,🔴 Bearish,E,35.33,88.93,-60.27,False,0.49,50.0,-17.94
-SKYD,Skydance,2,False,🔴 Bearish,D,6.2,15.76,-60.65,False,0.78,-32.3,-22.06
-MSTR,MicroStrategy,2,False,🔴 Bearish,E,77.8,198.4,-60.79,False,0.69,73.4,-20.01
-COIN,Coinbase,2,False,🔴 Bearish,E,101.97,284.74,-64.19,False,0.66,52.9,-22.53
-FIS,Fidelity National Information Services,2,False,🟡 Turning Up,E,25.83,66.26,-61.02,False,0.62,44.4,-22.05
-RDDT,Reddit,2,False,🟢 Bullish Cross,E,85.33,263.5,-67.62,False,0.46,10.7,-21.59
-FICO,Fair Isaac,1,False,🟢 Bullish,D,694.31,1858.91,-62.65,False,0.8,-30.1,-22.96
-ALNY,Alnylam Pharmaceuticals,1,False,🟢 Bullish,E,143.82,479.79,-70.02,False,0.67,6.4,-26.7
+MRNA,Moderna,99,False,🟡 Turning Up,C,227.38,280.8,-19.02,False,1.12,-39.1,83.92
+MU,Micron Technology,99,False,🔴 Bearish,D,629.79,1254.61,-49.8,False,0.8,28.6,28.69
+SNDK,Sandisk,99,False,🔴 Bearish,E,77.95,294.3,-73.51,False,0.6,14.8,43.18
+OKTA,"Okta, Inc.",98,False,🟢 Bullish,A,198.12,235.0,-15.69,False,1.75,-38.5,26.06
+VTRS,Viatris,98,False,🔴 Bearish,B,19.85,21.07,-5.79,True,1.17,-10.2,18.77
+AMD,Advanced Micro Devices,98,False,🔴 Bearish,C,413.27,658.52,-37.24,False,1.13,48.1,23.72
+DELL,Dell Technologies,98,False,🟡 Turning Up,C,295.28,594.69,-50.35,False,0.98,146.2,26.63
+CRL,Charles River Laboratories,98,False,🟡 Turning Up,D,336.13,379.63,-11.46,True,0.79,-33.1,18.43
+TGT,Target Corporation,97,True,🟢 Bullish,C,176.06,176.73,-0.38,True,1.06,19.0,18.15
+PANW,Palo Alto Networks,97,False,🟢 Bullish,C,352.99,432.33,-18.35,False,0.9,-10.1,17.13
+ALAB,Astera Labs,97,False,🟢 Bullish,C,191.3,499.48,-61.7,False,0.9,37.4,15.82
+STX,Seagate Technology,97,False,🟢 Bullish,D,482.48,1143.27,-57.8,False,0.89,-34.5,16.49
+MRVL,Marvell Technology,97,False,🟡 Turning Up,D,131.57,329.73,-60.1,False,0.8,9.6,16.1
+INTC,Intel,97,False,🟢 Bullish,E,54.8,142.35,-61.5,False,0.72,3.4,17.6
+MPC,Marathon Petroleum,96,False,🔴 Bearish,B,355.16,492.61,-27.9,False,1.22,-22.8,14.56
+HPE,Hewlett Packard Enterprise,96,False,🔴 Bearish,C,40.19,73.56,-45.36,False,1.05,143.2,14.72
+APA,APA Corporation,96,False,🟡 Turning Up,C,44.91,52.96,-15.2,False,1.01,-6.7,15.64
+HUM,Humana,96,False,🟡 Turning Up,C,402.72,462.87,-13.0,False,0.98,8.2,15.59
+WDC,Western Digital,96,False,🟢 Bullish,E,273.95,799.61,-65.74,False,0.71,-17.0,15.14
+VLO,Valero Energy,95,False,🔴 Bearish,C,324.67,461.52,-29.65,False,1.05,-39.9,13.59
+CRWD,CrowdStrike,95,False,🔴 Bearish,C,210.86,286.99,-26.53,False,0.94,71.9,14.27
+LITE,Lumentum,95,False,🟡 Turning Up,D,487.12,1143.0,-57.38,False,0.85,-7.4,14.51
+BE,Bloom Energy,95,False,🟡 Turning Up,E,156.41,351.28,-55.47,False,0.71,-21.6,13.91
+PSX,Phillips 66,95,False,🟡 Turning Up,E,236.95,297.86,-20.45,False,0.66,0.0,13.28
+BIIB,Biogen,94,True,🟢 Bullish Cross,B,269.11,269.85,-0.27,True,1.19,12.6,12.71
+DLTR,Dollar Tree,94,True,🟢 Bullish Cross,B,154.65,156.89,-1.43,True,1.17,168.2,13.02
+TXN,Texas Instruments,94,False,🔴 Bearish,C,258.44,330.71,-21.85,False,1.12,76.5,12.26
+BDX,Becton Dickinson,94,False,🟡 Turning Up,C,220.0,221.74,-0.78,True,1.05,18.3,12.61
+SWK,Stanley Black & Decker,94,False,🔴 Bearish,C,109.25,122.68,-10.95,True,0.93,8.1,13.09
+LUV,Southwest Airlines,93,False,🟡 Turning Up,A,45.79,54.38,-15.8,False,1.52,-30.9,11.58
+HAS,Hasbro,93,False,🔴 Bearish,B,112.24,123.88,-9.4,True,1.24,14.1,12.09
+RVTY,Revvity,93,False,🟡 Turning Up,C,153.17,171.74,-10.81,False,1.07,-36.1,12.13
+GILD,Gilead Sciences,93,True,🟡 Turning Up,C,178.29,179.67,-0.77,True,0.93,46.3,12.0
+ARM,Arm Holdings,93,False,🔴 Bearish,C,161.56,452.7,-64.31,False,0.93,-5.5,12.09
+TRGP,Targa Resources,93,False,🟡 Turning Up,D,283.17,316.6,-10.56,False,0.89,-4.0,11.46
+WMT,Walmart,92,False,🟡 Turning Up,B,132.31,134.84,-1.87,False,1.31,2.1,11.36
+HST,Host Hotels & Resorts,92,False,🟡 Turning Up,B,24.86,26.19,-5.08,True,1.24,-10.2,11.29
+CPAY,Corpay,92,True,🟡 Turning Up,C,447.91,479.53,-6.59,True,1.12,41.5,11.27
+DG,Dollar General,92,False,🟡 Turning Up,C,138.65,155.91,-11.07,True,1.1,34.2,11.29
+CBOE,Cboe Global Markets,91,False,🟡 Turning Up,B,362.52,379.76,-4.54,True,1.26,-40.4,10.93
+SWKS,Skyworks Solutions,91,False,🟡 Turning Up,C,80.95,93.24,-13.18,False,1.14,-30.3,11.17
+COP,ConocoPhillips,91,False,🟡 Turning Up,C,134.64,153.27,-12.16,False,0.97,-18.8,11.22
+BBY,Best Buy,91,False,🟡 Turning Up,C,99.62,106.83,-6.75,True,0.93,124.0,10.98
+NUE,Nucor,91,False,🟡 Turning Up,D,248.01,287.7,-13.8,False,0.86,-4.0,10.74
+RKLB,Rocket Lab,91,False,🔴 Bearish,D,45.98,151.0,-69.55,False,0.86,-23.8,11.22
+MAR,Marriott International,90,False,🟡 Turning Up,A,416.23,432.56,-3.77,True,1.44,-19.4,10.66
+AIZ,Assurant,90,False,🟡 Turning Up,A,322.64,326.99,-1.33,True,1.39,-22.9,10.35
+REGN,Regeneron Pharmaceuticals,90,True,🟡 Turning Up,C,987.09,990.72,-0.37,True,1.07,4.9,10.71
+MSI,Motorola Solutions,90,False,🔴 Bearish,C,530.08,548.29,-3.32,True,1.03,1.4,10.52
+CNC,Centene Corporation,90,False,🔴 Bearish,D,64.35,78.08,-17.58,False,0.85,-26.3,10.67
+WST,West Pharmaceutical Services,89,False,🔴 Bearish,C,388.75,437.99,-11.24,True,1.11,10.2,10.1
+CAH,Cardinal Health,89,False,🟡 Turning Up,C,279.65,286.29,-2.32,True,1.1,11.3,10.21
+LH,Labcorp,89,False,🟡 Turning Up,C,376.11,378.88,-0.73,True,1.05,-31.1,10.18
+DRI,Darden Restaurants,89,True,🟢 Bullish,C,240.2,240.74,-0.22,True,1.03,-19.9,10.02
+AMGN,Amgen,89,True,🟡 Turning Up,C,473.93,481.21,-1.51,True,0.99,7.9,10.03
+MAS,Masco,89,False,🟡 Turning Up,D,85.1,87.52,-2.77,True,0.89,-8.4,10.21
+ABBV,AbbVie,88,True,🟡 Turning Up,A,300.28,302.93,-0.87,True,1.59,15.8,9.76
+GNRC,Generac,88,False,🟢 Bullish,B,198.36,296.44,-33.09,False,1.23,-30.1,9.74
+GWW,W. W. Grainger,88,False,🔴 Bearish,B,1398.02,1518.78,-7.95,True,1.19,32.5,9.76
+EBAY,eBay Inc.,88,False,🔴 Bearish,C,113.77,127.74,-10.94,False,0.93,18.7,9.83
+ULTA,Ulta Beauty,88,False,🟡 Turning Up,D,641.0,714.97,-10.35,True,0.89,-9.8,9.9
+EG,Everest Group,87,False,🟡 Turning Up,B,427.86,437.77,-2.26,True,1.27,-29.5,9.73
+LLY,Lilly (Eli),87,True,🟡 Turning Up,C,1407.59,1475.25,-4.59,True,1.11,12.6,9.37
+ON,ON Semiconductor,87,False,🔴 Bearish,C,61.49,134.92,-54.42,False,1.09,40.6,9.5
+MCK,McKesson,87,False,🟡 Turning Up,C,1078.09,1121.5,-3.87,True,1.03,-19.4,9.52
+FTNT,Fortinet,87,False,🟢 Bullish,D,132.5,197.13,-32.79,False,0.78,3.2,9.66
+MO,Altria,86,False,🟡 Turning Up,C,74.82,79.97,-6.44,True,1.08,-3.8,9.34
+NXPI,NXP Semiconductors,86,False,🔴 Bearish,D,239.4,337.28,-29.02,False,0.87,27.5,9.33
+DGX,Quest Diagnostics,86,False,🟢 Bullish Cross,D,265.61,268.37,-1.03,True,0.87,-4.2,9.35
+BAX,Baxter International,86,True,🟢 Bullish Cross,D,26.98,29.99,-10.03,True,0.79,-9.0,9.34
+BEN,Franklin Resources,86,False,🔴 Bearish,E,33.39,36.79,-9.24,True,0.65,-15.2,9.36
+KDP,Keurig Dr Pepper,85,False,🟡 Turning Up,A,35.8,38.29,-6.5,True,1.43,-18.5,9.21
+KO,Coca-Cola Company (The),85,False,🟡 Turning Up,C,97.62,100.56,-2.92,True,1.13,18.3,8.84
+TRV,Travelers Companies (The),85,False,🟡 Turning Up,C,400.87,418.0,-4.1,True,1.13,-29.5,8.99
+CVX,Chevron Corporation,85,False,🟡 Turning Up,C,208.73,234.53,-11.0,False,0.99,-18.9,9.26
+ILMN,"Illumina, Inc.",85,False,🟡 Turning Up,E,204.52,309.35,-33.89,False,0.69,-49.7,9.19
+GRMN,Garmin,85,False,🟡 Turning Up,E,282.02,313.07,-9.92,False,0.6,-37.0,8.84
+PG,Procter & Gamble,84,False,🟡 Turning Up,A,172.47,173.59,-0.65,True,1.47,-8.7,8.45
+CCEP,Coca-Cola Europacific Partners,84,False,🟡 Turning Up,B,117.32,118.76,-1.22,True,1.32,-39.9,8.55
+CHD,Church & Dwight,84,False,🟡 Turning Up,B,112.32,115.46,-2.72,True,1.2,-20.7,8.65
+LMT,Lockheed Martin,84,False,🟡 Turning Up,C,586.63,683.27,-14.14,False,1.03,-10.3,8.34
+CF,CF Industries,84,False,🟡 Turning Up,C,116.74,140.98,-17.19,False,0.97,-24.9,8.25
+VLTO,Veralto,83,False,🟡 Turning Up,A,119.04,120.35,-1.09,True,1.75,42.4,8.01
+PTC,PTC Inc.,83,False,🟡 Turning Up,A,196.0,196.79,-0.4,True,1.7,-47.4,8.01
+XOM,ExxonMobil,83,False,🟡 Turning Up,B,158.23,187.32,-15.53,False,1.32,-14.8,8.18
+EOG,EOG Resources,83,False,🔴 Bearish,C,146.59,165.93,-11.66,False,1.11,83.6,8.07
+DD,DuPont,83,False,🟡 Turning Up,C,150.71,159.48,-5.5,False,0.97,13.6,8.22
+Q,Qnity Electronics,83,False,🔴 Bearish,D,109.4,177.16,-38.25,False,0.85,6.7,8.07
+EW,Edwards Lifesciences,82,True,🟡 Turning Up,A,106.12,108.0,-1.74,True,1.52,-14.7,7.92
+COST,Costco,82,False,🔴 Bearish,A,1091.71,1123.67,-2.84,True,1.37,3.9,7.9
+BALL,Ball Corporation,82,False,🟡 Turning Up,B,65.29,69.58,-6.17,True,1.16,-25.1,7.99
+ALLE,Allegion,82,False,🟡 Turning Up,C,189.96,195.42,-2.79,True,0.9,-38.6,7.92
+MTD,Mettler Toledo,81,False,🔴 Bearish,B,1704.0,1806.58,-5.68,True,1.28,-22.7,7.81
+NTAP,NetApp,81,False,🟡 Turning Up,C,163.0,240.87,-32.33,False,1.11,-11.9,7.88
+A,Agilent Technologies,81,True,🟢 Bullish Cross,C,183.52,188.99,-2.89,True,1.1,50.9,7.81
+AAPL,Apple Inc.,81,False,🟡 Turning Up,C,354.07,360.83,-1.87,True,1.01,-8.0,7.85
+LYV,Live Nation Entertainment,81,True,🟢 Bullish Cross,D,183.63,189.25,-2.97,True,0.89,10.4,7.82
+ABNB,Airbnb,81,False,🔴 Bearish,D,173.39,197.87,-12.37,True,0.85,-37.4,7.78
+HLT,Hilton Worldwide,80,False,🟡 Turning Up,B,364.32,381.34,-4.46,True,1.26,-8.5,7.64
+DAL,Delta Air Lines,80,False,🟡 Turning Up,C,84.5,95.18,-11.22,True,1.05,-39.3,7.71
+KIM,Kimco Realty,80,False,🟡 Turning Up,C,25.79,26.37,-2.2,True,0.95,-10.0,7.59
+CSX,CSX Corporation,80,False,🟡 Turning Up,D,50.08,53.45,-6.31,True,0.81,-11.9,7.63
+ECHO,EchoStar,79,False,🔴 Bearish,B,85.6,147.25,-41.87,False,1.16,9.2,7.51
+EXR,Extra Space Storage,79,False,🟡 Turning Up,C,158.88,163.18,-2.64,True,1.13,-35.5,7.39
+ADP,Automatic Data Processing,79,False,🟡 Turning Up,C,310.79,316.14,-1.69,True,1.08,1.9,7.49
+CB,Chubb Limited,79,False,🟡 Turning Up,C,375.37,384.26,-2.31,True,0.95,-16.4,7.45
+JNJ,Johnson & Johnson,79,False,🟡 Turning Up,D,276.46,290.25,-4.75,True,0.76,-12.9,7.51
+CL,Colgate-Palmolive,79,False,🟡 Turning Up,E,99.24,101.81,-2.52,True,0.72,-18.5,7.35
+VRSN,Verisign,78,False,🟡 Turning Up,A,317.25,323.78,-2.02,True,1.69,-20.4,7.18
+EXPD,Expeditors International,78,False,🟢 Bullish Cross,A,197.81,207.93,-4.87,True,1.53,-6.3,7.29
+CTAS,Cintas,78,False,🟡 Turning Up,B,225.76,232.93,-3.08,True,1.25,3.1,7.13
+ED,Consolidated Edison,78,False,🟡 Turning Up,C,119.55,122.0,-2.01,True,1.11,19.3,7.34
+FDX,FedEx,78,False,🔴 Bearish,D,308.29,342.73,-10.05,False,0.89,-40.2,7.19
+MET,MetLife,77,True,🟡 Turning Up,B,99.21,106.72,-7.04,True,1.32,-32.9,7.05
+KR,Kroger,77,False,🟡 Turning Up,B,70.12,75.24,-6.81,True,1.29,9.1,7.01
+SPG,Simon Property Group,77,False,🟡 Turning Up,B,229.83,237.27,-3.14,True,1.2,-14.0,7.06
+SJM,J.M. Smucker Company (The),77,False,🔴 Bearish,B,130.85,136.3,-4.0,True,1.17,113.5,7.09
+RCL,Royal Caribbean Group,77,False,🟡 Turning Up,D,318.27,350.59,-9.22,True,0.86,7.5,7.08
+TPR,"Tapestry, Inc.",77,False,🟡 Turning Up,D,128.92,164.18,-21.48,False,0.85,-14.4,7.08
+MRSH,Marsh McLennan,76,False,🟡 Turning Up,A,213.16,214.0,-0.39,True,1.39,-15.3,6.86
+V,Visa Inc.,76,True,🟡 Turning Up,C,416.78,441.41,-5.58,True,1.05,-8.6,6.94
+DIS,Walt Disney Company (The),76,True,🟢 Bullish,C,122.51,123.37,-0.7,True,1.03,24.4,6.86
+LIN,Linde plc,76,False,🟡 Turning Up,C,516.83,546.4,-5.41,True,0.99,13.5,6.88
+FLEX,Flex Ltd.,76,False,🟢 Bullish,E,66.44,166.86,-60.18,False,0.61,25.6,6.84
+FAST,Fastenal,75,False,🟡 Turning Up,C,52.27,56.27,-7.11,True,1.11,-26.9,6.68
+PPG,PPG Industries,75,False,🟡 Turning Up,C,121.42,130.22,-6.76,True,1.06,-26.7,6.63
+VRTX,Vertex Pharmaceuticals,75,True,🟡 Turning Up,C,563.92,568.67,-0.84,True,1.05,0.0,6.64
+RSG,Republic Services,75,False,🟡 Turning Up,C,252.15,256.79,-1.81,True,0.99,-2.1,6.68
+ALL,Allstate,75,False,🟡 Turning Up,D,270.39,281.11,-3.81,True,0.82,-38.9,6.83
+TSN,Tyson Foods,74,False,🟢 Bullish,B,63.42,68.26,-7.09,False,1.15,-13.3,6.38
+FTV,Fortive,74,False,🟡 Turning Up,C,65.77,68.94,-4.6,True,1.1,-23.7,6.52
+VEEV,Veeva Systems,74,False,🟡 Turning Up,C,273.62,325.99,-16.06,False,0.99,-6.5,6.34
+PSA,Public Storage,74,False,🟡 Turning Up,D,331.92,345.89,-4.04,True,0.84,-30.1,6.54
+CCL,Carnival Corporation,74,False,🟡 Turning Up,D,28.4,33.32,-14.77,False,0.81,-44.7,6.45
+TMO,Thermo Fisher Scientific,73,True,🟡 Turning Up,B,695.62,727.56,-4.39,True,1.32,-24.5,6.24
+UPS,United Parcel Service,73,False,🟡 Turning Up,C,110.83,115.16,-3.76,False,1.08,-4.8,6.32
+NDSN,Nordson Corporation,73,True,🟡 Turning Up,C,320.15,338.18,-5.33,False,1.05,-24.7,6.25
+MPWR,Monolithic Power Systems,73,False,🔴 Bearish,C,1190.16,1708.95,-30.36,False,0.94,37.9,6.2
+MRK,Merck & Co.,73,False,🟡 Turning Up,E,141.57,156.0,-9.25,False,0.71,43.6,6.24
+DXCM,Dexcom,72,False,🟢 Bullish,C,84.64,92.59,-8.59,True,1.05,-21.1,6.17
+CIEN,Ciena,72,False,🔴 Bearish,C,239.27,637.51,-62.47,False,0.97,-0.2,6.16
+KEYS,Keysight Technologies,72,False,🟢 Bullish,C,272.22,389.93,-30.19,False,0.94,8.5,6.11
+CDW,CDW Corporation,72,False,🔴 Bearish,D,164.16,175.19,-6.3,True,0.88,-20.6,6.11
+GPN,Global Payments,72,False,🟡 Turning Up,D,94.28,102.91,-8.39,True,0.8,30.1,6.12
+OMC,Omnicom Group,72,True,🟡 Turning Up,E,89.23,89.52,-0.32,True,0.74,-27.1,6.16
+WAB,Wabtec,71,False,🔴 Bearish,C,280.3,307.63,-8.88,False,1.05,-34.3,5.99
+COHR,Coherent Corp.,71,False,🟢 Bullish,C,196.24,440.0,-55.4,False,0.93,-18.9,6.0
+AJG,Arthur J. Gallagher & Co.,71,False,🟡 Turning Up,D,286.82,294.53,-2.62,True,0.83,-14.7,6.08
+DOW,Dow Inc.,71,False,🟡 Turning Up,D,28.95,41.82,-30.78,False,0.81,-24.2,5.94
+IDXX,Idexx Laboratories,70,False,🟡 Turning Up,A,712.08,769.98,-7.52,True,1.58,11.1,5.88
+MA,Mastercard,70,False,🟡 Turning Up,C,647.44,681.99,-5.07,True,1.09,-16.0,5.93
+DVA,DaVita,70,False,🟡 Turning Up,C,164.17,247.49,-33.67,False,1.03,-8.1,5.84
+PWR,Quanta Services,70,False,🟢 Bullish,C,589.64,788.49,-25.22,False,0.97,18.9,5.93
+MDLZ,Mondelez International,70,False,🟡 Turning Up,D,67.01,68.92,-2.77,True,0.82,-1.7,5.89
+AWK,American Water Works,70,False,🟡 Turning Up,D,150.4,152.77,-1.55,True,0.78,-6.4,5.86
+BRK-B,Berkshire Hathaway,69,False,🟡 Turning Up,A,577.21,596.92,-3.3,True,1.69,-18.8,5.7
+FDS,FactSet,69,False,🟡 Turning Up,B,320.72,348.0,-7.84,True,1.24,-47.1,5.76
+WM,Waste Management,69,False,🟡 Turning Up,B,244.71,247.4,-1.09,False,1.23,-19.1,5.67
+ACGL,Arch Capital Group,69,False,🟡 Turning Up,C,109.69,113.63,-3.47,True,1.13,-54.4,5.7
+ROP,Roper Technologies,69,False,🟡 Turning Up,D,476.48,507.24,-6.06,True,0.86,-5.3,5.72
+TWLO,Twilio,68,False,🟡 Turning Up,B,180.61,308.4,-41.44,False,1.32,-64.5,5.56
+TDY,Teledyne Technologies,68,False,🟡 Turning Up,B,622.25,697.67,-10.81,False,1.2,-42.4,5.45
+CME,CME Group,68,False,🟡 Turning Up,C,309.25,321.39,-3.78,True,1.12,-16.4,5.5
+QCOM,Qualcomm,68,False,🟡 Turning Up,C,164.96,257.56,-35.95,False,1.06,0.8,5.42
+NDAQ,"Nasdaq, Inc.",68,False,🟡 Turning Up,C,106.42,111.45,-4.51,True,0.96,2.6,5.45
+PFG,Principal Financial Group,68,False,🟡 Turning Up,D,108.7,121.18,-10.3,False,0.85,-23.9,5.57
+MSCI,MSCI,67,False,🟡 Turning Up,B,633.92,678.9,-6.63,True,1.25,-42.3,5.31
+IEX,IDEX Corporation,67,False,🟡 Turning Up,B,225.77,243.03,-7.1,False,1.17,58.5,5.41
+CINF,Cincinnati Financial,67,False,🟡 Turning Up,C,190.31,195.72,-2.76,True,0.95,-30.7,5.27
+ZBH,Zimmer Biomet,67,True,🟡 Turning Up,C,108.99,112.55,-3.16,True,0.93,47.7,5.34
+STLD,Steel Dynamics,67,False,🟡 Turning Up,D,215.23,287.4,-25.11,False,0.79,9.0,5.41
+ACN,Accenture,66,False,🟡 Turning Up,A,232.32,282.94,-17.89,False,1.56,-47.0,5.24
+URI,United Rentals,66,False,🟡 Turning Up,C,1029.68,1200.02,-14.19,False,1.06,6.6,5.12
+WAT,Waters Corporation,66,True,🟡 Turning Up,C,462.17,483.33,-4.38,True,1.04,-1.6,5.23
+ROST,Ross Stores,66,False,🟡 Turning Up,D,226.18,256.5,-11.82,False,0.87,36.6,5.2
+BMY,Bristol Myers Squibb,66,False,🟡 Turning Up,D,62.02,67.94,-8.71,True,0.82,-2.9,5.26
+EL,Estée Lauder Companies (The),65,False,🟡 Turning Up,C,108.13,120.38,-10.18,True,1.09,10.9,5.05
+EQIX,Equinix,65,False,🔴 Bearish,C,982.77,1113.08,-11.71,False,1.08,-14.3,5.08
+DE,Deere & Company,65,False,🔴 Bearish,D,613.76,719.5,-14.7,False,0.86,76.3,5.1
+TER,Teradyne,65,False,🟢 Bullish,D,213.22,487.41,-56.25,False,0.76,21.8,5.11
+STT,State Street Corporation,65,False,🟡 Turning Up,E,160.85,194.9,-17.47,False,0.67,-23.6,5.04
+EVRG,Evergy,64,False,🟡 Turning Up,A,87.21,88.95,-1.96,True,1.64,-39.7,5.0
+RL,Ralph Lauren Corporation,64,False,🟡 Turning Up,B,397.39,419.38,-5.24,True,1.27,-21.7,4.8
+IFF,International Flavors & Fragrances,64,False,🟡 Turning Up,C,85.32,95.27,-10.44,False,0.92,9.8,4.79
+SBUX,Starbucks,64,False,🟡 Turning Up,D,106.38,110.85,-4.03,True,0.88,-3.8,4.97
+BNY,BNY Mellon,64,False,🟡 Turning Up,D,145.22,165.12,-12.05,False,0.76,-23.4,4.75
+SLB,Schlumberger,64,False,🟡 Turning Up,E,46.99,60.15,-21.88,False,0.73,-24.7,4.9
+UNP,Union Pacific Corporation,63,False,🟡 Turning Up,C,290.83,314.53,-7.54,True,1.06,-1.1,4.68
+WELL,Welltower,63,False,🟡 Turning Up,C,245.14,253.37,-3.25,True,1.03,-13.8,4.63
+GEHC,GE HealthCare,63,False,🟡 Turning Up,C,82.52,89.59,-7.89,True,0.98,-40.3,4.63
+ECL,Ecolab,63,False,🟡 Turning Up,D,307.14,318.93,-3.7,True,0.88,-1.1,4.63
+HPQ,HP Inc.,63,False,🔴 Bearish,D,27.94,36.23,-22.88,False,0.81,93.9,4.74
+WEC,WEC Energy Group,62,False,🟡 Turning Up,C,118.12,119.18,-0.89,False,1.1,-29.1,4.47
+PNW,Pinnacle West Capital,62,False,🟡 Turning Up,C,102.15,109.2,-6.46,True,1.09,-15.0,4.6
+AFL,Aflac,62,False,🟡 Turning Up,C,125.78,130.56,-3.66,True,0.99,-13.4,4.56
+APD,Air Products,62,False,🟡 Turning Up,C,308.58,324.0,-4.76,True,0.91,-25.2,4.5
+ICE,Intercontinental Exchange,62,False,🟡 Turning Up,D,174.89,181.38,-3.58,True,0.87,-15.9,4.57
+OXY,Occidental Petroleum,61,False,🟡 Turning Up,B,53.38,66.83,-20.13,False,1.26,-4.2,4.37
+PKG,Packaging Corporation of America,61,False,🟡 Turning Up,C,240.99,262.59,-8.23,False,1.12,66.0,4.41
+EMR,Emerson Electric,61,False,🟡 Turning Up,C,156.98,171.39,-8.41,False,1.01,-2.6,4.35
+YUM,Yum! Brands,61,False,🟡 Turning Up,C,166.33,169.29,-1.75,False,1.0,-35.1,4.37
+KMI,Kinder Morgan,61,False,🟡 Turning Up,D,31.08,34.44,-9.77,False,0.88,-23.3,4.38
+DUK,Duke Energy,60,False,🟡 Turning Up,C,130.96,131.97,-0.77,False,1.13,-19.8,4.12
+WRB,W. R. Berkley Corporation,60,False,🟢 Bullish,C,78.72,79.7,-1.23,True,1.08,-57.5,4.25
+ANET,Arista Networks,60,False,🔴 Bearish,C,168.56,217.41,-22.47,False,0.97,3.9,4.11
+GLW,Corning Inc.,60,False,🟡 Turning Up,D,101.87,270.63,-62.36,False,0.85,-2.2,4.14
+AVY,Avery Dennison,60,False,🟡 Turning Up,D,187.65,196.15,-4.33,True,0.82,-23.1,4.15
+VZ,Verizon,60,False,🟢 Bullish,D,47.16,50.88,-7.31,False,0.82,-30.1,4.14
+ITW,Illinois Tool Works,59,False,🟡 Turning Up,C,283.75,299.98,-5.41,True,1.13,-17.7,4.1
+PGR,Progressive Corporation,59,False,🟡 Turning Up,C,235.68,241.02,-2.22,True,1.11,-25.7,4.0
+TECH,Bio-Techne,59,False,🟡 Turning Up,C,72.81,72.89,-0.11,True,0.98,-7.6,3.98
+PFE,Pfizer,59,False,🟡 Turning Up,C,28.46,30.99,-8.16,False,0.97,-8.7,4.07
+ODFL,Old Dominion,59,False,🟢 Bullish,C,169.57,251.64,-32.61,False,0.94,-14.1,3.99
+ES,Eversource Energy,58,False,🟢 Bullish,A,72.66,75.68,-3.99,False,1.35,-3.3,3.84
+NI,NiSource,58,False,🟡 Turning Up,B,45.13,48.55,-7.05,False,1.18,-45.5,3.96
+J,Jacobs Solutions,58,False,🔴 Bearish,C,151.98,162.0,-6.19,True,1.0,40.2,3.86
+JBHT,J.B. Hunt,58,False,🟢 Bullish,C,223.47,298.64,-25.17,False,0.96,-6.5,3.88
+ZBRA,Zebra Technologies,58,False,🟡 Turning Up,D,314.97,392.78,-19.81,False,0.81,-17.0,3.97
+HON,Honeywell Technologies,57,False,🟡 Turning Up,B,224.82,257.28,-12.62,False,1.22,13.0,3.79
+NTRS,Northern Trust,57,False,🔴 Bearish,B,165.94,194.86,-14.84,False,1.18,-38.8,3.83
+ALGN,Align Technology,57,False,🟡 Turning Up,C,164.91,200.44,-17.73,False,0.99,-23.6,3.83
+CSCO,Cisco,57,False,🟡 Turning Up,D,93.99,129.38,-27.35,False,0.83,3.0,3.75
+HRL,Hormel Foods,57,False,🟢 Bullish,D,23.27,26.03,-10.6,False,0.82,25.8,3.83
+AES,AES Corporation,56,False,🟢 Bullish,A,15.02,17.03,-11.79,True,1.67,-0.6,3.65
+BF-B,Brown–Forman,56,False,🟡 Turning Up,C,29.89,31.64,-5.53,True,1.03,-17.3,3.73
+JCI,Johnson Controls,56,False,🟡 Turning Up,C,137.04,160.41,-14.57,False,0.99,9.9,3.67
+PM,Philip Morris International,56,False,🟡 Turning Up,C,183.95,214.35,-14.18,False,0.96,28.8,3.73
+WTW,Willis Towers Watson,56,False,🟢 Bullish Cross,D,346.76,350.34,-1.02,True,0.76,8.6,3.72
+ASML,ASML Holding,56,False,🟡 Turning Up,E,1336.06,1994.75,-33.02,False,0.74,-1.9,3.69
+AEE,Ameren,55,False,🟡 Turning Up,B,113.38,117.49,-3.5,False,1.28,-35.6,3.61
+AIG,American International Group,55,False,🟡 Turning Up,C,81.24,85.64,-5.14,True,1.1,-39.6,3.59
+IRM,Iron Mountain,55,False,🔴 Bearish,C,106.04,133.64,-20.65,False,0.95,5.4,3.5
+ELV,Elevance Health,55,False,🟡 Turning Up,D,391.17,450.69,-13.21,False,0.75,-4.2,3.56
+USB,U.S. Bancorp,55,False,🟡 Turning Up,E,58.07,65.47,-11.3,False,0.73,-12.8,3.55
+ADI,Analog Devices,54,False,🔴 Bearish,C,312.95,444.56,-29.6,False,1.13,193.2,3.39
+MMM,3M,54,True,🟡 Turning Up,C,187.14,196.08,-4.56,True,0.91,2.7,3.49
+DOC,Healthpeak Properties,54,False,🟢 Bullish Cross,D,20.37,22.49,-9.41,True,0.87,1.3,3.43
+AMAT,Applied Materials,54,False,🔴 Bearish,D,323.76,737.77,-56.12,False,0.76,4.7,3.36
+INCY,Incyte,54,False,🟡 Turning Up,E,123.61,132.6,-6.78,True,0.59,-30.1,3.36
+LNT,Alliant Energy,53,False,🟡 Turning Up,C,72.58,77.62,-6.5,False,1.05,-24.1,3.32
+IQV,IQVIA,53,False,🟡 Turning Up,C,252.01,284.5,-11.42,False,0.98,50.5,3.34
+FITB,Fifth Third Bancorp,53,False,🟡 Turning Up,C,51.12,59.01,-13.37,False,0.91,-2.8,3.33
+LYB,LyondellBasell,53,False,🟡 Turning Up,D,55.62,82.22,-32.35,False,0.75,33.4,3.34
+FRT,Federal Realty Investment Trust,53,False,🟡 Turning Up,E,112.55,126.84,-11.26,False,0.69,-27.5,3.28
+OKE,Oneok,52,False,🟡 Turning Up,C,84.79,98.75,-14.14,False,1.11,-34.9,3.23
+SO,Southern Company,52,False,🟡 Turning Up,C,94.11,97.65,-3.62,False,1.0,-24.5,3.14
+HAL,Halliburton,52,False,🟡 Turning Up,C,30.9,43.2,-28.48,False,0.94,-16.5,3.22
+D,Dominion Energy,52,False,🟡 Turning Up,D,67.29,72.26,-6.88,False,0.88,-23.3,3.14
+AOS,A. O. Smith,52,False,🟡 Turning Up,D,65.95,80.43,-18.01,False,0.87,-27.2,3.2
+GEN,Gen Digital,52,False,🔴 Bearish,D,29.95,31.52,-4.98,True,0.85,-30.5,3.23
+CLX,Clorox,51,False,🔴 Bearish,B,106.82,124.03,-13.87,False,1.21,-30.9,2.99
+IR,Ingersoll Rand,51,False,🟡 Turning Up,C,82.93,100.86,-17.78,False,0.98,8.2,3.09
+LOW,Lowe's,51,False,🟡 Turning Up,E,231.04,288.04,-19.79,False,0.7,-16.3,2.95
+HCA,HCA Healthcare,51,False,🟡 Turning Up,E,481.77,553.56,-12.97,True,0.65,-19.7,2.96
+FFIV,"F5, Inc.",51,False,🟢 Bullish,E,316.87,483.3,-34.44,False,0.58,-48.8,3.05
+DOV,Dover Corporation,50,False,🟡 Turning Up,C,204.36,235.79,-13.33,False,1.05,-28.0,2.9
+GEV,GE Vernova,50,False,🔴 Bearish,C,720.65,1195.24,-39.71,False,0.95,8.3,2.78
+PRU,Prudential Financial,50,False,🔴 Bearish,C,119.14,128.78,-7.49,True,0.91,-18.7,2.87
+STZ,Constellation Brands,50,False,🔴 Bearish,D,137.33,164.86,-16.7,False,0.86,14.9,2.86
+ETR,Entergy,50,False,🔴 Bearish,E,105.95,117.03,-9.47,False,0.74,34.1,2.78
+LRCX,Lam Research,50,False,🟢 Bullish,E,196.16,438.03,-55.22,False,0.66,19.3,2.86
+FERG,Ferguson Enterprises,49,False,🟡 Turning Up,C,252.24,267.63,-5.75,False,1.07,-35.4,2.76
+HSIC,Henry Schein,49,True,🟡 Turning Up,C,87.51,92.18,-5.07,True,1.01,29.6,2.75
+CASY,Casey's,49,False,🔴 Bearish,D,687.02,926.27,-25.83,False,0.88,-39.4,2.66
+HD,Home Depot (The),49,False,🟡 Turning Up,D,353.69,389.18,-9.12,False,0.79,-16.0,2.73
+AEP,American Electric Power,48,False,🟡 Turning Up,B,127.3,138.46,-8.06,False,1.32,-29.2,2.55
+CMG,Chipotle Mexican Grill,48,False,🟢 Bullish,B,37.05,41.42,-10.55,False,1.3,-33.1,2.6
+JKHY,Jack Henry & Associates,48,False,🟡 Turning Up,C,177.34,191.13,-7.22,True,1.02,-36.2,2.58
+AMZN,Amazon,48,False,🔴 Bearish,D,252.29,287.2,-12.16,False,0.85,-22.3,2.55
+AMCR,Amcor,48,False,🟡 Turning Up,D,44.7,49.71,-10.08,True,0.83,3.9,2.56
+P,Everpure,47,False,🔴 Bearish,A,92.2,157.57,-41.49,False,1.99,-30.0,2.35
+WSM,"Williams-Sonoma, Inc.",47,False,🔴 Bearish,C,213.87,274.45,-22.07,False,1.02,4.5,2.41
+AMT,American Tower,47,False,🟡 Turning Up,C,182.83,202.5,-9.71,True,0.98,-36.9,2.45
+BLK,BlackRock,47,False,🟡 Turning Up,C,1146.03,1242.12,-7.74,True,0.96,-0.9,2.49
+STE,Steris,47,False,🔴 Bearish,D,259.48,266.68,-2.7,True,0.85,-11.1,2.49
+FANG,Diamondback Energy,47,False,🟡 Turning Up,E,176.1,215.49,-18.28,False,0.62,-31.8,2.37
+AME,Ametek,46,False,🔴 Bearish,A,227.48,260.78,-12.77,False,1.42,-15.8,2.17
+CCI,Crown Castle,46,False,🟡 Turning Up,C,82.71,93.5,-11.54,False,1.05,-54.8,2.31
+KHC,Kraft Heinz,46,False,🟢 Bullish,C,25.57,27.65,-7.52,True,1.04,-2.9,2.14
+APP,AppLovin,46,False,🔴 Bearish,D,381.11,738.01,-48.36,False,0.89,-19.8,2.15
+XYZ,"Block, Inc.",46,False,🟡 Turning Up,D,74.15,89.39,-17.05,False,0.87,-6.3,2.17
+EXC,Exelon,45,False,🟡 Turning Up,A,46.23,49.7,-6.99,False,1.75,-9.6,2.1
+VMRK,Vivmark Residential,45,False,🟡 Turning Up,B,64.64,70.66,-8.52,False,1.15,-25.4,2.06
+DDOG,Datadog,45,False,🟡 Turning Up,C,165.38,300.68,-45.0,False,0.93,-23.5,2.13
+REG,Regency Centers,45,False,🟡 Turning Up,D,74.94,82.82,-9.52,False,0.75,11.2,2.07
+NBIS,Nebius Group,45,False,🟡 Turning Up,E,87.31,299.86,-70.88,False,0.71,12.4,2.05
+DHR,Danaher Corporation,44,False,🟡 Turning Up,B,229.09,241.35,-5.08,True,1.15,-15.5,1.95
+RTX,RTX Corporation,44,False,🟡 Turning Up,C,195.33,225.56,-13.4,False,1.08,-7.6,1.98
+XEL,Xcel Energy,44,False,🟡 Turning Up,C,80.82,82.56,-2.11,False,0.99,-9.9,1.91
+GM,General Motors,44,False,🟡 Turning Up,D,82.32,93.7,-12.15,False,0.88,-38.0,1.94
+O,Realty Income,44,False,🟡 Turning Up,D,59.55,65.93,-9.68,False,0.84,-19.8,1.96
+COR,Cencora,44,False,🟡 Turning Up,D,349.68,374.62,-6.66,True,0.83,18.9,1.91
+FISV,Fiserv,43,False,🟡 Turning Up,C,58.62,70.41,-16.74,False,1.1,-25.3,1.84
+FE,FirstEnergy,43,False,🔴 Bearish,C,47.36,50.79,-6.75,False,1.06,-4.0,1.82
+SYY,Sysco,43,False,🟢 Bullish Cross,C,80.22,89.92,-10.79,False,0.93,-15.3,1.88
+SW,Smurfit Westrock,43,False,🟡 Turning Up,D,39.95,50.98,-21.64,False,0.81,9.4,1.81
+PHM,PulteGroup,42,False,🟡 Turning Up,C,130.23,143.57,-9.29,False,0.97,-20.3,1.78
+CMCSA,Comcast,42,False,🟡 Turning Up,D,25.38,31.56,-19.57,False,0.8,-14.9,1.78
+PNC,PNC Financial Services,42,False,🟡 Turning Up,D,218.62,256.6,-14.8,False,0.8,-32.7,1.77
+ESS,Essex Property Trust,42,False,🟢 Bullish,D,275.58,300.48,-8.29,True,0.78,-38.5,1.72
+TKO,TKO Group Holdings,42,False,🟡 Turning Up,D,189.45,224.23,-15.51,False,0.77,-15.4,1.7
+KMB,Kimberly-Clark,42,False,🟡 Turning Up,E,108.7,115.43,-5.83,True,0.74,-0.6,1.72
+CNP,CenterPoint Energy,41,False,🟡 Turning Up,C,40.26,44.72,-9.97,False,0.91,-47.2,1.65
+DVN,Devon Energy,41,False,🟡 Turning Up,D,41.33,52.28,-20.94,False,0.88,13.6,1.59
+BRO,Brown & Brown,41,False,🟢 Bullish Cross,D,76.01,81.75,-7.02,True,0.82,-22.7,1.62
+SHW,Sherwin-Williams,41,False,🟡 Turning Up,E,352.56,374.24,-5.79,True,0.74,-22.5,1.68
+MTB,M&T Bank,41,False,🟡 Turning Up,E,214.33,254.31,-15.72,False,0.66,-14.5,1.45
+MDT,Medtronic,40,False,🔴 Bearish,B,96.13,106.2,-9.48,True,1.2,1.8,1.37
+PEP,PepsiCo,40,False,🟡 Turning Up,C,142.68,166.41,-14.26,False,1.01,-5.3,1.36
+WMB,Williams Companies,40,False,🟡 Turning Up,C,66.0,78.92,-16.37,False,1.0,-13.1,1.38
+DTE,DTE Energy,40,False,🟡 Turning Up,C,137.7,154.34,-10.78,False,0.91,-35.3,1.41
+VTR,Ventas,40,False,🔴 Bearish,D,87.17,100.99,-13.69,False,0.85,40.2,1.42
+ERIE,Erie Indemnity,40,False,🟡 Turning Up,D,276.04,294.2,-6.17,True,0.78,-31.2,1.37
+UAL,United Airlines Holdings,39,False,🟡 Turning Up,C,107.8,138.77,-22.32,False,1.01,-5.6,1.21
+MSFT,Microsoft,39,False,🟡 Turning Up,C,496.13,558.07,-11.1,False,0.91,-10.6,1.26
+KEY,KeyCorp,39,False,🟡 Turning Up,D,19.97,23.84,-16.24,False,0.86,-20.4,1.25
+DECK,Deckers Brands,39,False,🟡 Turning Up,E,84.29,122.29,-31.07,False,0.71,-15.5,1.25
+NEM,Newmont,39,False,🟡 Turning Up,E,99.69,135.01,-26.16,False,0.7,9.5,1.34
+TYL,Tyler Technologies,38,False,🟡 Turning Up,C,412.49,473.31,-12.85,True,1.02,5.2,1.12
+NCLH,Norwegian Cruise Line Holdings,38,False,🟡 Turning Up,D,17.1,25.13,-31.95,False,0.87,-34.9,1.18
+NOC,Northrop Grumman,38,False,🟡 Turning Up,D,550.84,767.12,-28.19,False,0.84,-30.5,1.07
+RF,Regions Financial Corporation,38,False,🟡 Turning Up,D,27.51,32.14,-14.42,False,0.8,-18.0,1.1
+CFG,Citizens Financial Group,38,False,🟡 Turning Up,E,61.17,74.73,-18.15,False,0.71,-19.6,1.2
+ATO,Atmos Energy,37,False,🟡 Turning Up,C,171.73,189.05,-9.16,False,1.01,6.7,1.05
+DHI,D. R. Horton,37,False,🟡 Turning Up,D,152.17,169.71,-10.33,False,0.89,-22.2,1.05
+AMP,Ameriprise Financial,37,False,🟡 Turning Up,D,497.8,570.62,-12.76,False,0.88,-36.3,1.0
+PAYX,Paychex,37,False,🟡 Turning Up,D,115.08,126.69,-9.16,True,0.88,-32.8,1.03
+HII,Huntington Ingalls Industries,37,False,🟡 Turning Up,D,292.81,455.9,-35.77,False,0.8,-34.7,1.0
+GL,Globe Life,37,False,🟡 Turning Up,D,155.14,191.17,-18.85,False,0.75,-3.1,1.0
+NEE,NextEra Energy,36,False,🟡 Turning Up,C,84.58,97.3,-13.07,False,0.94,-39.0,0.9
+NSC,Norfolk Southern,36,False,🟡 Turning Up,C,318.24,355.72,-10.54,False,0.91,10.8,0.94
+TJX,TJX Companies,36,False,🟢 Bullish Cross,C,143.86,168.87,-14.81,False,0.9,-10.7,0.88
+IVZ,Invesco,36,False,🟢 Bullish,E,27.79,33.41,-16.81,False,0.71,-7.5,0.95
+FCX,Freeport-McMoRan,36,False,🟡 Turning Up,E,47.73,80.07,-40.39,False,0.53,46.8,0.96
+SPGI,S&P Global,35,False,🟡 Turning Up,C,455.17,518.88,-12.28,True,1.05,-20.0,0.8
+L,Loews Corporation,35,False,🟡 Turning Up,D,110.74,120.94,-8.44,False,0.88,11.3,0.77
+MNST,Monster Beverage,35,False,🔴 Bearish,D,42.17,50.17,-15.95,False,0.75,16.0,0.82
+UDR,"UDR, Inc.",35,False,🟡 Turning Up,D,36.17,41.18,-12.16,False,0.75,-50.7,0.73
+MCHP,Microchip Technology,35,False,🟡 Turning Up,E,56.36,103.89,-45.75,False,0.71,48.2,0.77
+ORLY,O'Reilly Automotive,34,False,🟢 Bullish,C,95.43,102.46,-6.86,False,1.12,-15.9,0.7
+OTIS,Otis Worldwide,34,False,🟡 Turning Up,C,78.3,92.9,-15.71,False,0.99,-38.1,0.71
+GE,GE Aerospace,34,False,🔴 Bearish,C,318.03,388.25,-18.09,False,0.95,-7.3,0.68
+HIG,Hartford (The),34,False,🟡 Turning Up,C,138.16,145.43,-5.0,False,0.9,-43.5,0.71
+RMD,ResMed,34,False,🟡 Turning Up,D,243.44,274.65,-11.37,True,0.86,-8.2,0.68
+MCD,McDonald's,34,False,🟡 Turning Up,D,280.7,335.18,-16.25,False,0.8,-28.6,0.71
+CMS,CMS Energy,33,False,🟡 Turning Up,A,71.01,78.46,-9.5,False,1.37,-26.7,0.62
+PPL,PPL Corporation,33,False,🟡 Turning Up,C,35.16,39.46,-10.9,False,1.04,-25.1,0.65
+VMC,Vulcan Materials Company,33,False,🟡 Turning Up,C,284.62,328.59,-13.38,False,1.04,-19.8,0.57
+TFC,Truist Financial,33,False,🟡 Turning Up,C,47.48,53.95,-11.99,False,0.96,-31.8,0.63
+EIX,Edison International,32,False,🟢 Bullish,C,62.22,80.3,-22.51,False,1.14,-41.8,0.48
+SOLV,Solventum,32,False,🟡 Turning Up,C,88.16,94.16,-6.37,True,1.06,-28.3,0.41
+TSLA,"Tesla, Inc.",32,False,🟡 Turning Up,C,384.68,498.83,-22.88,False,0.94,-22.9,0.54
+PH,Parker Hannifin,32,False,🟡 Turning Up,D,906.24,1095.44,-17.27,False,0.78,-16.4,0.42
+C,Citigroup,32,False,🟡 Turning Up,D,113.85,146.41,-22.24,False,0.77,-3.5,0.56
+FIX,Comfort Systems USA,32,False,🟢 Bullish,E,1096.56,2070.32,-47.03,False,0.74,-17.7,0.48
+VRSK,Verisk Analytics,31,False,🟡 Turning Up,B,203.97,225.48,-9.54,True,1.25,-49.3,0.3
+AZO,AutoZone,31,False,🟡 Turning Up,C,3355.69,3996.25,-16.03,False,1.01,-47.8,0.25
+TROW,T. Rowe Price,31,False,🔴 Bearish,C,103.09,120.5,-14.45,False,0.9,8.1,0.22
+FOXA,Fox Corporation (Class A),31,False,🟡 Turning Up,E,65.22,75.68,-13.82,True,0.49,-34.3,0.24
+RJF,Raymond James Financial,30,False,🟡 Turning Up,C,160.6,182.11,-11.81,True,0.91,-13.1,0.08
+KLAC,KLA Corporation,30,False,🔴 Bearish,D,133.65,306.56,-56.4,False,0.77,27.8,0.19
+UNH,UnitedHealth Group,30,False,🟡 Turning Up,D,341.88,458.79,-25.48,False,0.76,34.8,0.19
+IBKR,Interactive Brokers,30,False,🟡 Turning Up,E,74.71,98.66,-24.28,False,0.74,3.2,0.19
+CI,Cigna,30,False,🟡 Turning Up,E,275.0,318.05,-13.54,False,0.73,-1.8,0.16
+FOX,Fox Corporation (Class B),30,False,🟡 Turning Up,E,58.48,67.48,-13.33,True,0.67,3.0,0.16
+HSY,Hershey Company (The),29,False,🟢 Bullish,C,176.56,233.83,-24.49,False,1.02,-26.4,-0.06
+APH,Amphenol,29,False,🔴 Bearish,C,73.47,89.93,-18.3,False,0.93,18.5,-0.11
+SNA,Snap-on,29,False,🟡 Turning Up,C,357.62,417.18,-14.28,False,0.92,-27.4,0.06
+TXT,Textron,29,False,🟡 Turning Up,C,81.26,101.5,-19.94,False,0.9,-12.8,-0.16
+TEL,TE Connectivity,29,False,🟡 Turning Up,D,208.71,249.68,-16.41,False,0.79,-3.6,-0.15
+PEG,Public Service Enterprise Group,28,False,🟡 Turning Up,B,74.93,85.4,-12.26,False,1.2,-44.4,-0.41
+JBL,Jabil,28,False,🔴 Bearish,C,226.69,428.7,-47.12,False,1.1,-14.7,-0.35
+JPM,JPMorgan Chase,28,False,🟡 Turning Up,C,317.1,364.68,-13.05,False,1.0,-6.7,-0.25
+LHX,L3Harris,28,False,🟡 Turning Up,C,258.08,374.59,-31.1,False,0.99,-34.3,-0.2
+GD,General Dynamics,28,False,🟡 Turning Up,C,351.55,398.07,-11.69,False,0.91,-26.8,-0.3
+ADM,Archer Daniels Midland,28,False,🔴 Bearish,E,64.9,88.09,-26.32,False,0.59,115.6,-0.39
+AON,Aon plc,27,False,🟡 Turning Up,D,342.86,380.5,-9.89,False,0.87,-36.4,-0.51
+DPZ,Domino's,27,False,🟢 Bullish,D,356.52,434.73,-17.99,False,0.85,-35.7,-0.43
+MCO,Moody's Corporation,27,False,🟡 Turning Up,D,485.4,542.07,-10.45,True,0.85,-27.4,-0.5
+INVH,Invitation Homes,27,False,🟡 Turning Up,E,27.24,30.55,-10.83,False,0.65,6.8,-0.62
+SCHW,Charles Schwab Corporation,27,False,🟢 Bullish,E,93.91,114.13,-17.72,False,0.6,-8.9,-0.59
+DLR,Digital Realty,26,False,🔴 Bearish,B,165.32,206.06,-19.77,False,1.29,-14.1,-0.69
+TSCO,Tractor Supply,26,False,🟢 Bullish,C,39.45,54.85,-28.08,False,1.03,-3.3,-0.71
+META,Meta Platforms,26,False,🟡 Turning Up,C,589.82,779.82,-24.36,False,0.94,-43.8,-0.63
+CVS,CVS Health,26,False,🟡 Turning Up,D,80.69,109.22,-26.12,False,0.78,-10.4,-0.81
+FER,Ferrovial,26,False,🔴 Bearish,D,59.06,72.89,-18.97,False,0.78,7.8,-0.65
+WFC,Wells Fargo,25,False,🟡 Turning Up,B,81.19,95.61,-15.08,False,1.2,-20.9,-1.01
+ISRG,Intuitive Surgical,25,False,🟡 Turning Up,B,434.46,603.88,-28.06,False,1.19,4.9,-1.1
+PYPL,PayPal,25,False,🟡 Turning Up,C,56.17,63.37,-11.36,True,1.07,-20.8,-1.15
+GPC,Genuine Parts Company,25,False,🟡 Turning Up,D,121.27,147.43,-17.74,False,0.79,14.3,-0.97
+PLD,Prologis,25,False,🟡 Turning Up,E,127.32,152.14,-16.32,False,0.55,0.3,-1.04
+TRI,Thomson Reuters,24,False,🟡 Turning Up,B,107.23,130.18,-17.63,False,1.25,-15.3,-1.48
+AKAM,Akamai Technologies,24,False,🟢 Bullish,B,89.32,165.45,-46.01,False,1.18,-11.3,-1.66
+GDDY,GoDaddy,24,False,🟡 Turning Up,C,102.28,131.74,-22.36,False,1.11,-38.8,-1.66
+HUBB,Hubbell Incorporated,24,False,🟡 Turning Up,C,422.1,562.06,-24.9,False,1.0,-29.6,-1.48
+SNPS,Synopsys,24,False,🟡 Turning Up,C,414.82,539.48,-23.11,False,0.95,-47.9,-1.18
+PLTR,Palantir Technologies,23,False,🟡 Turning Up,C,161.18,212.94,-24.31,False,0.93,-14.3,-1.67
+CARR,Carrier Global,23,False,🟡 Turning Up,D,52.72,76.16,-30.78,False,0.79,36.4,-1.73
+EME,Emcor,23,False,🟢 Bullish,D,631.98,950.96,-33.54,False,0.78,-33.2,-1.68
+NWSA,News Corp (Class A),23,False,🟡 Turning Up,E,26.0,31.55,-17.6,False,0.72,-27.8,-1.98
+VICI,Vici Properties,23,False,🟡 Turning Up,E,24.77,28.95,-14.43,False,0.68,-26.2,-1.93
+PCAR,Paccar,23,False,🟢 Bullish,E,105.34,138.41,-23.89,False,0.53,-9.0,-1.82
+ROK,Rockwell Automation,22,False,🟡 Turning Up,C,381.83,494.05,-22.71,False,0.91,-3.3,-2.22
+BR,Broadridge Financial Solutions,22,False,🟡 Turning Up,D,184.74,228.65,-19.2,False,0.88,29.1,-2.21
+SYK,Stryker Corporation,22,False,🟡 Turning Up,D,324.08,386.02,-16.05,False,0.81,-35.2,-2.01
+VRT,Vertiv,22,False,🔴 Bearish,D,173.82,379.76,-54.23,False,0.78,-10.7,-2.21
+CPT,Camden Property Trust,22,False,🟡 Turning Up,D,97.84,118.52,-17.45,False,0.77,-6.5,-2.05
+CDNS,Cadence Design Systems,21,False,🟡 Turning Up,C,296.6,416.69,-28.82,False,1.1,-7.7,-2.55
+ARES,Ares Management,21,False,🟡 Turning Up,C,132.23,173.99,-24.0,False,0.96,-28.8,-2.45
+TT,Trane Technologies,21,False,🟡 Turning Up,C,404.49,504.68,-19.85,False,0.91,-28.0,-2.5
+HWM,Howmet Aerospace,21,False,🟢 Bullish,D,210.84,309.63,-31.91,False,0.83,-26.1,-2.31
+MS,Morgan Stanley,21,False,🔴 Bearish,E,168.79,229.58,-26.48,False,0.56,46.8,-2.52
+CHRW,C.H. Robinson,20,False,🟢 Bullish,C,140.53,209.43,-32.9,False,0.96,-48.5,-2.74
+WDAY,"Workday, Inc.",20,False,🟡 Turning Up,C,179.23,236.8,-24.31,False,0.96,71.5,-2.59
+MLM,Martin Marietta Materials,20,False,🟡 Turning Up,C,526.17,707.94,-25.68,False,0.95,27.7,-2.75
+TTWO,Take-Two Interactive,20,False,🟡 Turning Up,C,220.41,265.94,-17.12,False,0.93,70.5,-2.7
+ABT,Abbott Laboratories,20,False,🟡 Turning Up,D,105.39,126.7,-16.82,False,0.81,-18.3,-2.75
+UHS,Universal Health Services,19,False,🟡 Turning Up,C,183.2,245.26,-25.3,False,1.07,-41.1,-2.98
+SBAC,SBA Communications,19,False,🟡 Turning Up,D,172.57,220.13,-21.6,False,0.78,-41.6,-2.98
+F,Ford Motor Company,19,False,🟡 Turning Up,E,11.95,17.38,-31.24,False,0.72,37.3,-2.86
+NWS,News Corp (Class B),19,False,🟡 Turning Up,E,28.74,35.65,-19.4,False,0.72,11.0,-2.93
+TPL,Texas Pacific Land Corporation,19,False,🔴 Bearish,E,251.4,544.86,-53.86,False,0.7,159.9,-2.98
+APO,Apollo Global Management,19,False,🟡 Turning Up,E,119.84,150.66,-20.46,False,0.68,-6.4,-2.91
+T,AT&T,18,False,🟢 Bullish,C,22.88,28.43,-19.52,False,0.99,-10.2,-3.09
+PNR,Pentair,18,False,🟡 Turning Up,D,71.27,107.49,-33.7,False,0.88,-22.0,-3.14
+EFX,Equifax,18,False,🟡 Turning Up,D,182.67,226.62,-19.39,False,0.79,-30.0,-3.06
+HBAN,Huntington Bancshares,18,False,🟡 Turning Up,E,14.78,18.9,-21.82,False,0.6,-34.3,-3.04
+GS,Goldman Sachs,18,False,🔴 Bearish,E,806.02,1148.37,-29.81,False,0.54,26.2,-3.04
+ADSK,Autodesk,17,False,🟡 Turning Up,D,255.7,320.0,-20.09,False,0.85,44.6,-3.24
+CVNA,Carvana,17,False,🔴 Bearish,D,65.96,97.38,-32.26,False,0.81,-19.4,-3.31
+MGM,MGM Resorts,17,False,🟢 Bullish,D,34.32,51.59,-33.48,False,0.78,-36.7,-3.17
+WY,Weyerhaeuser,17,False,🟡 Turning Up,E,20.21,27.03,-25.23,False,0.73,-24.6,-3.54
+BXP,"BXP, Inc.",17,False,🟡 Turning Up,E,62.68,74.09,-15.4,False,0.72,-23.4,-3.27
+CTSH,Cognizant,16,False,🟡 Turning Up,C,60.98,85.04,-28.29,False,1.11,-11.0,-3.95
+CPRT,Copart,16,False,🟡 Turning Up,D,32.35,41.79,-22.59,False,0.78,15.8,-3.87
+EXPE,Expedia Group,16,False,🟡 Turning Up,E,239.26,340.83,-29.8,False,0.63,-53.2,-4.0
+SRE,Sempra,16,False,🟡 Turning Up,E,78.76,99.49,-20.83,False,0.62,13.9,-3.77
+MAA,Mid-America Apartment Communities,16,False,🟡 Turning Up,E,115.84,140.87,-17.77,False,0.56,9.2,-3.78
+CRH,CRH plc,15,False,🟡 Turning Up,C,93.66,129.55,-27.7,False,1.02,-17.5,-4.07
+IBM,IBM,15,False,🟡 Turning Up,C,235.62,327.83,-28.13,False,0.99,-39.2,-4.07
+PDD,PDD Holdings,15,False,🟢 Bullish,D,87.22,125.36,-30.42,False,0.83,29.9,-4.16
+BAC,Bank of America,15,False,🟡 Turning Up,D,48.56,64.9,-25.18,False,0.77,-5.7,-4.3
+AXP,American Express,15,False,🟡 Turning Up,D,308.63,383.18,-19.45,False,0.75,-27.5,-4.29
+EQT,EQT Corporation,15,False,🟡 Turning Up,E,49.37,67.62,-26.99,False,0.74,-3.1,-4.29
+ZTS,Zoetis,14,False,🟡 Turning Up,B,81.47,130.12,-37.39,False,1.16,-32.9,-4.47
+TDG,TransDigm Group,14,False,🔴 Bearish,C,1129.32,1463.03,-22.81,False,1.06,-34.0,-4.48
+SHOP,Shopify,14,False,🟡 Turning Up,D,132.31,180.88,-26.85,False,0.86,-38.7,-4.6
+ETN,Eaton Corporation,14,False,🔴 Bearish,D,319.27,476.54,-33.0,False,0.77,13.9,-4.62
+SYF,Synchrony Financial,14,False,🟡 Turning Up,E,67.91,87.28,-22.19,False,0.7,-26.6,-4.58
+TMUS,T-Mobile US,13,False,🟢 Bullish,A,167.3,221.19,-24.36,False,1.39,-2.8,-4.7
+PCG,PG&E Corporation,13,False,🟢 Bullish,C,14.22,18.97,-25.05,False,0.95,-33.2,-4.69
+BKR,Baker Hughes,13,False,🟡 Turning Up,D,45.89,69.59,-34.05,False,0.79,-31.3,-4.67
+BX,Blackstone Inc.,13,False,🟡 Turning Up,E,119.35,158.6,-24.75,False,0.72,-25.8,-4.95
+CAT,Caterpillar Inc.,13,False,🟢 Bullish Cross,E,540.63,1068.93,-49.42,False,0.64,5.4,-4.76
+IT,Gartner,12,False,🟡 Turning Up,C,180.08,256.9,-29.9,False,0.91,-16.8,-5.04
+GIS,General Mills,12,False,🟢 Bullish Cross,D,35.59,47.04,-24.35,False,0.81,-25.2,-5.1
+GOOGL,Alphabet Inc. (Class A),12,False,🟢 Bullish,D,279.05,408.1,-31.62,False,0.8,-0.7,-5.32
+CBRE,CBRE Group,12,False,🟡 Turning Up,E,133.48,174.27,-23.41,False,0.73,-9.4,-5.09
+BA,Boeing,12,False,🟡 Turning Up,E,163.59,254.35,-35.68,False,0.58,-39.7,-5.38
+BG,Bunge Global,11,False,🔴 Bearish,D,84.06,133.05,-36.82,False,0.84,106.9,-5.76
+CRM,Salesforce,11,False,🟡 Turning Up,D,193.26,267.8,-27.83,False,0.84,-1.7,-5.81
+GOOG,Alphabet Inc. (Class C),11,False,🟢 Bullish,D,276.58,403.96,-31.53,False,0.83,5.6,-5.56
+MKC,McCormick & Company,11,False,🟢 Bullish Cross,D,49.03,70.38,-30.33,False,0.83,-4.4,-5.74
+COF,Capital One,11,False,🟡 Turning Up,D,181.36,255.59,-29.04,False,0.8,-17.1,-5.59
+NVR,"NVR, Inc.",11,False,🟡 Turning Up,E,5868.8,8200.0,-28.43,False,0.62,33.1,-5.93
+ROL,"Rollins, Inc.",10,False,🔴 Bearish,C,38.07,65.06,-41.48,False,0.97,-44.0,-6.62
+IP,International Paper,10,False,🟡 Turning Up,D,30.62,47.82,-35.97,False,0.89,111.8,-6.71
+ARE,Alexandria Real Estate Equities,10,False,🟡 Turning Up,E,42.0,57.21,-26.58,False,0.71,-40.0,-6.52
+COO,Cooper Companies (The),10,False,🟡 Turning Up,E,61.32,89.83,-31.74,False,0.65,-37.2,-6.17
+MOS,Mosaic Company (The),10,False,🔴 Bearish,E,19.68,31.66,-37.83,False,0.62,-23.1,-6.1
+AVGO,Broadcom,9,False,🔴 Bearish,C,301.08,493.32,-38.97,False,0.93,14.8,-6.76
+KKR,KKR & Co.,9,False,🟡 Turning Up,D,93.09,143.72,-35.23,False,0.8,-5.5,-6.92
+CMI,Cummins,9,False,🟡 Turning Up,E,414.83,731.18,-43.27,False,0.68,10.1,-7.05
+DASH,DoorDash,9,False,🟡 Turning Up,E,160.13,239.0,-33.0,False,0.59,-6.0,-6.95
+NVDA,Nvidia,9,False,🟡 Turning Up,E,155.38,243.37,-36.15,False,0.55,93.6,-7.43
+LDOS,Leidos,8,False,🟡 Turning Up,C,128.37,203.11,-36.8,False,1.05,-11.6,-8.42
+LEN,Lennar,8,False,🟡 Turning Up,C,85.0,130.83,-35.03,False,0.97,-23.9,-7.44
+LII,Lennox International,8,False,🟢 Bullish Cross,D,341.92,585.05,-41.56,False,0.82,-25.4,-8.26
+CHTR,Charter Communications,8,False,🟢 Bullish,D,135.87,254.11,-46.53,False,0.77,-12.0,-7.57
+UBER,Uber,8,False,🔴 Bearish,E,64.7,92.78,-30.27,False,0.51,-9.1,-7.83
+VST,Vistra Corp.,7,False,🟡 Turning Up,C,120.72,181.76,-33.58,False,0.96,-32.9,-9.05
+ADBE,Adobe Inc.,7,False,🟡 Turning Up,D,232.08,362.71,-36.01,False,0.89,-13.3,-9.09
+EXE,Expand Energy,7,False,🟡 Turning Up,D,82.05,123.62,-33.63,False,0.8,-1.0,-9.09
+TRMB,Trimble Inc.,7,False,🟡 Turning Up,D,54.61,84.42,-35.31,False,0.79,21.4,-9.12
+WYNN,Wynn Resorts,7,False,🟢 Bullish,D,84.11,133.35,-36.93,False,0.75,-21.6,-9.66
+CEG,Constellation Energy,7,False,🔴 Bearish,E,244.84,378.52,-35.32,False,0.7,-10.6,-9.36
+XYL,Xylem Inc.,6,False,🟢 Bullish,D,95.18,144.93,-34.33,False,0.8,-14.7,-10.17
+LULU,Lululemon Athletica,6,False,🟡 Turning Up,E,106.05,225.98,-53.07,False,0.69,-19.9,-10.52
+NKE,"Nike, Inc.",6,False,🟡 Turning Up,E,35.75,67.36,-46.93,False,0.65,-10.7,-10.9
+MELI,Mercado Libre,6,False,🟡 Turning Up,E,1450.31,2342.0,-38.07,False,0.65,-18.2,-10.76
+BKNG,Booking Holdings,6,False,🟡 Turning Up,E,146.64,219.22,-33.11,False,0.62,-11.4,-9.67
+FSLR,First Solar,5,False,🟡 Turning Up,C,148.0,320.95,-53.89,False,0.96,-10.3,-12.28
+SMCI,Supermicro,5,False,🟡 Turning Up,D,22.62,51.4,-55.99,False,0.81,-7.0,-12.38
+CSGP,CoStar Group,5,False,🟢 Bullish Cross,E,32.64,70.57,-53.75,False,0.63,-3.8,-11.57
+LVS,Las Vegas Sands,5,False,🟡 Turning Up,E,39.61,68.67,-42.32,False,0.57,-47.4,-11.46
+ALB,Albemarle Corporation,5,False,🔴 Bearish,E,80.63,219.7,-63.3,False,0.53,-9.8,-11.99
+PODD,Insulet Corporation,4,False,🟡 Turning Up,B,140.63,342.13,-58.9,False,1.31,22.9,-14.03
+NRG,NRG Energy,4,False,🟢 Bullish,D,90.9,187.78,-51.59,False,0.82,8.0,-13.94
+CRWV,CoreWeave,4,False,🟢 Bullish,E,42.6,138.25,-69.18,False,0.72,4.8,-14.84
+ORCL,Oracle Corporation,4,False,🟡 Turning Up,E,109.5,248.46,-55.93,False,0.71,-40.1,-13.6
+AXON,Axon Enterprise,4,False,🟢 Bullish Cross,E,319.32,665.07,-51.99,False,0.58,31.2,-14.5
+INTU,Intuit,3,False,🟡 Turning Up,D,279.42,671.73,-58.4,False,0.8,3.6,-17.28
+BSX,Boston Scientific,3,False,🟡 Turning Up,E,44.14,101.91,-56.69,False,0.73,-4.3,-15.25
+NOW,ServiceNow,3,False,🟡 Turning Up,E,91.74,175.0,-47.58,False,0.69,-18.9,-14.89
+HOOD,Robinhood Markets,3,False,🟡 Turning Up,E,65.65,139.75,-53.02,False,0.62,-28.8,-15.09
+NFLX,Netflix,3,False,🟡 Turning Up,E,58.87,109.73,-46.35,False,0.6,-13.5,-15.39
+APTV,Aptiv,3,False,🟡 Turning Up,E,37.43,88.93,-57.91,False,0.53,3.0,-16.08
+SKYD,Skydance,2,False,🟡 Turning Up,D,6.5,15.76,-58.75,False,0.8,-53.1,-21.95
+ALNY,Alnylam Pharmaceuticals,2,False,🟢 Bullish,D,164.61,479.79,-65.69,False,0.75,27.2,-22.82
+FIS,Fidelity National Information Services,2,False,🟡 Turning Up,E,27.13,66.26,-59.05,False,0.66,-27.0,-21.17
+MSTR,MicroStrategy,2,False,🟡 Turning Up,E,77.55,198.4,-60.91,False,0.62,13.3,-21.07
+RDDT,Reddit,2,False,🟢 Bullish,E,90.34,263.5,-65.72,False,0.48,-32.0,-22.15
+FICO,Fair Isaac,1,False,🟢 Bullish,D,703.33,1858.91,-62.16,False,0.81,-16.7,-23.82
+COIN,Coinbase,1,False,🟡 Turning Up,E,102.35,284.74,-64.06,False,0.68,-19.6,-23.22
