@@ -1,35 +1,32 @@
 Ticker,Company,RS_Rating,Blue_Dot,MACD_Signal,Acc_Dist,Vol_vs_50D_Pct,EPS_YoY_Pct,Sales_YoY_Pct,Pattern,Price,Pivot_Buy,Pct_From_Pivot,Buy_Zone_Max,Stop_Loss_7.5Pct
-OKTA,"Okta, Inc.",99,—,🟢 Bullish Cross,A,-11.7,75.7,10.6,Extended / No Base,206.28,235.0,-12.22,246.75,217.38
-CRL,Charles River Laboratories,98,—,🟡 Turning Up,D,15.4,523.6,-2.2,Extended / No Base,338.26,379.63,-10.9,398.61,351.16
-TXN,Texas Instruments,97,—,🟡 Turning Up,B,58.8,77.0,27.7,Extended / No Base,291.19,317.2,-8.2,333.06,293.41
-VTRS,Viatris,97,—,🔴 Bearish,B,-3.2,-154.5,-0.3,Cup / Handle Base,19.65,21.2,-7.31,22.26,19.61
-TGT,Target Corporation,96,—,🟢 Bullish,C,6.0,75.5,,Cup / Handle Base,168.19,171.91,-2.16,180.51,159.02
-SWK,Stanley Black & Decker,95,—,🟡 Turning Up,C,9.8,438.2,-0.6,Cup / Handle Base,110.74,122.68,-9.73,128.81,113.48
-HAS,Hasbro,93,—,🔴 Bearish,B,49.2,68.9,15.0,Extended / No Base,113.53,123.88,-8.35,130.08,114.59
-HST,Host Hotels & Resorts,93,—,🟡 Turning Up,B,-30.0,-56.5,1.2,Cup / Handle Base (Vol Dry-Up),24.74,26.19,-5.54,27.5,24.23
-DG,Dollar General,93,—,🟡 Turning Up,C,8.1,33.3,5.2,Cup / Handle Base (Vol Dry-Up),134.18,144.61,-7.21,151.84,133.76
-BDX,Becton Dickinson,93,—,🔴 Bearish,C,64.1,-31.5,5.4,Extended / No Base,215.44,220.36,-2.23,231.38,203.83
-WST,West Pharmaceutical Services,92,—,🟡 Turning Up,C,-2.0,57.3,8.7,Cup / Handle Base (Vol Dry-Up),399.3,437.99,-8.83,459.89,405.14
-EBAY,eBay Inc.,92,—,🟡 Turning Up,C,-6.0,-17.9,13.7,Cup / Handle Base (Vol Dry-Up),117.64,127.74,-7.91,134.13,118.16
-MAR,Marriott International,91,—,🔴 Bearish,A,-13.0,13.9,8.0,Cup / Handle Base (Vol Dry-Up),415.63,432.56,-3.91,454.19,400.12
-BIIB,Biogen,91,—,🟡 Turning Up,B,6.8,-104.4,10.6,Cup / Handle Base (Vol Dry-Up),256.71,261.0,-1.64,274.05,241.43
-CPAY,Corpay,90,—,🔴 Bearish,C,19.1,44.8,17.9,Extended / No Base,439.61,479.53,-8.32,503.51,443.57
-MSI,Motorola Solutions,90,—,🔴 Bearish,C,10.5,-8.1,12.2,Cup / Handle Base,529.87,548.29,-3.36,575.7,507.17
-GILD,Gilead Sciences,90,—,🟡 Turning Up,C,6.7,-20.2,6.8,Cup / Handle Base (Vol Dry-Up),170.59,176.58,-3.39,185.41,163.34
-CBOE,Cboe Global Markets,89,—,🔴 Bearish,B,25.3,43.2,19.0,Extended / No Base,354.67,379.76,-6.61,398.75,351.28
-MAS,Masco,89,—,🟡 Turning Up,D,-20.9,30.0,2.6,Cup / Handle Base (Vol Dry-Up),85.15,87.52,-2.71,91.9,80.96
-AIZ,Assurant,88,—,🔴 Bearish,B,2.2,6.2,9.2,Cup / Handle Base (Vol Dry-Up),319.05,326.99,-2.43,343.34,302.47
-DLTR,Dollar Tree,88,—,🔴 Bearish,C,59.6,196.7,7.0,Cup / Handle Base (Vol Dry-Up),139.1,148.54,-6.36,155.97,137.4
-LH,Labcorp,88,—,🟡 Turning Up,C,-30.8,3.2,6.9,Cup / Handle Base (Vol Dry-Up),372.56,375.1,-0.68,393.86,346.97
-BBY,Best Buy,88,—,🔴 Bearish,D,147.1,70.1,3.6,Cup / Handle Base (Vol Dry-Up),97.0,106.83,-9.2,112.17,98.82
-PTC,PTC Inc.,87,—,🟡 Turning Up,A,-55.1,-51.0,-24.7,Extended / No Base,196.0,196.79,-0.4,206.63,182.03
-MTD,Mettler Toledo,87,—,🟡 Turning Up,B,-51.0,16.3,6.3,Extended / No Base,1725.52,1806.58,-4.49,1896.91,1671.09
-GWW,W. W. Grainger,87,—,🔴 Bearish,C,28.9,102.9,11.3,Cup / Handle Base,1390.12,1518.78,-8.47,1594.72,1404.87
-BEN,Franklin Resources,87,—,🔴 Bearish,E,-20.5,380.0,18.0,Cup / Handle Base (Vol Dry-Up),33.53,36.79,-8.86,38.63,34.03
-EG,Everest Group,86,—,🔴 Bearish,B,-19.3,0.5,-14.9,Cup / Handle Base (Vol Dry-Up),423.11,437.77,-3.35,459.66,404.94
-CDW,CDW Corporation,86,🔵 YES,🟡 Turning Up,C,-15.9,11.3,17.7,Extended / No Base,170.06,175.19,-2.93,183.95,162.05
-DGX,Quest Diagnostics,86,—,🟡 Turning Up,D,-9.9,28.7,10.0,Cup / Handle Base (Vol Dry-Up),263.12,264.49,-0.52,277.71,244.65
-CAH,Cardinal Health,85,—,🔴 Bearish,C,9.7,26.6,5.5,Cup / Handle Base (Vol Dry-Up),271.97,286.29,-5.0,300.6,264.82
-REGN,Regeneron Pharmaceuticals,85,—,🔴 Bearish,C,-10.6,35.5,36.3,Extended / No Base,942.24,990.72,-4.89,1040.26,916.42
-ULTA,Ulta Beauty,85,—,🔴 Bearish,D,-5.3,13.3,8.9,Extended / No Base,625.02,674.04,-7.27,707.74,623.49
-BAX,Baxter International,85,—,🟡 Turning Up,D,-41.0,733.3,5.0,Extended / No Base,26.59,27.09,-1.85,28.44,25.06
+VTRS,Viatris,98,🔵 YES,🔴 Bearish,B,-2.8,-154.5,-0.3,Extended / No Base,19.63,21.2,-7.41,22.26,19.61
+TGT,Target Corporation,97,🔵 YES,🟢 Bullish,C,68.2,75.5,,Extended / No Base,165.83,171.91,-3.54,180.51,159.02
+SWK,Stanley Black & Decker,95,—,🔴 Bearish,D,31.8,438.2,-0.6,Extended / No Base,106.62,122.68,-13.09,128.81,113.48
+CBOE,Cboe Global Markets,94,🔵 YES,🔴 Bearish,A,-10.9,43.2,19.0,Extended / No Base,357.71,379.76,-5.81,398.75,351.28
+HAS,Hasbro,94,🔵 YES,🔴 Bearish,B,0.9,68.9,15.0,Extended / No Base,112.41,123.88,-9.26,130.08,114.59
+BDX,Becton Dickinson,94,🔵 YES,🔴 Bearish,C,4.4,-31.5,5.4,Extended / No Base,212.78,220.36,-3.44,231.38,203.83
+WST,West Pharmaceutical Services,93,🔵 YES,🔴 Bearish,C,-6.0,57.3,8.7,Extended / No Base,390.3,437.99,-10.89,459.89,405.14
+BBY,Best Buy,93,🔵 YES,🔴 Bearish,C,-0.8,70.1,3.6,Extended / No Base,97.95,106.83,-8.31,112.17,98.82
+DLTR,Dollar Tree,92,—,🔴 Bearish,C,-0.1,196.7,7.0,Extended / No Base,137.96,148.54,-7.12,155.97,137.4
+EBAY,eBay Inc.,92,🔵 YES,🔴 Bearish,C,29.2,-17.9,13.7,Extended / No Base,115.59,127.74,-9.51,134.13,118.16
+BIIB,Biogen,91,🔵 YES,🔴 Bearish,C,-6.3,-104.4,10.6,Extended / No Base,249.59,261.0,-4.37,274.05,241.43
+HST,Host Hotels & Resorts,91,🔵 YES,🔴 Bearish,C,2.6,-56.5,1.2,Extended / No Base,24.1,26.19,-7.98,27.5,24.23
+MAR,Marriott International,90,🔵 YES,🔴 Bearish,A,27.8,13.9,8.0,Extended / No Base,406.64,432.56,-5.99,454.19,400.12
+AIZ,Assurant,90,🔵 YES,🔴 Bearish,B,-12.8,6.2,9.2,Extended / No Base,316.65,326.99,-3.16,343.34,302.47
+MO,Altria,90,🔵 YES,🔴 Bearish,C,26.1,7.1,3.6,Extended / No Base,74.87,79.97,-6.38,83.97,73.97
+MSI,Motorola Solutions,90,🔵 YES,🔴 Bearish,C,37.2,-8.1,12.2,Extended / No Base,520.21,548.29,-5.12,575.7,507.17
+PTC,PTC Inc.,89,🔵 YES,🟡 Turning Up,A,-14.3,-51.0,-24.7,Extended / No Base,195.1,196.79,-0.86,206.63,182.03
+EG,Everest Group,89,🔵 YES,🔴 Bearish,B,44.3,0.5,-14.9,Extended / No Base,421.98,437.77,-3.61,459.66,404.94
+LH,Labcorp,89,🔵 YES,🔴 Bearish,C,17.2,3.2,6.9,Extended / No Base,367.13,375.1,-2.12,393.86,346.97
+CPAY,Corpay,89,🔵 YES,🔴 Bearish,C,46.8,44.8,17.9,Extended / No Base,429.84,479.53,-10.36,503.51,443.57
+MAS,Masco,89,🔵 YES,🔴 Bearish,D,-21.7,30.0,2.6,Extended / No Base,82.6,87.52,-5.62,91.9,80.96
+CAH,Cardinal Health,88,🔵 YES,🔴 Bearish,B,8.8,26.6,5.5,Extended / No Base,272.81,286.29,-4.71,300.6,264.82
+MCK,McKesson,88,🔵 YES,🔴 Bearish,C,13.9,17.0,7.6,Extended / No Base,1069.43,1121.5,-4.64,1177.58,1037.39
+GWW,W. W. Grainger,88,—,🔴 Bearish,C,65.3,102.9,11.3,Extended / No Base,1357.35,1518.78,-10.63,1594.72,1404.87
+GILD,Gilead Sciences,88,🔵 YES,🔴 Bearish,C,22.0,-20.2,6.8,Extended / No Base,166.43,176.58,-5.75,185.41,163.34
+CHD,Church & Dwight,87,🔵 YES,🔴 Bearish,B,5.8,18.7,1.0,Extended / No Base,110.84,115.46,-4.0,121.23,106.8
+DGX,Quest Diagnostics,87,🔵 YES,🔴 Bearish,D,27.6,28.7,10.0,Extended / No Base,258.28,263.19,-1.87,276.35,243.45
+TRV,Travelers Companies (The),86,🔵 YES,🔴 Bearish,C,-7.1,9.7,-0.5,Extended / No Base,393.24,418.0,-5.92,438.9,386.65
+ULTA,Ulta Beauty,86,—,🔴 Bearish,D,18.3,13.3,8.9,Extended / No Base,615.74,674.04,-8.65,707.74,623.49
+KDP,Keurig Dr Pepper,85,🔵 YES,🟡 Turning Up,B,-5.1,20.4,70.6,Extended / No Base,34.84,38.29,-9.01,40.2,35.42
+KO,Coca-Cola Company (The),85,🔵 YES,🔴 Bearish,B,47.9,8.1,7.4,Extended / No Base,96.99,100.56,-3.55,105.59,93.02
