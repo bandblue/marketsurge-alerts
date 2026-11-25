@@ -1,16 +1,60 @@
+Python
+import io
+import os
 import numpy as np
 import pandas as pd
+import requests
 import yfinance as yf
 from scipy.signal import argrelextrema
 
-MIN_RS_RATING = 80
+MIN_PRICE = 15.0
+MIN_AVG_VOL_50D = 400_000
 MIN_ATR_PCT = 1.2
 SWING_ORDER = 5  # 5 trading days on each side to confirm a swing pivot
+BATCH_SIZE = 250
 
 
-def evaluate_hh_hl(symbol: str) -> dict | None:
-    df = yf.Ticker(symbol).history(period="1y")
-    if df.empty or len(df) < 210:
+def get_broad_universe() -> pd.DataFrame:
+    """
+    Fetches S&P 500, S&P MidCap 400, and S&P SmallCap 600 constituents (~1,500 US equities).
+    Falls back to marketsurge_rankings.csv if Wikipedia is unreachable.
+    """
+    headers = {"User-Agent": "Mozilla/5.0"}
+    sources = [
+        ("S&P 500", "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies", "Symbol", "Security"),
+        ("S&P 400", "https://en.wikipedia.org/wiki/List_of_S%26P_400_companies", "Symbol", "Security"),
+        ("S&P 600", "https://en.wikipedia.org/wiki/List_of_S%26P_600_companies", "Symbol", "Security"),
+    ]
+
+    frames = []
+    for index_name, url, sym_col, name_col in sources:
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            tables = pd.read_html(io.StringIO(resp.text))
+            df_idx = tables[0][[sym_col, name_col]].copy()
+            df_idx.columns = ["Ticker", "Company"]
+            df_idx["Index"] = index_name
+            df_idx["Ticker"] = df_idx["Ticker"].astype(str).str.strip().str.replace(".", "-", regex=False)
+            frames.append(df_idx)
+        except Exception as e:
+            print(f"Warning: Could not fetch {index_name}: {e}")
+
+    if frames:
+        universe = pd.concat(frames, ignore_index=True).drop_duplicates(subset=["Ticker"])
+        return universe
+
+    if os.path.exists("marketsurge_rankings.csv"):
+        df_ms = pd.read_csv("marketsurge_rankings.csv")[["Ticker", "Company"]].copy()
+        df_ms["Index"] = "MarketSurge Fallback"
+        return df_ms
+
+    raise RuntimeError("Unable to load any stock universe.")
+
+
+def evaluate_df(df: pd.DataFrame) -> dict | None:
+    df = df.dropna(subset=["Close", "High", "Low", "Volume"])
+    if len(df) < 210:
         return None
 
     close = df["Close"]
@@ -19,7 +63,8 @@ def evaluate_hh_hl(symbol: str) -> dict | None:
     volume = df["Volume"]
 
     last_close = float(close.iloc[-1])
-    if last_close < 15.0:
+    avg_vol_50d = float(volume.tail(50).mean())
+    if last_close < MIN_PRICE or avg_vol_50d < MIN_AVG_VOL_50D:
         return None
 
     # 1. Moving Average Stack: Close > 21 EMA > 50 SMA > 200 SMA
@@ -92,6 +137,7 @@ def evaluate_hh_hl(symbol: str) -> dict | None:
         "Setup_Type": setup_type,
         "ATR_Pct": atr_pct,
         "RSI_14": round(rsi14, 1),
+        "Avg_Vol_50D_K": round(avg_vol_50d / 1000, 0),
         "Price": round(last_close, 2),
         "EMA_21": round(ema21, 2),
         "Pct_From_EMA21": pct_from_ema21,
@@ -105,32 +151,60 @@ def evaluate_hh_hl(symbol: str) -> dict | None:
 
 
 def main():
-    df_rank = pd.read_csv("marketsurge_rankings.csv")
-    candidates = df_rank[(df_rank["Stage2_Trend"] == True) & (df_rank["RS_Rating"] >= MIN_RS_RATING)].copy()
-    print(f"Scanning {len(candidates)} Stage 2 candidates (RS >= {MIN_RS_RATING}) for Higher Highs & Higher Lows...\n")
+    universe = get_broad_universe()
+    tickers = universe["Ticker"].tolist()
+    meta_map = universe.set_index("Ticker").to_dict("index")
+
+    # Optional enrichment from marketsurge_rankings.csv if present
+    ms_map = {}
+    if os.path.exists("marketsurge_rankings.csv"):
+        df_ms = pd.read_csv("marketsurge_rankings.csv")
+        if "Ticker" in df_ms.columns:
+            ms_map = df_ms.set_index("Ticker").to_dict("index")
+
+    print(f"Scanning {len(tickers)} broad-market stocks (S&P 500 + 400 + 600) for Higher Highs & Higher Lows...\n")
 
     results = []
-    for _, row in candidates.iterrows():
-        ticker = str(row["Ticker"]).strip()
-        metrics = evaluate_hh_hl(ticker)
-        if metrics:
-            results.append({
-                "Ticker": ticker,
-                "Company": row["Company"] if "Company" in row else ticker,
-                "RS_Rating": row["RS_Rating"],
-                "Acc_Dist": row["Acc_Dist"] if "Acc_Dist" in row else "—",
-                **metrics,
-            })
+    for i in range(0, len(tickers), BATCH_SIZE):
+        batch = tickers[i : i + BATCH_SIZE]
+        data = yf.download(
+            batch,
+            period="1y",
+            interval="1d",
+            group_by="ticker",
+            progress=False,
+            threads=True,
+        )
+        if data.empty:
+            continue
+
+        for ticker in batch:
+            try:
+                t_df = data[ticker] if len(batch) > 1 else data
+            except KeyError:
+                continue
+
+            metrics = evaluate_df(t_df)
+            if metrics:
+                ms_info = ms_map.get(ticker, {})
+                u_info = meta_map.get(ticker, {})
+                results.append({
+                    "Ticker": ticker,
+                    "Company": u_info.get("Company", ticker),
+                    "Index": u_info.get("Index", "—"),
+                    "RS_Rating": ms_info.get("RS_Rating", "—"),
+                    "Acc_Dist": ms_info.get("Acc_Dist", "—"),
+                    **metrics,
+                })
 
     df_out = pd.DataFrame(results)
     if not df_out.empty:
-        # Sort actionable Pullback & Breakout entries to the top
         priority = {"PULLBACK_ENTRY (21 EMA)": 0, "BREAKOUT_READY (Swing High)": 1, "UPTREND_EXTENDED": 2}
         df_out["_sort"] = df_out["Setup_Type"].map(priority).fillna(2)
-        df_out = df_out.sort_values(["_sort", "RS_Rating"], ascending=[True, False]).drop(columns=["_sort"])
+        df_out = df_out.sort_values(["_sort", "RSI_14"], ascending=[True, False]).drop(columns=["_sort"])
 
     df_out.to_csv("marketsurge_hh_hl_setups.csv", index=False)
-    print(f"Saved {len(df_out)} Higher High / Higher Low setups to marketsurge_hh_hl_setups.csv.")
+    print(f"Saved {len(df_out)} Higher High / Higher Low setups across the broad market to marketsurge_hh_hl_setups.csv.")
 
 
 if __name__ == "__main__":
