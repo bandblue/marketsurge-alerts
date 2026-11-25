@@ -8,6 +8,7 @@ FOLDER_NAME = "MarketSurgeBot"
 FILES_TO_SYNC = [
     "marketsurge_actionable_setups.csv",
     "marketsurge_rankings.csv",
+    "marketsurge_hh_hl_setups.csv",
 ]
 
 def main():
