@@ -1,4 +1,3 @@
-Python
 import io
 import os
 import numpy as np
@@ -155,7 +154,6 @@ def main():
     tickers = universe["Ticker"].tolist()
     meta_map = universe.set_index("Ticker").to_dict("index")
 
-    # Optional enrichment from marketsurge_rankings.csv if present
     ms_map = {}
     if os.path.exists("marketsurge_rankings.csv"):
         df_ms = pd.read_csv("marketsurge_rankings.csv")
