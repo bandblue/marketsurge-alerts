@@ -1,116 +1,173 @@
-import os
 import json
+import os
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
+
 import pandas as pd
-import yfinance as yf
 import requests
+import yfinance as yf
 
-CSV_FILE = "marketsurge_actionable_setups.csv"
-STATE_FILE = "alerted_today.json"
-NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "").strip()
+WATCHLIST_FILE = "marketsurge_actionable_setups.csv"
+STATE_FILE = "alert_state.json"
 
-def is_market_open_et():
-    now_et = datetime.now(ZoneInfo("America/New_York"))
-    if now_et.weekday() >= 5:  # Saturday/Sunday
-        return False, now_et
-    market_start = time(9, 30)
-    market_end = time(16, 5)
-    return (market_start <= now_et.time() <= market_end), now_et
+# Alert thresholds
+EARLY_PROXIMITY_PCT = 0.02     # Within 2.0% below Pivot_Buy
+EARLY_VOL_PACE_MIN = 1.25      # +25% above expected intraday volume pace
+BREAKOUT_VOL_PACE_MIN = 1.40   # +40% above expected intraday volume pace
 
-def load_state(today_str):
+
+def get_market_progress() -> tuple[bool, float, str]:
+    """
+    Returns (is_market_open, fraction_of_session_elapsed, today_str_et).
+    Regular US equity hours: 9:30 AM - 4:00 PM ET (390 minutes).
+    """
+    et = ZoneInfo("America/New_York")
+    now_et = datetime.now(et)
+    today_str = now_et.strftime("%Y-%m-%d")
+
+    if now_et.weekday() >= 5:
+        return False, 0.0, today_str
+
+    market_open = datetime.combine(now_et.date(), time(9, 30), tzinfo=et)
+    market_close = datetime.combine(now_et.date(), time(16, 0), tzinfo=et)
+
+    if now_et < market_open or now_et > market_close:
+        return False, 0.0, today_str
+
+    elapsed_minutes = (now_et - market_open).total_seconds() / 60.0
+    # Clamp minimum to 15 minutes so opening 5-min spikes don't divide by near-zero
+    effective_minutes = max(elapsed_minutes, 15.0)
+    progress = min(effective_minutes / 390.0, 1.0)
+    return True, progress, today_str
+
+
+def load_state(today_str: str) -> dict:
     if os.path.exists(STATE_FILE):
         try:
-            with open(STATE_FILE, "r") as f:
+            with open(STATE_FILE, "r", encoding="utf-8") as f:
                 data = json.load(f)
             if data.get("date") == today_str:
-                return set(data.get("alerted", []))
-        except Exception:
+                return data
+        except (json.JSONDecodeError, OSError):
             pass
-    return set()
+    return {"date": today_str, "sent": []}
 
-def save_state(today_str, alerted_set):
-    with open(STATE_FILE, "w") as f:
-        json.dump({"date": today_str, "alerted": sorted(list(alerted_set))}, f)
 
-def send_ntfy(title, message, priority="high"):
-    if not NTFY_TOPIC:
-        print("NTFY_TOPIC secret not set; skipping push notification.")
-        return
-    url = f"https://ntfy.sh/{NTFY_TOPIC}"
+def save_state(state: dict) -> None:
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+
+
+def send_ntfy(topic: str, title: str, message: str, priority: str = "high", tags: str = "chart_with_upwards_trend") -> None:
+    url = f"https://ntfy.sh/{topic}"
     headers = {
         "Title": title,
         "Priority": priority,
-        "Tags": "chart_with_upwards_trend,rocket"
+        "Tags": tags,
     }
     resp = requests.post(url, data=message.encode("utf-8"), headers=headers, timeout=15)
     resp.raise_for_status()
 
-def check_breakouts():
-    open_now, now_et = is_market_open_et()
-    if not open_now:
-        print(f"[{now_et.strftime('%Y-%m-%d %H:%M %Z')}] Market closed. Exiting.")
+
+def main() -> None:
+    ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not ntfy_topic:
+        raise ValueError("Missing NTFY_TOPIC environment variable.")
+
+    is_open, session_progress, today_str = get_market_progress()
+    if not is_open:
+        print("Market is currently closed. Exiting.")
         return
 
-    if not os.path.exists(CSV_FILE):
-        print(f"Missing {CSV_FILE}. Exiting.")
+    if not os.path.exists(WATCHLIST_FILE):
+        print(f"{WATCHLIST_FILE} not found. Exiting.")
         return
 
-    df = pd.read_csv(CSV_FILE)
-    if df.empty or "Pivot_Buy" not in df.columns:
-        print("No actionable setups in CSV.")
+    df = pd.read_csv(WATCHLIST_FILE)
+    if df.empty:
+        print("Watchlist is empty. Exiting.")
         return
 
-    today_str = now_et.strftime("%Y-%m-%d")
-    alerted = load_state(today_str)
+    # Support either Pivot_Buy or 52W_High_Pivot column naming
+    pivot_col = "Pivot_Buy" if "Pivot_Buy" in df.columns else "52W_High_Pivot"
+    ticker_col = "Ticker" if "Ticker" in df.columns else "Symbol"
 
-    # Calculate fraction of trading day elapsed (390 total minutes from 9:30 to 16:00 ET)
-    mins_since_open = (now_et.hour * 60 + now_et.minute) - (9 * 60 + 30)
-    mins_since_open = max(5, min(390, mins_since_open))
-    day_fraction = mins_since_open / 390.0
+    state = load_state(today_str)
+    sent_keys = set(state.get("sent", []))
+    state_changed = False
+
+    tickers = df[ticker_col].dropna().astype(str).str.strip().unique().tolist()
+    hist = yf.download(tickers, period="60d", interval="1d", group_by="ticker", progress=False, threads=True)
 
     for _, row in df.iterrows():
-        ticker = str(row["Ticker"]).strip()
-        if ticker in alerted or pd.isna(row["Pivot_Buy"]):
+        ticker = str(row[ticker_col]).strip()
+        try:
+            pivot_buy = float(row[pivot_col])
+        except (ValueError, TypeError):
             continue
 
-        pivot = float(row["Pivot_Buy"])
-        buy_max = float(row.get("Buy_Zone_Max", pivot * 1.05))
-        stop_loss = float(row.get("Stop_Loss_7.5Pct", pivot * 0.925))
+        if pivot_buy <= 0:
+            continue
 
         try:
-            hist = yf.Ticker(ticker).history(period="3mo")
-            if len(hist) < 20:
-                continue
+            t_df = hist[ticker].dropna() if len(tickers) > 1 else hist.dropna()
+        except KeyError:
+            continue
 
-            live_price = float(hist["Close"].iloc[-1])
-            today_vol = float(hist["Volume"].iloc[-1])
-            avg_vol_50 = float(hist["Volume"].iloc[:-1].tail(50).mean())
+        if len(t_df) < 22:
+            continue
 
-            if avg_vol_50 <= 0:
-                continue
+        # Latest bar is today's live daily candle; prior bars are historical sessions
+        today_bar = t_df.iloc[-1]
+        prior_bars = t_df.iloc[:-1]
 
-            # Project full-day volume pace vs 50-day average
-            projected_vol = today_vol / day_fraction
-            vol_pace_pct = ((projected_vol - avg_vol_50) / avg_vol_50) * 100
+        last_price = float(today_bar["Close"])
+        today_vol = float(today_bar["Volume"])
+        prior_high = float(prior_bars["High"].iloc[-1])
+        avg_vol_50d = float(prior_bars["Volume"].tail(50).mean())
 
-            # Trigger when price crosses Pivot (within 5% buy zone) AND volume pace >= +40%
-            if pivot <= live_price <= buy_max and vol_pace_pct >= 40.0:
+        if avg_vol_50d <= 0:
+            continue
+
+        expected_vol = avg_vol_50d * session_progress
+        vol_pace = today_vol / expected_vol if expected_vol > 0 else 0.0
+        vol_pct_change = (vol_pace - 1.0) * 100.0
+        pct_from_pivot = ((last_price - pivot_buy) / pivot_buy) * 100.0
+
+        early_floor = pivot_buy * (1.0 - EARLY_PROXIMITY_PCT)
+
+        # --- TIER 2: Official Breakout Above Pivot_Buy ---
+        breakout_key = f"{ticker}_BREAKOUT"
+        if last_price >= pivot_buy and vol_pace >= BREAKOUT_VOL_PACE_MIN:
+            if breakout_key not in sent_keys:
+                title = f"BREAKOUT: {ticker} crossed ${pivot_buy:.2f}"
                 msg = (
-                    f"{ticker} broke above ${pivot:.2f} pivot!\n"
-                    f"Live Price: ${live_price:.2f} (Buy Zone up to ${buy_max:.2f})\n"
-                    f"Vol Pace: +{vol_pace_pct:.0f}% vs 50D Avg\n"
-                    f"7.5% Stop-Loss: ${stop_loss:.2f}"
+                    f"{ticker} is at ${last_price:.2f} ({pct_from_pivot:+.2f}% vs pivot ${pivot_buy:.2f}).\n"
+                    f"Vol Pace: {vol_pct_change:+.0f}% vs 50d avg | Prior High: ${prior_high:.2f}"
                 )
-                send_ntfy(f"CAN SLIM Breakout: {ticker}", msg)
-                print(f"ALERT SENT: {ticker} @ ${live_price:.2f} (Vol +{vol_pace_pct:.0f}%)")
-                alerted.add(ticker)
-            else:
-                print(f"{ticker}: ${live_price:.2f} (Pivot ${pivot:.2f}) | Vol Pace {vol_pace_pct:+.0f}%")
-        except Exception as e:
-            print(f"Error checking {ticker}: {e}")
+                send_ntfy(ntfy_topic, title, msg, priority="urgent", tags="rocket,chart_with_upwards_trend")
+                sent_keys.add(breakout_key)
+                state_changed = True
+                print(f"[SENT] {title}")
 
-    save_state(today_str, alerted)
+        # --- TIER 1: Early Cheat / Approaching Pivot ---
+        elif early_floor <= last_price < pivot_buy and last_price > prior_high and vol_pace >= EARLY_VOL_PACE_MIN:
+            early_key = f"{ticker}_APPROACHING"
+            if early_key not in sent_keys:
+                title = f"EARLY SETUP: {ticker} approaching ${pivot_buy:.2f}"
+                msg = (
+                    f"{ticker} at ${last_price:.2f} ({pct_from_pivot:+.2f}% below pivot ${pivot_buy:.2f}).\n"
+                    f"Cleared Prior High (${prior_high:.2f}) | Vol Pace: {vol_pct_change:+.0f}%"
+                )
+                send_ntfy(ntfy_topic, title, msg, priority="high", tags="eyes,chart_with_upwards_trend")
+                sent_keys.add(early_key)
+                state_changed = True
+                print(f"[SENT] {title}")
+
+    if state_changed:
+        state["sent"] = sorted(sent_keys)
+        save_state(state)
+
 
 if __name__ == "__main__":
-    check_breakouts()
+    main()
