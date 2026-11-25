@@ -1,0 +1,7 @@
+Ticker,Company,RS_Rating,Acc_Dist,Setup_Type,ATR_Pct,RSI_14,Price,EMA_21,Pct_From_EMA21,Prev_Swing_High,Last_Swing_High,Pct_From_SH2,Prev_Swing_Low,Last_Swing_Low_Stop,Risk_To_Stop_Pct
+TGT,Target Corporation,97,C,BREAKOUT_READY (Swing High),3.23,69.7,176.06,162.01,8.67,166.43,176.73,-0.38,144.3,156.14,11.31
+BIIB,Biogen,94,B,BREAKOUT_READY (Swing High),2.91,69.0,269.11,250.68,7.35,261.0,269.89,-0.29,240.0,243.58,9.49
+DLTR,Dollar Tree,94,B,BREAKOUT_READY (Swing High),3.9,68.5,154.65,137.79,12.24,148.54,156.99,-1.49,111.12,130.85,15.39
+DRI,Darden Restaurants,89,C,BREAKOUT_READY (Swing High),2.74,65.0,240.2,227.34,5.66,233.98,240.74,-0.22,210.96,225.01,6.32
+DGX,Quest Diagnostics,86,D,BREAKOUT_READY (Swing High),2.19,68.7,265.61,255.62,3.91,247.92,268.37,-1.03,223.5,253.15,4.69
+BAX,Baxter International,86,D,BREAKOUT_READY (Swing High),3.71,61.1,26.98,25.71,4.95,27.09,27.31,-1.21,22.5,24.85,7.89
