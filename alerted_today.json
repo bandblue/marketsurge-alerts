@@ -1,1 +1,7 @@
-{"date": "2026-11-24", "alerted": ["BIIB", "DLTR", "GILD", "TGT"]}
+{
+  "date": "2026-11-25",
+  "sent": [
+    "AIZ_APPROACHING",
+    "DGX_APPROACHING"
+  ]
+}
