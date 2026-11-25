@@ -10,17 +10,12 @@ import yfinance as yf
 WATCHLIST_FILE = "marketsurge_actionable_setups.csv"
 STATE_FILE = "alerted_today.json"
 
-# Alert thresholds
 EARLY_PROXIMITY_PCT = 0.02     # Within 2.0% below Pivot_Buy
 EARLY_VOL_PACE_MIN = 1.25      # +25% above expected intraday volume pace
 BREAKOUT_VOL_PACE_MIN = 1.40   # +40% above expected intraday volume pace
 
 
 def get_market_progress() -> tuple[bool, float, str]:
-    """
-    Returns (is_market_open, fraction_of_session_elapsed, today_str_et).
-    Regular US equity hours: 9:30 AM - 4:00 PM ET (390 minutes).
-    """
     et = ZoneInfo("America/New_York")
     now_et = datetime.now(et)
     today_str = now_et.strftime("%Y-%m-%d")
@@ -59,13 +54,17 @@ def save_state(state: dict) -> None:
 
 def send_ntfy(topic: str, title: str, message: str, priority: str = "high", tags: str = "chart_with_upwards_trend") -> None:
     url = f"https://ntfy.sh/{topic}"
-    headers = {
-        "Title": title,
-        "Priority": priority,
-        "Tags": tags,
-    }
+    headers = {"Title": title, "Priority": priority, "Tags": tags}
     resp = requests.post(url, data=message.encode("utf-8"), headers=headers, timeout=15)
     resp.raise_for_status()
+
+
+def format_alert_status(ticker: str, sent_keys: set[str]) -> str:
+    if f"{ticker}_BREAKOUT" in sent_keys:
+        return "🚀 TIER 2: BREAKOUT"
+    if f"{ticker}_APPROACHING" in sent_keys:
+        return "👀 TIER 1: EARLY SETUP"
+    return "⏳ Watching"
 
 
 def main() -> None:
@@ -130,10 +129,9 @@ def main() -> None:
         vol_pace = today_vol / expected_vol if expected_vol > 0 else 0.0
         vol_pct_change = (vol_pace - 1.0) * 100.0
         pct_from_pivot = ((last_price - pivot_buy) / pivot_buy) * 100.0
-
         early_floor = pivot_buy * (1.0 - EARLY_PROXIMITY_PCT)
 
-        # --- TIER 2: Official Breakout Above Pivot_Buy ---
+        # TIER 2: Official Breakout Above Pivot_Buy
         breakout_key = f"{ticker}_BREAKOUT"
         if last_price >= pivot_buy and vol_pace >= BREAKOUT_VOL_PACE_MIN:
             if breakout_key not in sent_keys:
@@ -147,7 +145,7 @@ def main() -> None:
                 state_changed = True
                 print(f"[SENT] {title}")
 
-        # --- TIER 1: Early Cheat / Approaching Pivot ---
+        # TIER 1: Early Cheat / Approaching Pivot
         elif early_floor <= last_price < pivot_buy and last_price > prior_high and vol_pace >= EARLY_VOL_PACE_MIN:
             early_key = f"{ticker}_APPROACHING"
             if early_key not in sent_keys:
@@ -160,6 +158,20 @@ def main() -> None:
                 sent_keys.add(early_key)
                 state_changed = True
                 print(f"[SENT] {title}")
+
+    # Sync Alert_Status column into marketsurge_actionable_setups.csv for Dashboard & Drive
+    new_statuses = [format_alert_status(str(t).strip(), sent_keys) for t in df[ticker_col]]
+    old_statuses = df["Alert_Status"].tolist() if "Alert_Status" in df.columns else []
+
+    if state_changed or new_statuses != old_statuses:
+        df["Alert_Status"] = new_statuses
+        # Place Alert_Status right after Company for immediate visibility
+        cols = df.columns.tolist()
+        cols.remove("Alert_Status")
+        insert_idx = 2 if len(cols) >= 2 else len(cols)
+        cols.insert(insert_idx, "Alert_Status")
+        df = df[cols]
+        df.to_csv(WATCHLIST_FILE, index=False)
 
     if state_changed:
         state["sent"] = sorted(sent_keys)
