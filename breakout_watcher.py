@@ -8,7 +8,7 @@ import requests
 import yfinance as yf
 
 WATCHLIST_FILE = "marketsurge_actionable_setups.csv"
-STATE_FILE = "alert_state.json"
+STATE_FILE = "alerted_today.json"
 
 # Alert thresholds
 EARLY_PROXIMITY_PCT = 0.02     # Within 2.0% below Pivot_Buy
@@ -35,7 +35,6 @@ def get_market_progress() -> tuple[bool, float, str]:
         return False, 0.0, today_str
 
     elapsed_minutes = (now_et - market_open).total_seconds() / 60.0
-    # Clamp minimum to 15 minutes so opening 5-min spikes don't divide by near-zero
     effective_minutes = max(elapsed_minutes, 15.0)
     progress = min(effective_minutes / 390.0, 1.0)
     return True, progress, today_str
@@ -88,7 +87,6 @@ def main() -> None:
         print("Watchlist is empty. Exiting.")
         return
 
-    # Support either Pivot_Buy or 52W_High_Pivot column naming
     pivot_col = "Pivot_Buy" if "Pivot_Buy" in df.columns else "52W_High_Pivot"
     ticker_col = "Ticker" if "Ticker" in df.columns else "Symbol"
 
@@ -117,7 +115,6 @@ def main() -> None:
         if len(t_df) < 22:
             continue
 
-        # Latest bar is today's live daily candle; prior bars are historical sessions
         today_bar = t_df.iloc[-1]
         prior_bars = t_df.iloc[:-1]
 
