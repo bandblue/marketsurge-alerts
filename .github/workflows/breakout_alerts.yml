@@ -1,14 +1,7 @@
 name: MarketSurge Intraday Breakout Watcher
 
 on:
-  schedule:
-    # 7:30 AM – 7:55 AM MST (14:30 – 14:55 UTC)
-    - cron: '30,35,40,45,50,55 14 * * 1-5'
-    # 8:00 AM – 1:55 PM MST (15:00 – 20:55 UTC)
-    - cron: '*/5 15-20 * * 1-5'
-    # 2:00 PM MST closing check (21:00 UTC)
-    - cron: '0 21 * * 1-5'
-  workflow_dispatch: # Allows manual "Run workflow" testing anytime
+  workflow_dispatch: # Triggered every 5 mins Mon-Fri (7:30 AM - 2:00 PM MST) via cron-job.org
 
 permissions:
   contents: write
