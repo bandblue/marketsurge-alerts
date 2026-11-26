@@ -2,9 +2,12 @@ name: MarketSurge Daily Pre-Market Scan
 
 on:
   schedule:
-    # Backup schedule at 13:37 UTC (6:37 AM MST) Mon-Fri
-    - cron: '37 13 * * 1-5'
-  workflow_dispatch: # Triggered reliably at 6:37 AM MST via cron-job.org
+    - cron: '0 13 * * 1-5'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
