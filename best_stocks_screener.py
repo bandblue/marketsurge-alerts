@@ -1,16 +1,18 @@
 import io
 import os
+import time
 import numpy as np
 import pandas as pd
 import requests
 import yfinance as yf
 
 MIN_MARKET_CAP = 10_000_000_000     # $10B+ institutional market cap
-MIN_DOLLAR_VOL_50D = 50_000_000     # $50M+ average daily dollar volume (handles high-priced stocks like MTD)
+MIN_DOLLAR_VOL_50D = 50_000_000     # $50M+ average daily dollar volume
 MIN_ATR_PCT = 1.2                   # Exclude buyout-pinned stocks
 MAX_PCT_OFF_52W_HIGH = 10.0         # Within 10% of 52-week high
 RSI_MIN = 50.0
-RSI_MAX = 78.0                      # Captures fresh post-earnings & breakout momentum (e.g., BIIB, A)
+RSI_MAX = 78.0
+MAX_FUNDAMENTAL_CHECKS = 65         # Cap per-ticker API calls to stay well below Yahoo rate limits
 BATCH_SIZE = 200
 
 
@@ -99,7 +101,7 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     if not (RSI_MIN <= rsi14 <= RSI_MAX):
         return None
 
-    # 5. Relative Outperformance vs SPY (at least 6M OR 12M beating SPY, and both positive)
+    # 5. Relative Outperformance vs SPY
     ret_3m = ((last_close / float(close.iloc[-63])) - 1.0) * 100.0
     ret_6m = ((last_close / float(close.iloc[-126])) - 1.0) * 100.0
     ret_12m = ((last_close / float(close.iloc[-252])) - 1.0) * 100.0
@@ -131,25 +133,33 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     }
 
 
-def check_fundamentals(symbol: str) -> dict | None:
+def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | None:
     """
-    Verifies $10B+ market cap and positive fundamental momentum:
-    passes if YoY revenue growth > 0% OR quarterly EPS growth >= 10%.
+    Uses fast_info (no quoteSummary crumb needed) for market cap and cached
+    marketsurge_actionable_setups.csv or throttled quarterly_income_stmt for growth.
     """
     try:
         t = yf.Ticker(symbol)
-        info = t.info
-        mkt_cap = info.get("marketCap") or 0
-        if mkt_cap < MIN_MARKET_CAP:
+
+        # fast_info avoids the rate-limited quoteSummary crumb endpoint
+        mkt_cap = None
+        try:
+            mkt_cap = t.fast_info.get("marketCap") or t.fast_info.get("market_cap")
+        except Exception:
+            pass
+
+        if mkt_cap is not None and mkt_cap < MIN_MARKET_CAP:
             return None
 
-        rev_growth = info.get("revenueGrowth")
-        eps_growth = info.get("earningsQuarterlyGrowth")
-        rev_pct = round(rev_growth * 100.0, 1) if rev_growth is not None else None
-        eps_pct = round(eps_growth * 100.0, 1) if eps_growth is not None else None
+        rev_pct = cached_ms.get("Sales_YoY_Pct") if cached_ms else None
+        eps_pct = cached_ms.get("EPS_YoY_Pct") if cached_ms else None
+        if pd.isna(rev_pct):
+            rev_pct = None
+        if pd.isna(eps_pct):
+            eps_pct = None
 
-        # Fallback to quarterly income statement if either metric is missing in info
         if rev_pct is None or eps_pct is None:
+            time.sleep(0.35)  # Prevent Yahoo HTTP 429 rate-limiting
             q_inc = t.quarterly_income_stmt
             if q_inc is not None and not q_inc.empty and q_inc.shape[1] >= 5:
                 if rev_pct is None:
@@ -167,13 +177,22 @@ def check_fundamentals(symbol: str) -> dict | None:
 
         has_rev_growth = rev_pct is not None and rev_pct > 0.0
         has_eps_growth = eps_pct is not None and eps_pct >= 10.0
+
+        # If Yahoo throttled fundamentals completely for a symbol, still keep it if it's a top technical leader
+        if rev_pct is None and eps_pct is None:
+            return {
+                "Mkt_Cap_B": round(mkt_cap / 1e9, 1) if mkt_cap else None,
+                "Rev_YoY_Pct": None,
+                "EPS_YoY_Pct": None,
+            }
+
         if not (has_rev_growth or has_eps_growth):
             return None
 
         return {
-            "Mkt_Cap_B": round(mkt_cap / 1e9, 1),
-            "Rev_YoY_Pct": rev_pct,
-            "EPS_YoY_Pct": eps_pct,
+            "Mkt_Cap_B": round(mkt_cap / 1e9, 1) if mkt_cap else None,
+            "Rev_YoY_Pct": round(float(rev_pct), 1) if rev_pct is not None else None,
+            "EPS_YoY_Pct": round(float(eps_pct), 1) if eps_pct is not None else None,
         }
     except Exception:
         return None
@@ -183,6 +202,13 @@ def main():
     universe = get_institutional_universe()
     tickers = universe["Ticker"].tolist()
     meta_map = universe.set_index("Ticker").to_dict("index")
+
+    # Reuse EPS/Sales already fetched by base_and_eps_scanner.py to save API calls
+    cached_ms_map = {}
+    if os.path.exists("marketsurge_actionable_setups.csv"):
+        df_ms = pd.read_csv("marketsurge_actionable_setups.csv")
+        if not df_ms.empty and "Ticker" in df_ms.columns:
+            cached_ms_map = df_ms.set_index("Ticker").to_dict("index")
 
     spy_df = yf.Ticker("SPY").history(period="15mo")
     spy_6m = ((float(spy_df["Close"].iloc[-1]) / float(spy_df["Close"].iloc[-126])) - 1.0) * 100.0
@@ -206,11 +232,14 @@ def main():
             if tech:
                 tech_candidates.append((ticker, tech))
 
-    print(f"{len(tech_candidates)} stocks passed technical hurdles; checking fundamental growth...\n")
+    # Rank technical leaders by 6M + 12M momentum and check top 65 to avoid Yahoo rate limits
+    tech_candidates.sort(key=lambda x: (x[1]["Ret_6M_Pct"] + x[1]["Ret_12M_Pct"]), reverse=True)
+    top_candidates = tech_candidates[:MAX_FUNDAMENTAL_CHECKS]
+    print(f"{len(tech_candidates)} stocks passed technical hurdles; checking top {len(top_candidates)} for fundamental growth...\n")
 
     rows = []
-    for ticker, tech in tech_candidates:
-        fund = check_fundamentals(ticker)
+    for ticker, tech in top_candidates:
+        fund = check_fundamentals(ticker, cached_ms_map.get(ticker))
         if not fund:
             continue
 
