@@ -474,38 +474,43 @@ tab_best, tab_canslim, tab_hh_hl = st.tabs([
 ])
 
 # ------------------------------------------------------------------------------
-# TAB 1: JOSH BROWN BEST STOCKS IN THE MARKET (CLICK-TO-CHART + TEAR SHEET)
+# TAB 1: JOSH BROWN BEST STOCKS IN THE MARKET (WATCHLIST FILTERS + CLICK-TO-CHART)
 # ------------------------------------------------------------------------------
 with tab_best:
     st.subheader("🏆 Best Stocks in the Market — Institutional Trend & Tear Sheet")
 
-    c_sel1, c_sel2, c_sel3 = st.columns([2, 1.2, 1.2])
-    best_tickers = df_best["Ticker"].tolist() if (not df_best.empty and "Ticker" in df_best.columns) else ["SN", "TGT", "DGX", "ABBV", "BDX"]
-    best_name_map = (
-        dict(zip(df_best["Ticker"], df_best["Company"]))
-        if (not df_best.empty and "Ticker" in df_best.columns and "Company" in df_best.columns)
-        else {}
-    )
-
-    chosen_best = c_sel1.selectbox(
-        "Select Screened Best Stock:",
-        best_tickers,
-        format_func=lambda t: f"{t} — {best_name_map.get(t, t)}",
-        key="best_stock_selector",
-    )
-    custom_ticker = c_sel2.text_input("Or inspect any ticker (e.g. A, BIIB, MTD):", value="").strip().upper()
-    zone_filter = c_sel3.selectbox(
-        "Filter Watchlist Table by Entry Zone:",
-        ["All Zones", "BREAKOUT_ZONE", "PULLBACK_SUPPORT", "TRENDING_UP"],
-    )
-
-    # Placeholder so the tear-sheet chart renders above the table after reading table row clicks
+    # Placeholder renders the tear-sheet chart at the top after reading watchlist row clicks below
     tear_sheet_slot = st.empty()
 
     st.divider()
-    st.markdown("### 📋 Full Screened `josh_brown_best_stocks.csv` Watchlist *(Click any row to load its chart above)*")
 
+    # Watchlist Header + Filters placed directly on the Watchlist section
+    wl_head, wl_f1, wl_f2, wl_f3 = st.columns([1.8, 1.2, 1.1, 1.1])
+    wl_head.markdown("### 📋 `josh_brown_best_stocks.csv` Watchlist")
+    zone_filter = wl_f1.selectbox(
+        "Entry Zone Filter:",
+        ["All Zones", "BREAKOUT_ZONE", "PULLBACK_SUPPORT", "TRENDING_UP"],
+        key="jb_zone_filter",
+    )
+    custom_ticker = wl_f2.text_input(
+        "Lookup Any Ticker (e.g. A, BIIB):",
+        value="",
+        key="jb_custom_ticker",
+    ).strip().upper()
+    filter_table_to_selected = wl_f3.checkbox(
+        "Filter table to selected row",
+        value=False,
+        key="jb_filter_table_to_selected",
+    )
+    st.caption("Click the selection box on the left of any stock row below to update the tear-sheet chart above.")
+
+    default_ticker = (
+        str(df_best["Ticker"].iloc[0])
+        if (not df_best.empty and "Ticker" in df_best.columns)
+        else "SN"
+    )
     table_clicked_ticker = None
+
     if df_best.empty:
         st.info("No rows in `josh_brown_best_stocks.csv` yet. Run **MarketSurge Daily Pre-Market Scan** in GitHub Actions or click **Pull Latest Watchlists from GitHub**.")
     else:
@@ -514,8 +519,16 @@ with tab_best:
             filtered_best = filtered_best[filtered_best["Entry_Zone"].str.contains(zone_filter, na=False)]
         filtered_best = filtered_best.reset_index(drop=True)
 
+        # Read previous selection from session state if filtering the table down to 1 row
+        prev_sel = st.session_state.get("jb_watchlist_table", {}).get("selection", {}).get("rows", [])
+        if filter_table_to_selected and prev_sel and prev_sel[0] < len(filtered_best):
+            table_clicked_ticker = str(filtered_best.iloc[prev_sel[0]]["Ticker"])
+            display_best_df = filtered_best.iloc[[prev_sel[0]]].reset_index(drop=True)
+        else:
+            display_best_df = filtered_best
+
         best_table_event = st.dataframe(
-            filtered_best,
+            display_best_df,
             use_container_width=True,
             hide_index=True,
             on_select="rerun",
@@ -523,11 +536,11 @@ with tab_best:
             key="jb_watchlist_table",
         )
         selected_rows = best_table_event.selection.rows if best_table_event else []
-        if selected_rows and "Ticker" in filtered_best.columns:
-            table_clicked_ticker = str(filtered_best.iloc[selected_rows[0]]["Ticker"])
+        if selected_rows and "Ticker" in display_best_df.columns:
+            table_clicked_ticker = str(display_best_df.iloc[selected_rows[0]]["Ticker"])
 
         b_exp1, b_exp2 = st.columns([1, 2])
-        jb_fidelity_csv = filtered_best[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
+        jb_fidelity_csv = display_best_df[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
         b_exp1.download_button(
             label="📥 Download Best Stocks CSV (Fidelity)",
             data=jb_fidelity_csv,
@@ -537,15 +550,13 @@ with tab_best:
         )
         b_exp2.text_input(
             "Copy & paste Best Stocks tickers into Fidelity Watch List:",
-            value=", ".join(filtered_best["Ticker"].tolist()),
+            value=", ".join(display_best_df["Ticker"].tolist()),
             key="jb_copy_tickers",
         )
 
-    # Priority: Clicked Table Row > Custom Typed Ticker > Dropdown Selection
-    active_best_ticker = table_clicked_ticker or custom_ticker or chosen_best
+    # Priority: Clicked Watchlist Row > Custom Lookup Input > Top Ranked Stock
+    active_best_ticker = table_clicked_ticker or custom_ticker or default_ticker
     with tear_sheet_slot.container():
-        if table_clicked_ticker:
-            st.caption(f"Showing chart for table selection: **{table_clicked_ticker}** *(uncheck the row in the table below to return to dropdown/custom input)*")
         render_compound_tear_sheet(active_best_ticker, df_best)
 
 
@@ -582,7 +593,7 @@ with tab_canslim:
             display_setups = display_setups[display_setups["MACD_Signal"].str.contains("Bullish", na=False)]
         display_setups = display_setups.reset_index(drop=True)
 
-        st.subheader("🎯 Actionable Base Setups (Stage 2 + RS ≥ 85 + ATR% ≥ 1.2%) *(Click any row to chart below)*")
+        st.subheader("🎯 Actionable Base Setups (Stage 2 + RS ≥ 85 + ATR% ≥ 1.2%) *(Click any row to filter chart below)*")
         cs_table_event = st.dataframe(
             display_setups,
             use_container_width=True,
@@ -835,7 +846,7 @@ with tab_canslim:
 
 
 # ------------------------------------------------------------------------------
-# TAB 3: HIGHER HIGHS & HIGHER LOWS (BROAD-MARKET S&P 500 + 400 + 600)
+# TAB 3: HIGHER HIGHS & HIGHER LOWS (CLICK-TO-CHART + BROAD-MARKET TABLE)
 # ------------------------------------------------------------------------------
 with tab_hh_hl:
     st.subheader("📈 Broad-Market Higher Highs & Higher Lows (`marketsurge_hh_hl_setups.csv`)")
@@ -850,8 +861,18 @@ with tab_hh_hl:
         disp_hh = df_hh_hl.copy()
         if hh_filter != "All Setups" and "Setup_Type" in disp_hh.columns:
             disp_hh = disp_hh[disp_hh["Setup_Type"] == hh_filter]
+        disp_hh = disp_hh.reset_index(drop=True)
 
-        st.dataframe(disp_hh, use_container_width=True, hide_index=True)
+        st.caption("Click the selection box on the left of any row to view its tear-sheet chart below.")
+        hh_table_event = st.dataframe(
+            disp_hh,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="hh_watchlist_table",
+        )
+        hh_selected_rows = hh_table_event.selection.rows if hh_table_event else []
 
         hh_exp1, hh_exp2 = st.columns([1, 2])
         hh_csv = disp_hh[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
@@ -867,3 +888,7 @@ with tab_hh_hl:
             value=", ".join(disp_hh["Ticker"].tolist()),
             key="hh_copy_tickers",
         )
+
+        if hh_selected_rows and "Ticker" in disp_hh.columns:
+            st.divider()
+            render_compound_tear_sheet(str(disp_hh.iloc[hh_selected_rows[0]]["Ticker"]), df_best)
