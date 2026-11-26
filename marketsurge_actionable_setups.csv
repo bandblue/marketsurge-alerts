@@ -1,39 +1,39 @@
 Ticker,Company,RS_Rating,Blue_Dot,MACD_Signal,Acc_Dist,ATR_Pct,Vol_vs_50D_Pct,EPS_YoY_Pct,Sales_YoY_Pct,Pattern,Price,Pivot_Buy,Pct_From_Pivot,Buy_Zone_Max,Stop_Loss_7.5Pct
 OKTA,"Okta, Inc.",98,—,🟢 Bullish,A,7.26,-35.3,75.7,10.6,Extended / No Base,201.77,235.0,-14.14,246.75,217.38
 VTRS,Viatris,98,—,🔴 Bearish,C,2.69,-25.1,-154.5,-0.3,Cup / Handle Base,19.83,21.07,-5.89,22.12,19.49
-TGT,Target Corporation,97,—,🟢 Bullish,C,3.3,20.0,75.5,,Cup / Handle Base,172.22,176.73,-2.55,185.57,163.48
+TGT,Target Corporation,97,—,🟢 Bullish,C,3.3,20.1,75.5,,Cup / Handle Base,172.22,176.73,-2.55,185.57,163.48
 CRL,Charles River Laboratories,97,—,🟡 Turning Up,D,4.76,-44.1,523.6,-2.2,Extended / No Base,332.08,379.63,-12.53,398.61,351.16
 BDX,Becton Dickinson,95,🔵 YES,🟡 Turning Up,C,2.15,-30.0,-31.5,5.4,Extended / No Base,221.24,222.78,-0.69,233.92,206.07
-BBY,Best Buy,94,🔵 YES,🟡 Turning Up,C,3.85,-0.8,70.1,3.6,Cup / Handle Base,102.58,106.83,-3.98,112.17,98.82
+BBY,Best Buy,94,🔵 YES,🟡 Turning Up,C,3.85,-0.7,70.1,3.6,Cup / Handle Base,102.58,106.83,-3.98,112.17,98.82
 SWK,Stanley Black & Decker,94,—,🟡 Turning Up,D,3.81,-25.8,438.2,-0.6,Extended / No Base,109.22,122.68,-10.97,128.81,113.48
 BIIB,Biogen,93,—,🟢 Bullish Cross,C,3.11,0.9,-104.4,10.6,Cup / Handle Base (Vol Dry-Up),261.44,269.89,-3.13,283.38,249.65
 MSI,Motorola Solutions,93,🔵 YES,🟡 Turning Up,C,2.18,22.9,-8.1,12.2,Cup / Handle Base,541.0,548.29,-1.33,575.7,507.17
-GILD,Gilead Sciences,93,—,🟢 Bullish Cross,C,2.69,-7.0,-20.2,6.8,Cup / Handle Base (Vol Dry-Up),176.74,179.68,-1.64,188.66,166.2
-HST,Host Hotels & Resorts,92,—,🟡 Turning Up,B,2.5,-15.9,-56.5,1.2,Cup / Handle Base (Vol Dry-Up),24.88,26.19,-5.0,27.5,24.23
+GILD,Gilead Sciences,93,—,🟢 Bullish Cross,C,2.69,-2.2,-20.2,6.8,Cup / Handle Base (Vol Dry-Up),176.74,179.68,-1.64,188.66,166.2
+HST,Host Hotels & Resorts,92,—,🟡 Turning Up,B,2.49,-15.9,-56.5,1.2,Cup / Handle Base (Vol Dry-Up),24.88,26.19,-5.0,27.5,24.23
 CPAY,Corpay,92,🔵 YES,🟡 Turning Up,B,2.96,-2.8,44.8,17.9,Extended / No Base,454.33,479.53,-5.26,503.51,443.57
-HAS,Hasbro,91,—,🔴 Bearish,B,2.85,33.6,68.9,15.0,Extended / No Base,110.58,123.88,-10.74,130.08,114.59
-CAH,Cardinal Health,91,🔵 YES,🟡 Turning Up,C,2.29,-26.6,26.6,5.5,Cup / Handle Base (Vol Dry-Up),282.91,286.29,-1.18,300.6,264.82
-REGN,Regeneron Pharmaceuticals,91,🔵 YES,🟡 Turning Up,C,3.15,-9.7,35.5,36.3,Extended / No Base,981.87,991.83,-1.0,1041.42,917.44
-AIZ,Assurant,90,—,🟡 Turning Up,A,1.85,-11.9,6.2,9.2,Cup / Handle Base (Vol Dry-Up),325.73,327.73,-0.61,344.12,303.15
-DLTR,Dollar Tree,90,—,🟢 Bullish Cross,B,3.92,43.8,196.7,7.0,Cup / Handle Base,152.21,156.99,-3.04,164.84,145.22
-DG,Dollar General,90,—,🟡 Turning Up,C,3.22,57.5,33.3,5.2,Cup / Handle Base (Vol Dry-Up),139.27,144.61,-3.69,151.84,133.76
-MAR,Marriott International,89,—,🟡 Turning Up,B,2.34,6.7,13.9,8.0,Cup / Handle Base (Vol Dry-Up),415.77,432.56,-3.88,454.19,400.12
+HAS,Hasbro,91,—,🔴 Bearish,B,2.85,35.0,68.9,15.0,Extended / No Base,110.58,123.88,-10.74,130.08,114.59
+CAH,Cardinal Health,91,🔵 YES,🟡 Turning Up,C,2.29,-24.7,26.6,5.5,Cup / Handle Base (Vol Dry-Up),282.91,286.29,-1.18,300.6,264.82
+REGN,Regeneron Pharmaceuticals,91,🔵 YES,🟡 Turning Up,C,3.15,-3.4,35.5,36.3,Extended / No Base,981.87,991.83,-1.0,1041.42,917.44
+AIZ,Assurant,90,—,🟡 Turning Up,A,1.85,-11.9,6.2,9.2,Cup / Handle Base (Vol Dry-Up),325.73,327.74,-0.61,344.13,303.16
+DLTR,Dollar Tree,90,—,🟢 Bullish Cross,B,3.92,45.1,196.7,7.0,Cup / Handle Base,152.21,156.99,-3.04,164.84,145.22
+DG,Dollar General,90,—,🟡 Turning Up,C,3.23,59.1,33.3,5.2,Cup / Handle Base (Vol Dry-Up),139.27,144.61,-3.69,151.84,133.76
+MAR,Marriott International,89,—,🟡 Turning Up,B,2.34,8.8,13.9,8.0,Cup / Handle Base (Vol Dry-Up),415.77,432.56,-3.88,454.19,400.12
 EG,Everest Group,89,—,🟡 Turning Up,B,2.18,18.1,0.5,-14.9,Cup / Handle Base (Vol Dry-Up),433.64,437.77,-0.94,459.66,404.94
-GWW,W. W. Grainger,89,—,🟡 Turning Up,B,2.56,-18.7,102.9,11.3,Cup / Handle Base,1415.9,1518.78,-6.77,1594.72,1404.87
+GWW,W. W. Grainger,89,—,🟡 Turning Up,B,2.59,-17.2,102.9,11.3,Cup / Handle Base,1415.9,1518.78,-6.77,1594.72,1404.87
 MAS,Masco,89,🔵 YES,🟡 Turning Up,D,3.0,-5.7,30.0,2.6,Cup / Handle Base (Vol Dry-Up),86.93,87.52,-0.67,91.9,80.96
-CBOE,Cboe Global Markets,88,—,🔴 Bearish,B,3.43,-3.4,43.2,19.0,Extended / No Base,351.8,379.76,-7.36,398.75,351.28
-MCK,McKesson,88,—,🟡 Turning Up,C,2.37,-28.5,17.0,7.6,Extended / No Base,1077.32,1121.5,-3.94,1177.58,1037.39
-AMGN,Amgen,88,—,🟡 Turning Up,C,2.72,15.0,19.4,8.5,Cup / Handle Base (Vol Dry-Up),469.24,481.21,-2.49,505.27,445.12
-ULTA,Ulta Beauty,88,—,🟡 Turning Up,D,3.0,5.2,13.3,8.9,Extended / No Base,642.64,674.04,-4.66,707.74,623.49
+CBOE,Cboe Global Markets,88,—,🔴 Bearish,B,3.43,-2.5,43.2,19.0,Extended / No Base,351.8,379.76,-7.36,398.75,351.28
+MCK,McKesson,88,—,🟡 Turning Up,C,2.37,-25.9,17.0,7.6,Extended / No Base,1077.32,1121.5,-3.94,1177.58,1037.39
+AMGN,Amgen,88,—,🟡 Turning Up,C,2.72,15.8,19.4,8.5,Cup / Handle Base (Vol Dry-Up),469.24,481.21,-2.49,505.27,445.12
+ULTA,Ulta Beauty,88,—,🟡 Turning Up,D,3.0,6.3,13.3,8.9,Extended / No Base,642.64,674.04,-4.66,707.74,623.49
 DGX,Quest Diagnostics,88,—,🟢 Bullish Cross,D,2.15,-23.9,28.7,10.0,Cup / Handle Base (Vol Dry-Up),265.64,268.37,-1.02,281.79,248.24
 TRV,Travelers Companies (The),87,🔵 YES,🟡 Turning Up,C,2.08,-16.9,9.7,-0.5,Cup / Handle Base (Vol Dry-Up),406.86,418.0,-2.67,438.9,386.65
-MO,Altria,87,—,🟡 Turning Up,C,2.23,-15.4,7.1,3.6,Cup / Handle Base (Vol Dry-Up),76.28,79.97,-4.61,83.97,73.97
-LH,Labcorp,87,—,🔴 Bearish,C,2.29,15.2,3.2,6.9,Cup / Handle Base (Vol Dry-Up),368.95,378.88,-2.62,397.82,350.46
-ABBV,AbbVie,86,—,🟡 Turning Up,A,2.47,19.0,2270.0,10.3,Cup / Handle Base,294.48,302.98,-2.81,318.13,280.26
-DRI,Darden Restaurants,86,🔵 YES,🟢 Bullish Cross,C,2.71,2.8,-6.8,5.1,Cup / Handle Base (Vol Dry-Up),241.16,242.82,-0.68,254.97,224.61
+MO,Altria,87,—,🟡 Turning Up,C,2.23,-12.6,7.1,3.6,Cup / Handle Base (Vol Dry-Up),76.28,79.97,-4.61,83.97,73.97
+LH,Labcorp,87,—,🔴 Bearish,C,2.29,15.7,3.2,6.9,Cup / Handle Base (Vol Dry-Up),368.95,378.88,-2.62,397.82,350.46
+ABBV,AbbVie,86,—,🟡 Turning Up,A,2.47,19.1,2270.0,10.3,Cup / Handle Base,294.48,302.98,-2.81,318.13,280.26
+DRI,Darden Restaurants,86,🔵 YES,🟢 Bullish Cross,C,2.71,2.9,-6.8,5.1,Cup / Handle Base (Vol Dry-Up),241.16,242.83,-0.69,254.97,224.62
 BAX,Baxter International,86,🔵 YES,🟢 Bullish Cross,D,3.64,47.1,733.3,5.0,Extended / No Base,27.26,27.59,-1.2,28.97,25.52
-VLTO,Veralto,85,—,🟡 Turning Up,A,2.1,2.5,8.4,7.5,Cup / Handle Base,120.19,120.95,-0.63,127.0,111.88
+VLTO,Veralto,85,—,🟡 Turning Up,A,2.1,14.5,8.4,7.5,Cup / Handle Base,120.19,120.96,-0.64,127.01,111.89
 BALL,Ball Corporation,85,—,🟡 Turning Up,B,2.67,-11.0,-130.5,23.9,Cup / Handle Base (Vol Dry-Up),67.18,69.58,-3.45,73.06,64.36
-CHD,Church & Dwight,85,—,🟡 Turning Up,B,2.12,5.8,18.7,1.0,Cup / Handle Base,113.31,115.46,-1.86,121.23,106.8
-HPQ,HP Inc.,85,—,🟢 Bullish Cross,D,4.61,175.2,-11.3,12.5,Extended / No Base,31.15,36.23,-14.02,38.04,33.51
+CHD,Church & Dwight,85,—,🟡 Turning Up,B,2.12,11.1,18.7,1.0,Cup / Handle Base,113.31,115.46,-1.86,121.23,106.8
+HPQ,HP Inc.,85,—,🟢 Bullish Cross,D,4.61,175.3,-11.3,12.5,Extended / No Base,31.15,36.23,-14.02,38.04,33.51
 BEN,Franklin Resources,85,—,🟡 Turning Up,E,3.53,-42.5,242.9,3.9,Cup / Handle Base (Vol Dry-Up),33.6,36.79,-8.67,38.63,34.03
