@@ -168,20 +168,25 @@ df_best = load_csv_safe("josh_brown_best_stocks.csv")
 @st.cache_data(ttl=600)
 def fetch_compound_chart_data(symbol: str):
     hist = yf.Ticker(symbol).history(period="2y")
-    iwb = yf.Ticker("IWB").history(period="2y")
     if hist.empty or len(hist) < 60:
         return None
 
     hist.index = hist.index.tz_localize(None).normalize()
-    iwb.index = iwb.index.tz_localize(None).normalize()
-
     hist["SMA_50"] = hist["Close"].rolling(50).mean()
     hist["SMA_200"] = hist["Close"].rolling(200).mean()
     hist["High_52W_Step"] = hist["High"].rolling(252, min_periods=20).max()
 
-    # Relative to Russell 1000 (IWB)
-    iwb_aligned = iwb["Close"].reindex(hist.index).ffill()
-    hist["Rel_IWB"] = (hist["Close"] / iwb_aligned) * 100.0
+    # Relative to Russell 1000 (IWB) with safe fallback if Yahoo throttles IWB
+    try:
+        iwb = yf.Ticker("IWB").history(period="2y")
+        if not iwb.empty:
+            iwb.index = iwb.index.tz_localize(None).normalize()
+            iwb_aligned = iwb["Close"].reindex(hist.index).ffill()
+            hist["Rel_IWB"] = (hist["Close"] / iwb_aligned) * 100.0
+        else:
+            hist["Rel_IWB"] = 100.0
+    except Exception:
+        hist["Rel_IWB"] = 100.0
 
     # Wilder RSI (14)
     delta = hist["Close"].diff()
@@ -205,7 +210,7 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
         st.warning(f"No historical price data found for `{symbol}`.")
         return
 
-    plot_df = hist.tail(252).copy()  # 1-year window matching The Compound chart
+    plot_df = hist.tail(252).copy()
     last_row = plot_df.iloc[-1]
     last_date_str = plot_df.index[-1].strftime("%m/%d/%y")
 
@@ -505,4 +510,65 @@ with tab_best:
         format_func=lambda t: f"{t} — {best_name_map.get(t, t)}",
         key="best_stock_selector",
     )
-    custom_ticker = c_sel2.text_input("Or inspect any ticker
+    custom_ticker = c_sel2.text_input("Or inspect any ticker (e.g. A, BIIB, MTD):", value="").strip().upper()
+    active_best_ticker = custom_ticker if custom_ticker else chosen_best
+
+    zone_filter = c_sel3.selectbox(
+        "Filter Watchlist Table by Entry Zone:",
+        ["All Zones", "BREAKOUT_ZONE", "PULLBACK_SUPPORT", "TRENDING_UP"],
+    )
+    filter_to_selected = st.checkbox(
+        f"Filter watchlist table to selected stock ({active_best_ticker})",
+        value=False,
+        key="jb_filter_selected_stock",
+    )
+
+    # Render The Compound 2-Column Tear Sheet
+    render_compound_tear_sheet(active_best_ticker, df_best)
+
+    st.divider()
+    st.markdown("### 📋 Full Screened `josh_brown_best_stocks.csv` Watchlist")
+    if df_best.empty:
+        st.info("No rows in `josh_brown_best_stocks.csv` yet. Run **MarketSurge Daily Pre-Market Scan** in GitHub Actions or click **Pull Latest Watchlists from GitHub**.")
+    else:
+        filtered_best = df_best.copy()
+        if filter_to_selected and "Ticker" in filtered_best.columns:
+            filtered_best = filtered_best[filtered_best["Ticker"] == active_best_ticker]
+        elif zone_filter != "All Zones" and "Entry_Zone" in filtered_best.columns:
+            filtered_best = filtered_best[filtered_best["Entry_Zone"].str.contains(zone_filter, na=False)]
+
+        if filtered_best.empty and filter_to_selected:
+            st.warning(f"`{active_best_ticker}` was entered via custom lookup and is not currently in `josh_brown_best_stocks.csv`.")
+        else:
+            st.dataframe(filtered_best, use_container_width=True, hide_index=True)
+
+            b_exp1, b_exp2 = st.columns([1, 2])
+            jb_fidelity_csv = filtered_best[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
+            b_exp1.download_button(
+                label="📥 Download Best Stocks CSV (Fidelity)",
+                data=jb_fidelity_csv,
+                file_name="JoshBrown_BestStocks.csv",
+                mime="text/csv",
+                use_container_width=True,
+            )
+            b_exp2.text_input(
+                "Copy & paste Best Stocks tickers into Fidelity Watch List:",
+                value=", ".join(filtered_best["Ticker"].tolist()),
+                key="jb_copy_tickers",
+            )
+
+
+# ------------------------------------------------------------------------------
+# TAB 2: CAN SLIM BASE SETUPS (ORIGINAL 5-PANE CHART + RISK CALC + AI ANALYST)
+# ------------------------------------------------------------------------------
+with tab_canslim:
+    st.sidebar.divider()
+    st.sidebar.header("CAN SLIM Screener Filters")
+    min_rs = st.sidebar.slider("Minimum RS Rating", 1, 99, 85)
+    blue_dot_only = st.sidebar.checkbox("🔵 Blue Dot Only (RS Line at 52W High)", value=False)
+    bullish_macd_only = st.sidebar.checkbox("🟢 Bullish MACD Only", value=False)
+    stage2_only = st.sidebar.checkbox("Stage 2 Uptrend Only (Price > 50SMA > 200SMA)", value=True)
+    acc_filter = st.sidebar.multiselect("Acc/Dist Grade", ["A", "B", "C", "D", "E"], default=["A", "B", "C"])
+
+    if df_all.empty or df_setups.empty:
+        st.warning("No CAN
