@@ -1,8 +1,13 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "sent": [
     "AIZ_APPROACHING",
-    "BAX_BREAKOUT",
-    "DGX_APPROACHING"
+    "CAH_APPROACHING",
+    "CHD_APPROACHING",
+    "DRI_APPROACHING",
+    "EG_APPROACHING",
+    "MAS_APPROACHING",
+    "MSI_APPROACHING",
+    "VLTO_APPROACHING"
   ]
 }
