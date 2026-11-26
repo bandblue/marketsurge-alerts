@@ -6,3 +6,8 @@ plotly
 requests
 google-genai
 scipy
+lxml
+html5lib
+beautifulsoup4
+google-api-python-client
+google-auth
