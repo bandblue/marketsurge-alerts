@@ -11,8 +11,9 @@ MIN_DOLLAR_VOL_50D = 50_000_000     # $50M+ average daily dollar volume
 MIN_ATR_PCT = 1.2                   # Exclude buyout-pinned stocks
 MAX_PCT_OFF_52W_HIGH = 10.0         # Within 10% of 52-week high
 RSI_MIN = 50.0
-RSI_MAX = 78.0
-MAX_FUNDAMENTAL_CHECKS = 65         # Cap per-ticker API calls to stay well below Yahoo rate limits
+RSI_CONSTRUCTIVE_MAX = 72.0         # Standard Josh Brown constructive RSI ceiling
+RSI_MAX = 85.0                      # Extended ceiling to capture post-earnings breakouts
+MAX_FUNDAMENTAL_CHECKS = 140        # Expanded to capture leaders like BIIB and MTD
 BATCH_SIZE = 200
 
 
@@ -56,6 +57,7 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     close = df["Close"]
     high = df["High"]
     low = df["Low"]
+    open_p = df["Open"] if "Open" in df.columns else close
     volume = df["Volume"]
 
     last_close = float(close.iloc[-1])
@@ -92,7 +94,7 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     if atr_pct < MIN_ATR_PCT:
         return None
 
-    # 4. Constructive-to-Breakout RSI (50 - 78)
+    # 4. Constructive-to-Post-Earnings RSI (50 - 85)
     delta = close.diff()
     gain = delta.clip(lower=0).ewm(alpha=1 / 14, adjust=False).mean()
     loss = (-delta.clip(upper=0)).ewm(alpha=1 / 14, adjust=False).mean()
@@ -100,6 +102,11 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     rsi14 = float((100.0 - (100.0 / (1.0 + rs_val))).iloc[-1])
     if not (RSI_MIN <= rsi14 <= RSI_MAX):
         return None
+
+    # Detect recent 10-day gap/volume catalyst signature (used alongside earnings date check)
+    recent_gaps = ((open_p.tail(10) - prev_close.tail(10)) / prev_close.tail(10)) * 100.0
+    recent_vol_ratio = volume.tail(10) / avg_vol_50d
+    has_catalyst_gap = bool(((recent_gaps >= 2.5) & (recent_vol_ratio >= 1.5)).any())
 
     # 5. Relative Outperformance vs SPY
     ret_3m = ((last_close / float(close.iloc[-63])) - 1.0) * 100.0
@@ -126,6 +133,7 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
         "SMA_200": round(sma200, 2),
         "Dollar_Vol_M": round(dollar_vol_50d / 1e6, 1),
         "RSI_14": round(rsi14, 1),
+        "_has_catalyst_gap": has_catalyst_gap,
         "ATR_Pct": atr_pct,
         "Ret_3M_Pct": round(ret_3m, 1),
         "Ret_6M_Pct": round(ret_6m, 1),
@@ -133,15 +141,37 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     }
 
 
-def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | None:
+def classify_rsi_status(ticker_obj: yf.Ticker, rsi14: float, has_catalyst_gap: bool) -> str:
+    """Labels RSI > 72 as POST_EARNINGS_RSI if earnings occurred within 14 calendar days or a gap-volume surge occurred."""
+    if rsi14 <= RSI_CONSTRUCTIVE_MAX:
+        return "CONSTRUCTIVE (50-72)"
+
+    recent_earnings = False
+    try:
+        ed = ticker_obj.get_earnings_dates(limit=4)
+        if ed is not None and not ed.empty:
+            now_ts = pd.Timestamp.now(tz=ed.index.tz)
+            past_dates = ed.index[ed.index <= now_ts]
+            if len(past_dates) > 0:
+                days_since = (now_ts - past_dates[0]).days
+                if 0 <= days_since <= 14:
+                    recent_earnings = True
+    except Exception:
+        pass
+
+    if recent_earnings or has_catalyst_gap:
+        return "POST_EARNINGS_RSI (>72)"
+    return "ELEVATED_NON_EARNINGS (>72)"
+
+
+def check_fundamentals(symbol: str, rsi14: float, has_catalyst_gap: bool, cached_ms: dict | None = None) -> dict | None:
     """
-    Uses fast_info (no quoteSummary crumb needed) for market cap and cached
-    marketsurge_actionable_setups.csv or throttled quarterly_income_stmt for growth.
+    Uses fast_info (crumb-free) for market cap, cached MarketSurge CSV or throttled
+    quarterly_income_stmt for growth, and tags post-earnings RSI status.
     """
     try:
         t = yf.Ticker(symbol)
 
-        # fast_info avoids the rate-limited quoteSummary crumb endpoint
         mkt_cap = None
         try:
             mkt_cap = t.fast_info.get("marketCap") or t.fast_info.get("market_cap")
@@ -151,6 +181,8 @@ def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | Non
         if mkt_cap is not None and mkt_cap < MIN_MARKET_CAP:
             return None
 
+        rsi_status = classify_rsi_status(t, rsi14, has_catalyst_gap)
+
         rev_pct = cached_ms.get("Sales_YoY_Pct") if cached_ms else None
         eps_pct = cached_ms.get("EPS_YoY_Pct") if cached_ms else None
         if pd.isna(rev_pct):
@@ -159,7 +191,7 @@ def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | Non
             eps_pct = None
 
         if rev_pct is None or eps_pct is None:
-            time.sleep(0.35)  # Prevent Yahoo HTTP 429 rate-limiting
+            time.sleep(0.35)
             q_inc = t.quarterly_income_stmt
             if q_inc is not None and not q_inc.empty and q_inc.shape[1] >= 5:
                 if rev_pct is None:
@@ -178,12 +210,12 @@ def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | Non
         has_rev_growth = rev_pct is not None and rev_pct > 0.0
         has_eps_growth = eps_pct is not None and eps_pct >= 10.0
 
-        # If Yahoo throttled fundamentals completely for a symbol, still keep it if it's a top technical leader
         if rev_pct is None and eps_pct is None:
             return {
                 "Mkt_Cap_B": round(mkt_cap / 1e9, 1) if mkt_cap else None,
                 "Rev_YoY_Pct": None,
                 "EPS_YoY_Pct": None,
+                "RSI_Status": rsi_status,
             }
 
         if not (has_rev_growth or has_eps_growth):
@@ -193,6 +225,7 @@ def check_fundamentals(symbol: str, cached_ms: dict | None = None) -> dict | Non
             "Mkt_Cap_B": round(mkt_cap / 1e9, 1) if mkt_cap else None,
             "Rev_YoY_Pct": round(float(rev_pct), 1) if rev_pct is not None else None,
             "EPS_YoY_Pct": round(float(eps_pct), 1) if eps_pct is not None else None,
+            "RSI_Status": rsi_status,
         }
     except Exception:
         return None
@@ -203,7 +236,6 @@ def main():
     tickers = universe["Ticker"].tolist()
     meta_map = universe.set_index("Ticker").to_dict("index")
 
-    # Reuse EPS/Sales already fetched by base_and_eps_scanner.py to save API calls
     cached_ms_map = {}
     if os.path.exists("marketsurge_actionable_setups.csv"):
         df_ms = pd.read_csv("marketsurge_actionable_setups.csv")
@@ -232,14 +264,14 @@ def main():
             if tech:
                 tech_candidates.append((ticker, tech))
 
-    # Rank technical leaders by 6M + 12M momentum and check top 65 to avoid Yahoo rate limits
     tech_candidates.sort(key=lambda x: (x[1]["Ret_6M_Pct"] + x[1]["Ret_12M_Pct"]), reverse=True)
     top_candidates = tech_candidates[:MAX_FUNDAMENTAL_CHECKS]
     print(f"{len(tech_candidates)} stocks passed technical hurdles; checking top {len(top_candidates)} for fundamental growth...\n")
 
     rows = []
     for ticker, tech in top_candidates:
-        fund = check_fundamentals(ticker, cached_ms_map.get(ticker))
+        has_gap = tech.pop("_has_catalyst_gap", False)
+        fund = check_fundamentals(ticker, tech["RSI_14"], has_gap, cached_ms_map.get(ticker))
         if not fund:
             continue
 
