@@ -5,10 +5,12 @@ import pandas as pd
 import requests
 import yfinance as yf
 
-MIN_MARKET_CAP = 10_000_000_000  # $10B+ institutional liquidity
-MIN_AVG_VOL_50D = 1_000_000      # 1M+ shares/day
-MIN_ATR_PCT = 1.2                # Exclude buyout-pinned stocks
-MAX_PCT_OFF_52W_HIGH = 10.0      # Within 10% of 52-week high
+MIN_MARKET_CAP = 10_000_000_000     # $10B+ institutional market cap
+MIN_DOLLAR_VOL_50D = 50_000_000     # $50M+ average daily dollar volume (handles high-priced stocks like MTD)
+MIN_ATR_PCT = 1.2                   # Exclude buyout-pinned stocks
+MAX_PCT_OFF_52W_HIGH = 10.0         # Within 10% of 52-week high
+RSI_MIN = 50.0
+RSI_MAX = 78.0                      # Captures fresh post-earnings & breakout momentum (e.g., BIIB, A)
 BATCH_SIZE = 200
 
 
@@ -56,7 +58,8 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
 
     last_close = float(close.iloc[-1])
     avg_vol_50d = float(volume.tail(50).mean())
-    if avg_vol_50d < MIN_AVG_VOL_50D:
+    dollar_vol_50d = last_close * avg_vol_50d
+    if dollar_vol_50d < MIN_DOLLAR_VOL_50D:
         return None
 
     # 1. Moving Averages & Slopes (Price > 50 SMA > 200 SMA, both MAs rising)
@@ -87,20 +90,20 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
     if atr_pct < MIN_ATR_PCT:
         return None
 
-    # 4. Constructive RSI (52 - 72)
+    # 4. Constructive-to-Breakout RSI (50 - 78)
     delta = close.diff()
     gain = delta.clip(lower=0).ewm(alpha=1 / 14, adjust=False).mean()
     loss = (-delta.clip(upper=0)).ewm(alpha=1 / 14, adjust=False).mean()
     rs_val = gain / loss.replace(0, np.nan)
     rsi14 = float((100.0 - (100.0 / (1.0 + rs_val))).iloc[-1])
-    if not (52.0 <= rsi14 <= 72.0):
+    if not (RSI_MIN <= rsi14 <= RSI_MAX):
         return None
 
-    # 5. Relative Outperformance vs SPY (6-Month & 12-Month)
+    # 5. Relative Outperformance vs SPY (at least 6M OR 12M beating SPY, and both positive)
     ret_3m = ((last_close / float(close.iloc[-63])) - 1.0) * 100.0
     ret_6m = ((last_close / float(close.iloc[-126])) - 1.0) * 100.0
     ret_12m = ((last_close / float(close.iloc[-252])) - 1.0) * 100.0
-    if ret_6m <= spy_6m_ret or ret_12m <= spy_12m_ret:
+    if not ((ret_6m > spy_6m_ret or ret_12m > spy_12m_ret) and ret_6m > 0 and ret_12m > 0):
         return None
 
     pct_above_50d = round(((last_close - sma50) / sma50) * 100.0, 2)
@@ -119,6 +122,7 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
         "SMA_50_Stop": round(sma50, 2),
         "Pct_Above_50D": pct_above_50d,
         "SMA_200": round(sma200, 2),
+        "Dollar_Vol_M": round(dollar_vol_50d / 1e6, 1),
         "RSI_14": round(rsi14, 1),
         "ATR_Pct": atr_pct,
         "Ret_3M_Pct": round(ret_3m, 1),
@@ -128,9 +132,13 @@ def evaluate_technical(df: pd.DataFrame, spy_6m_ret: float, spy_12m_ret: float) 
 
 
 def check_fundamentals(symbol: str) -> dict | None:
-    """Verifies $10B+ market cap and positive YoY revenue & earnings growth."""
+    """
+    Verifies $10B+ market cap and positive fundamental momentum:
+    passes if YoY revenue growth > 0% OR quarterly EPS growth >= 10%.
+    """
     try:
-        info = yf.Ticker(symbol).info
+        t = yf.Ticker(symbol)
+        info = t.info
         mkt_cap = info.get("marketCap") or 0
         if mkt_cap < MIN_MARKET_CAP:
             return None
@@ -140,8 +148,26 @@ def check_fundamentals(symbol: str) -> dict | None:
         rev_pct = round(rev_growth * 100.0, 1) if rev_growth is not None else None
         eps_pct = round(eps_growth * 100.0, 1) if eps_growth is not None else None
 
-        # Require positive top-line and bottom-line momentum (> 5% YoY)
-        if rev_pct is None or eps_pct is None or rev_pct < 5.0 or eps_pct < 5.0:
+        # Fallback to quarterly income statement if either metric is missing in info
+        if rev_pct is None or eps_pct is None:
+            q_inc = t.quarterly_income_stmt
+            if q_inc is not None and not q_inc.empty and q_inc.shape[1] >= 5:
+                if rev_pct is None:
+                    rev_row = next((r for r in ["Total Revenue", "Operating Revenue"] if r in q_inc.index), None)
+                    if rev_row:
+                        r0, r4 = q_inc.loc[rev_row].iloc[0], q_inc.loc[rev_row].iloc[4]
+                        if pd.notna(r0) and pd.notna(r4) and r4 > 0:
+                            rev_pct = round(((r0 - r4) / abs(r4)) * 100.0, 1)
+                if eps_pct is None:
+                    eps_row = next((r for r in ["Diluted EPS", "Basic EPS"] if r in q_inc.index), None)
+                    if eps_row:
+                        e0, e4 = q_inc.loc[eps_row].iloc[0], q_inc.loc[eps_row].iloc[4]
+                        if pd.notna(e0) and pd.notna(e4) and e4 != 0:
+                            eps_pct = round(((e0 - e4) / abs(e4)) * 100.0, 1)
+
+        has_rev_growth = rev_pct is not None and rev_pct > 0.0
+        has_eps_growth = eps_pct is not None and eps_pct >= 10.0
+        if not (has_rev_growth or has_eps_growth):
             return None
 
         return {
@@ -189,12 +215,14 @@ def main():
             continue
 
         u_info = meta_map.get(ticker, {})
-        # Composite score emphasizing 6M/12M alpha + fundamental growth
+        rev_score_val = max(fund["Rev_YoY_Pct"] or 0.0, 0.0)
+        eps_score_val = max(fund["EPS_YoY_Pct"] or 0.0, 0.0)
+
         score = round(
-            min(tech["Ret_6M_Pct"], 80) * 0.4
-            + min(tech["Ret_12M_Pct"], 120) * 0.3
-            + min(fund["Rev_YoY_Pct"], 50) * 0.4
-            + min(fund["EPS_YoY_Pct"], 60) * 0.3,
+            min(tech["Ret_6M_Pct"], 80.0) * 0.4
+            + min(tech["Ret_12M_Pct"], 120.0) * 0.3
+            + min(rev_score_val, 50.0) * 0.4
+            + min(eps_score_val, 60.0) * 0.3,
             1,
         )
         rows.append({
