@@ -176,7 +176,6 @@ def fetch_compound_chart_data(symbol: str):
     hist["SMA_200"] = hist["Close"].rolling(200).mean()
     hist["High_52W_Step"] = hist["High"].rolling(252, min_periods=20).max()
 
-    # Relative to Russell 1000 (IWB) with safe fallback if Yahoo throttles IWB
     try:
         iwb = yf.Ticker("IWB").history(period="2y")
         if not iwb.empty:
@@ -225,7 +224,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
     vs_50d = ((last_close - sma50) / sma50) * 100.0
     vs_200d = ((last_close - sma200) / sma200) * 100.0
 
-    # Returns: 1M (21d), 3M (63d), 6M (126d), YTD
     ret_1m = ((last_close / float(hist["Close"].iloc[-22])) - 1.0) * 100.0 if len(hist) > 22 else 0.0
     ret_3m = ((last_close / float(hist["Close"].iloc[-64])) - 1.0) * 100.0 if len(hist) > 64 else 0.0
     ret_6m = ((last_close / float(hist["Close"].iloc[-127])) - 1.0) * 100.0 if len(hist) > 127 else 0.0
@@ -233,12 +231,10 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
     ytd_df = plot_df[plot_df.index.year == plot_df.index[-1].year]
     ret_ytd = ((last_close / float(ytd_df["Close"].iloc[0])) - 1.0) * 100.0 if not ytd_df.empty else 0.0
 
-    # 1Y Max Drawdown
     rolling_peak = plot_df["High"].cummax()
     drawdowns = ((plot_df["Low"] - rolling_peak) / rolling_peak) * 100.0
     max_dd_1y = int(round(float(drawdowns.min())))
 
-    # Pull metadata from josh_brown_best_stocks.csv if present
     row_match = best_df[best_df["Ticker"] == symbol] if (not best_df.empty and "Ticker" in best_df.columns) else pd.DataFrame()
     if not row_match.empty:
         meta = row_match.iloc[0]
@@ -262,12 +258,10 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
         rev_eps_str = "—"
         rsi_status = "POST_EARNINGS_RSI (>72)" if rsi_val > 72 else ""
 
-    # Detect most recent bullish crossover above 50D SMA (for green "Added to list" dot)
     above_50_series = plot_df["Close"] > plot_df["SMA_50"]
     cross_up_dates = plot_df.index[above_50_series & (~above_50_series.shift(1).fillna(True))]
     added_idx = cross_up_dates[-1] if len(cross_up_dates) > 0 else None
 
-    # --- BUILD 2-COLUMN TEAR SHEET ---
     c_left, c_right = st.columns([2.15, 1.0], gap="large")
 
     with c_left:
@@ -280,7 +274,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             subplot_titles=("", "Relative to Russell 1000 (IWB)", "RSI (14)"),
         )
 
-        # Pane 1: OHLC Bars (Blue up / Orange down matching The Compound)
         fig.add_trace(
             go.Ohlc(
                 x=plot_df.index,
@@ -298,7 +291,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
-        # 50-Day SMA (Amber/Gold)
         fig.add_trace(
             go.Scatter(
                 x=plot_df.index,
@@ -310,7 +302,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
-        # 200-Day SMA (Dark Navy)
         fig.add_trace(
             go.Scatter(
                 x=plot_df.index,
@@ -322,7 +313,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
-        # Stepped 52-Week High Dashed Line
         fig.add_trace(
             go.Scatter(
                 x=plot_df.index,
@@ -334,7 +324,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
-        # Green Dot Marker ("Trend Reclaim / Added")
         if added_idx is not None:
             fig.add_trace(
                 go.Scatter(
@@ -348,7 +337,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
                 col=1,
             )
 
-        # Right-axis price badges ($Close, $50D, $200D)
         last_x = plot_df.index[-1]
         badges = [
             (last_close, "#EA580C", f"${last_close:,.0f}"),
@@ -370,7 +358,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
                 col=1,
             )
 
-        # Pane 2: Relative to Russell 1000 (IWB)
         fig.add_trace(
             go.Scatter(
                 x=plot_df.index,
@@ -383,7 +370,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
-        # Pane 3: RSI (14) with 70/30 lines
         fig.add_trace(
             go.Scatter(
                 x=plot_df.index,
@@ -430,7 +416,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
         with st.container(border=True):
             st.markdown(f"### **{symbol}** &nbsp; {company_name}, *{sector_name}*")
 
-            # Dynamic Status Pills (Matching The Compound Header Badges)
             pills_html = []
             if abs(pct_below_high) <= 5.0:
                 pills_html.append(
@@ -456,7 +441,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
                 st.markdown("".join(pills_html), unsafe_allow_html=True)
                 st.write("")
 
-            # Clean Data | Value Table
             summary_rows = [
                 ("Best Stock Score", f"{chart_score}"),
                 (f"Price ({last_date_str} close)", f"${last_close:,.2f}"),
@@ -474,7 +458,6 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             df_metrics = pd.DataFrame(summary_rows, columns=["Data", "Value"])
             st.dataframe(df_metrics, use_container_width=True, hide_index=True, height=455)
 
-            # Bottom Summary Callout Box (Matching Screenshot Narrative)
             st.info(
                 f"**{symbol}:** ${last_close:,.0f}, with the 50-day at ${sma50:,.0f} and the 200-day at ${sma200:,.0f}. "
                 f"RSI at {int(round(rsi_val))}. The stock is {abs(pct_below_high):.0f}% below its 52-week high of ${high_52w:,.0f}."
@@ -491,7 +474,7 @@ tab_best, tab_canslim, tab_hh_hl = st.tabs([
 ])
 
 # ------------------------------------------------------------------------------
-# TAB 1: JOSH BROWN BEST STOCKS IN THE MARKET (THE COMPOUND TEAR SHEET)
+# TAB 1: JOSH BROWN BEST STOCKS IN THE MARKET (CLICK-TO-CHART + TEAR SHEET)
 # ------------------------------------------------------------------------------
 with tab_best:
     st.subheader("🏆 Best Stocks in the Market — Institutional Trend & Tear Sheet")
@@ -511,55 +494,63 @@ with tab_best:
         key="best_stock_selector",
     )
     custom_ticker = c_sel2.text_input("Or inspect any ticker (e.g. A, BIIB, MTD):", value="").strip().upper()
-    active_best_ticker = custom_ticker if custom_ticker else chosen_best
-
     zone_filter = c_sel3.selectbox(
         "Filter Watchlist Table by Entry Zone:",
         ["All Zones", "BREAKOUT_ZONE", "PULLBACK_SUPPORT", "TRENDING_UP"],
     )
-    filter_to_selected = st.checkbox(
-        f"Filter watchlist table to selected stock ({active_best_ticker})",
-        value=False,
-        key="jb_filter_selected_stock",
-    )
 
-    # Render The Compound 2-Column Tear Sheet
-    render_compound_tear_sheet(active_best_ticker, df_best)
+    # Placeholder so the tear-sheet chart renders above the table after reading table row clicks
+    tear_sheet_slot = st.empty()
 
     st.divider()
-    st.markdown("### 📋 Full Screened `josh_brown_best_stocks.csv` Watchlist")
+    st.markdown("### 📋 Full Screened `josh_brown_best_stocks.csv` Watchlist *(Click any row to load its chart above)*")
+
+    table_clicked_ticker = None
     if df_best.empty:
         st.info("No rows in `josh_brown_best_stocks.csv` yet. Run **MarketSurge Daily Pre-Market Scan** in GitHub Actions or click **Pull Latest Watchlists from GitHub**.")
     else:
         filtered_best = df_best.copy()
-        if filter_to_selected and "Ticker" in filtered_best.columns:
-            filtered_best = filtered_best[filtered_best["Ticker"] == active_best_ticker]
-        elif zone_filter != "All Zones" and "Entry_Zone" in filtered_best.columns:
+        if zone_filter != "All Zones" and "Entry_Zone" in filtered_best.columns:
             filtered_best = filtered_best[filtered_best["Entry_Zone"].str.contains(zone_filter, na=False)]
+        filtered_best = filtered_best.reset_index(drop=True)
 
-        if filtered_best.empty and filter_to_selected:
-            st.warning(f"`{active_best_ticker}` was entered via custom lookup and is not currently in `josh_brown_best_stocks.csv`.")
-        else:
-            st.dataframe(filtered_best, use_container_width=True, hide_index=True)
+        best_table_event = st.dataframe(
+            filtered_best,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="jb_watchlist_table",
+        )
+        selected_rows = best_table_event.selection.rows if best_table_event else []
+        if selected_rows and "Ticker" in filtered_best.columns:
+            table_clicked_ticker = str(filtered_best.iloc[selected_rows[0]]["Ticker"])
 
-            b_exp1, b_exp2 = st.columns([1, 2])
-            jb_fidelity_csv = filtered_best[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
-            b_exp1.download_button(
-                label="📥 Download Best Stocks CSV (Fidelity)",
-                data=jb_fidelity_csv,
-                file_name="JoshBrown_BestStocks.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
-            b_exp2.text_input(
-                "Copy & paste Best Stocks tickers into Fidelity Watch List:",
-                value=", ".join(filtered_best["Ticker"].tolist()),
-                key="jb_copy_tickers",
-            )
+        b_exp1, b_exp2 = st.columns([1, 2])
+        jb_fidelity_csv = filtered_best[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
+        b_exp1.download_button(
+            label="📥 Download Best Stocks CSV (Fidelity)",
+            data=jb_fidelity_csv,
+            file_name="JoshBrown_BestStocks.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+        b_exp2.text_input(
+            "Copy & paste Best Stocks tickers into Fidelity Watch List:",
+            value=", ".join(filtered_best["Ticker"].tolist()),
+            key="jb_copy_tickers",
+        )
+
+    # Priority: Clicked Table Row > Custom Typed Ticker > Dropdown Selection
+    active_best_ticker = table_clicked_ticker or custom_ticker or chosen_best
+    with tear_sheet_slot.container():
+        if table_clicked_ticker:
+            st.caption(f"Showing chart for table selection: **{table_clicked_ticker}** *(uncheck the row in the table below to return to dropdown/custom input)*")
+        render_compound_tear_sheet(active_best_ticker, df_best)
 
 
 # ------------------------------------------------------------------------------
-# TAB 2: CAN SLIM BASE SETUPS (ORIGINAL 5-PANE CHART + RISK CALC + AI ANALYST)
+# TAB 2: CAN SLIM BASE SETUPS (CLICK-TO-CHART + 5-PANE CHART + AI ANALYST)
 # ------------------------------------------------------------------------------
 with tab_canslim:
     st.sidebar.divider()
@@ -589,9 +580,24 @@ with tab_canslim:
             display_setups = display_setups[display_setups["Blue_Dot"] == "🔵 YES"]
         if bullish_macd_only and "MACD_Signal" in display_setups.columns:
             display_setups = display_setups[display_setups["MACD_Signal"].str.contains("Bullish", na=False)]
+        display_setups = display_setups.reset_index(drop=True)
 
-        st.subheader("🎯 Actionable Base Setups (Stage 2 + RS ≥ 85 + ATR% ≥ 1.2%)")
-        st.dataframe(display_setups, use_container_width=True, hide_index=True)
+        st.subheader("🎯 Actionable Base Setups (Stage 2 + RS ≥ 85 + ATR% ≥ 1.2%) *(Click any row to chart below)*")
+        cs_table_event = st.dataframe(
+            display_setups,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="cs_watchlist_table",
+        )
+        cs_selected_rows = cs_table_event.selection.rows if cs_table_event else []
+        cs_clicked_ticker = (
+            str(display_setups.iloc[cs_selected_rows[0]]["Ticker"])
+            if (cs_selected_rows and "Ticker" in display_setups.columns)
+            else None
+        )
+
         if not display_setups.empty:
             c_exp1, c_exp2 = st.columns([1, 2])
             fidelity_csv = display_setups[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
@@ -614,11 +620,12 @@ with tab_canslim:
             ticker_options = source_df["Ticker"].tolist()
             name_lookup = dict(zip(df_all["Ticker"], df_all["Company"])) if "Company" in df_all.columns else {}
 
-            selected_ticker = st.selectbox(
-                "Select Stock to Inspect:",
+            dropdown_ticker = st.selectbox(
+                "Or Choose Stock From Dropdown:",
                 ticker_options,
                 format_func=lambda t: f"{t} — {name_lookup.get(t, t)}",
             )
+            selected_ticker = cs_clicked_ticker if cs_clicked_ticker else dropdown_ticker
 
             hist = yf.Ticker(selected_ticker).history(period="9mo")
             spy_hist = yf.Ticker("SPY").history(period="9mo")
