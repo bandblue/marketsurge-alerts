@@ -81,7 +81,7 @@ else:
     )
 
 
-# --- SIDEBAR: ONE-CLICK DATA REFRESH, GITHUB SYNC & FILTERS ---
+# --- SIDEBAR: ONE-CLICK DATA REFRESH, GITHUB SYNC & CHART TIMEFRAME ---
 st.sidebar.header("🔄 Market Data Controls")
 
 if os.path.exists("marketsurge_actionable_setups.csv"):
@@ -147,6 +147,36 @@ if st.sidebar.button("☁️ Sync Watchlist to GitHub", use_container_width=True
                 sync_status.update(label="GitHub upload failed", state="error")
                 st.sidebar.error(f"Error {put_resp.status_code}: {put_resp.text}")
 
+st.sidebar.divider()
+st.sidebar.header("📅 Chart Time Horizon")
+TIMEFRAME_OPTIONS = ["5day", "10day", "1M", "3M", "6M", "1Y", "YTD"]
+selected_timeframe = st.sidebar.radio(
+    "Select Chart Timeframe (All Tabs):",
+    options=TIMEFRAME_OPTIONS,
+    index=5,  # Defaults to 1Y (index 4 = 6M, index 3 = 3M, index 6 = YTD)
+    horizontal=True,
+    key="global_chart_timeframe",
+)
+
+
+def slice_by_timeframe(df: pd.DataFrame, tf: str) -> pd.DataFrame:
+    """Slices a daily OHLC DataFrame to the selected lookback horizon."""
+    if df.empty:
+        return df
+    if tf == "YTD":
+        current_year = df.index[-1].year
+        ytd_slice = df[df.index.year == current_year]
+        return ytd_slice.copy() if not ytd_slice.empty else df.tail(252).copy()
+    bars_map = {
+        "5day": 5,
+        "10day": 10,
+        "1M": 21,
+        "3M": 63,
+        "6M": 130,
+        "1Y": 252,
+    }
+    return df.tail(bars_map.get(tf, 252)).copy()
+
 
 # --- LOAD SAVED CSVs SAFELY ---
 def load_csv_safe(fname: str) -> pd.DataFrame:
@@ -203,20 +233,22 @@ def fetch_compound_chart_data(symbol: str):
     return hist
 
 
-def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
+def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame, timeframe_label: str = "1Y"):
     hist = fetch_compound_chart_data(symbol)
     if hist is None:
         st.warning(f"No historical price data found for `{symbol}`.")
         return
 
-    plot_df = hist.tail(252).copy()
+    # Full 1Y slice kept for 52W High / 1Y Max Drawdown metrics; timeframe_label controls chart display window
+    metrics_1y_df = hist.tail(252).copy()
+    plot_df = slice_by_timeframe(hist, timeframe_label)
     last_row = plot_df.iloc[-1]
     last_date_str = plot_df.index[-1].strftime("%m/%d/%y")
 
     last_close = float(last_row["Close"])
     sma50 = float(last_row["SMA_50"]) if pd.notna(last_row["SMA_50"]) else last_close
     sma200 = float(last_row["SMA_200"]) if pd.notna(last_row["SMA_200"]) else last_close
-    high_52w = float(plot_df["High"].max())
+    high_52w = float(metrics_1y_df["High"].max())
     rsi_val = float(last_row["RSI_14"]) if pd.notna(last_row["RSI_14"]) else 50.0
     aroon_val = int(round(float(last_row["Aroon_Osc"]))) if pd.notna(last_row["Aroon_Osc"]) else 0
 
@@ -228,11 +260,11 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
     ret_3m = ((last_close / float(hist["Close"].iloc[-64])) - 1.0) * 100.0 if len(hist) > 64 else 0.0
     ret_6m = ((last_close / float(hist["Close"].iloc[-127])) - 1.0) * 100.0 if len(hist) > 127 else 0.0
 
-    ytd_df = plot_df[plot_df.index.year == plot_df.index[-1].year]
+    ytd_df = metrics_1y_df[metrics_1y_df.index.year == metrics_1y_df.index[-1].year]
     ret_ytd = ((last_close / float(ytd_df["Close"].iloc[0])) - 1.0) * 100.0 if not ytd_df.empty else 0.0
 
-    rolling_peak = plot_df["High"].cummax()
-    drawdowns = ((plot_df["Low"] - rolling_peak) / rolling_peak) * 100.0
+    rolling_peak = metrics_1y_df["High"].cummax()
+    drawdowns = ((metrics_1y_df["Low"] - rolling_peak) / rolling_peak) * 100.0
     max_dd_1y = int(round(float(drawdowns.min())))
 
     row_match = best_df[best_df["Ticker"] == symbol] if (not best_df.empty and "Ticker" in best_df.columns) else pd.DataFrame()
@@ -271,7 +303,7 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             shared_xaxes=True,
             vertical_spacing=0.045,
             row_heights=[0.62, 0.19, 0.19],
-            subplot_titles=("", "Relative to Russell 1000 (IWB)", "RSI (14)"),
+            subplot_titles=(f"{symbol} ({timeframe_label} View)", "Relative to Russell 1000 (IWB)", "RSI (14)"),
         )
 
         fig.add_trace(
@@ -395,6 +427,8 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
             col=1,
         )
 
+        x_tick_fmt = "%b %d" if timeframe_label in ("5day", "10day", "1M") else "%b '%y"
+
         fig.update_layout(
             height=640,
             template="plotly_white",
@@ -408,7 +442,7 @@ def render_compound_tear_sheet(symbol: str, best_df: pd.DataFrame):
         fig.update_yaxes(side="right", tickprefix="$", gridcolor="#F1F5F9", row=1, col=1)
         fig.update_yaxes(side="right", showticklabels=False, gridcolor="#F1F5F9", row=2, col=1)
         fig.update_yaxes(side="right", range=[15, 90], tickvals=[30, 70], gridcolor="#F1F5F9", row=3, col=1)
-        fig.update_xaxes(showgrid=False, tickformat="%b '%y")
+        fig.update_xaxes(showgrid=False, tickformat=x_tick_fmt)
 
         st.plotly_chart(fig, use_container_width=True)
 
@@ -519,7 +553,6 @@ with tab_best:
             filtered_best = filtered_best[filtered_best["Entry_Zone"].str.contains(zone_filter, na=False)]
         filtered_best = filtered_best.reset_index(drop=True)
 
-        # Read previous selection from session state if filtering the table down to 1 row
         prev_sel = st.session_state.get("jb_watchlist_table", {}).get("selection", {}).get("rows", [])
         if filter_table_to_selected and prev_sel and prev_sel[0] < len(filtered_best):
             table_clicked_ticker = str(filtered_best.iloc[prev_sel[0]]["Ticker"])
@@ -557,7 +590,7 @@ with tab_best:
     # Priority: Clicked Watchlist Row > Custom Lookup Input > Top Ranked Stock
     active_best_ticker = table_clicked_ticker or custom_ticker or default_ticker
     with tear_sheet_slot.container():
-        render_compound_tear_sheet(active_best_ticker, df_best)
+        render_compound_tear_sheet(active_best_ticker, df_best, timeframe_label=selected_timeframe)
 
 
 # ------------------------------------------------------------------------------
@@ -626,7 +659,7 @@ with tab_canslim:
         col_chart, col_right = st.columns([2.2, 1])
 
         with col_chart:
-            st.subheader("📊 Multi-Pane Chart: Price, Volume, OBV, RSI & MACD")
+            st.subheader(f"📊 Multi-Pane Chart ({selected_timeframe}): Price, Volume, OBV, RSI & MACD")
             source_df = display_setups if not display_setups.empty else df_all
             ticker_options = source_df["Ticker"].tolist()
             name_lookup = dict(zip(df_all["Ticker"], df_all["Company"])) if "Company" in df_all.columns else {}
@@ -638,8 +671,8 @@ with tab_canslim:
             )
             selected_ticker = cs_clicked_ticker if cs_clicked_ticker else dropdown_ticker
 
-            hist = yf.Ticker(selected_ticker).history(period="9mo")
-            spy_hist = yf.Ticker("SPY").history(period="9mo")
+            hist = yf.Ticker(selected_ticker).history(period="2y")
+            spy_hist = yf.Ticker("SPY").history(period="2y")
 
             hist.index = hist.index.tz_localize(None).normalize()
             spy_hist.index = spy_hist.index.tz_localize(None).normalize()
@@ -665,7 +698,7 @@ with tab_canslim:
             hist["MACD_Signal"] = hist["MACD"].ewm(span=9, adjust=False).mean()
             hist["MACD_Hist"] = hist["MACD"] - hist["MACD_Signal"]
 
-            plot_df = hist.tail(130).copy()
+            plot_df = slice_by_timeframe(hist, selected_timeframe)
             setup_row = df_setups[df_setups["Ticker"] == selected_ticker]
 
             fig = make_subplots(
@@ -758,6 +791,8 @@ with tab_canslim:
                 fig.add_hline(y=pivot, line_dash="dash", line_color="green", annotation_text=f"Pivot: ${pivot}", row=1, col=1, secondary_y=False)
                 fig.add_hline(y=stop_loss, line_dash="dot", line_color="red", annotation_text=f"7.5% Stop: ${stop_loss}", row=1, col=1, secondary_y=False)
 
+            x_tick_fmt_cs = "%b %d" if selected_timeframe in ("5day", "10day", "1M") else "%b '%y"
+
             fig.update_layout(
                 height=980,
                 xaxis_rangeslider_visible=False,
@@ -774,6 +809,7 @@ with tab_canslim:
             fig.update_yaxes(title_text="OBV", row=3, col=1)
             fig.update_yaxes(title_text="RSI", range=[0, 100], row=4, col=1)
             fig.update_yaxes(title_text="MACD", row=5, col=1)
+            fig.update_xaxes(tickformat=x_tick_fmt_cs)
             st.plotly_chart(fig, use_container_width=True)
 
         with col_right:
@@ -842,53 +878,4 @@ with tab_canslim:
                                 continue
 
         with st.expander("📋 View Full Ranked Watchlist"):
-            st.dataframe(filtered_df, use_container_width=True, hide_index=True)
-
-
-# ------------------------------------------------------------------------------
-# TAB 3: HIGHER HIGHS & HIGHER LOWS (CLICK-TO-CHART + BROAD-MARKET TABLE)
-# ------------------------------------------------------------------------------
-with tab_hh_hl:
-    st.subheader("📈 Broad-Market Higher Highs & Higher Lows (`marketsurge_hh_hl_setups.csv`)")
-    if df_hh_hl.empty:
-        st.info("No Higher High / Higher Low setups loaded yet. Click **Pull Latest Watchlists from GitHub** in the sidebar.")
-    else:
-        hh_filter = st.radio(
-            "Filter by Setup Type:",
-            ["All Setups", "PULLBACK_ENTRY (21 EMA)", "BREAKOUT_READY (Swing High)"],
-            horizontal=True,
-        )
-        disp_hh = df_hh_hl.copy()
-        if hh_filter != "All Setups" and "Setup_Type" in disp_hh.columns:
-            disp_hh = disp_hh[disp_hh["Setup_Type"] == hh_filter]
-        disp_hh = disp_hh.reset_index(drop=True)
-
-        st.caption("Click the selection box on the left of any row to view its tear-sheet chart below.")
-        hh_table_event = st.dataframe(
-            disp_hh,
-            use_container_width=True,
-            hide_index=True,
-            on_select="rerun",
-            selection_mode="single-row",
-            key="hh_watchlist_table",
-        )
-        hh_selected_rows = hh_table_event.selection.rows if hh_table_event else []
-
-        hh_exp1, hh_exp2 = st.columns([1, 2])
-        hh_csv = disp_hh[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
-        hh_exp1.download_button(
-            label="📥 Download HH/HL Watchlist CSV (Fidelity)",
-            data=hh_csv,
-            file_name="HH_HL_Setups.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
-        hh_exp2.text_input(
-            "Copy & paste HH/HL tickers into Fidelity Watch List:",
-            value=", ".join(disp_hh["Ticker"].tolist()),
-            key="hh_copy_tickers",
-        )
-
-        if hh_selected_rows and "Ticker" in disp_hh.columns:
-            st.divider()
-            render_compound_tear_sheet(str(disp_hh.iloc[hh_selected_rows[0]]["Ticker"]), df_best)
+            st.dataframe(filtered_df, use_container_width=True, hide_index=
