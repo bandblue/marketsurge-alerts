@@ -38,7 +38,14 @@ jobs:
       - name: Run Breakout Watcher
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: python breakout_watcher.py
+          SEND_TEST: ${{ github.event.inputs.send_test_alert }}
+        run: |
+          echo "SEND_TEST flag is: '$SEND_TEST'"
+          if [ "$SEND_TEST" = "true" ]; then
+            python breakout_watcher.py --test
+          else
+            python breakout_watcher.py
+          fi
 
       - name: Sync updated setups to Google Drive if changed
         env:
