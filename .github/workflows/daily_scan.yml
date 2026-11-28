@@ -47,6 +47,21 @@ jobs:
           GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
         run: python sync_to_gdrive.py
 
+      - name: Send ntfy Push Alert
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          if [ -n "$NTFY_TOPIC" ]; then
+            COUNT_CS=$(($(wc -l < marketsurge_actionable_setups.csv) - 1))
+            COUNT_HH=$(($(wc -l < marketsurge_hh_hl_setups.csv) - 1))
+            COUNT_JB=$(($(wc -l < josh_brown_best_stocks.csv) - 1))
+            curl -s \
+              -H "Title: MarketSurge Pre-Market Scan Complete" \
+              -H "Priority: default" \
+              -H "Tags: chart_with_upwards_trend" \
+              -d "CAN SLIM Setups: $COUNT_CS | HH/HL: $COUNT_HH | Josh Brown Best Stocks: $COUNT_JB" \
+              "https://ntfy.sh/$NTFY_TOPIC"
+          fi
       - name: Commit and push updated watchlist
         run: |
           git config user.name "github-actions[bot]"
