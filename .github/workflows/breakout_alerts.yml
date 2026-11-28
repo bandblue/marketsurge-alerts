@@ -1,9 +1,15 @@
 name: MarketSurge Intraday Breakout Watcher
 
 on:
-  workflow_dispatch: # Allows manual testing & external triggers (cron-job.org every 5 mins Mon-Fri 7:30 AM - 2:00 PM MST)
+  workflow_dispatch:
+    inputs:
+      send_test_alert:
+        description: 'Send a test ntfy push notification to phone'
+        required: false
+        default: false
+        type: boolean
   schedule:
-    - cron: '*/15 14-21 * * 1-5' # Built-in GitHub fallback every 15 mins during US market hours (14:00-21:59 UTC / 7:00 AM-2:59 PM MST)
+    - cron: '*/15 14-21 * * 1-5'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
