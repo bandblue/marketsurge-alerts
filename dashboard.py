@@ -878,4 +878,53 @@ with tab_canslim:
                                 continue
 
         with st.expander("📋 View Full Ranked Watchlist"):
-            st.dataframe(filtered_df, use_container_width=True, hide_index=
+            st.dataframe(filtered_df, use_container_width=True, hide_index=True)
+
+
+# ------------------------------------------------------------------------------
+# TAB 3: HIGHER HIGHS & HIGHER LOWS (CLICK-TO-CHART + BROAD-MARKET TABLE)
+# ------------------------------------------------------------------------------
+with tab_hh_hl:
+    st.subheader("📈 Broad-Market Higher Highs & Higher Lows (`marketsurge_hh_hl_setups.csv`)")
+    if df_hh_hl.empty:
+        st.info("No Higher High / Higher Low setups loaded yet. Click **Pull Latest Watchlists from GitHub** in the sidebar.")
+    else:
+        hh_filter = st.radio(
+            "Filter by Setup Type:",
+            ["All Setups", "PULLBACK_ENTRY (21 EMA)", "BREAKOUT_READY (Swing High)"],
+            horizontal=True,
+        )
+        disp_hh = df_hh_hl.copy()
+        if hh_filter != "All Setups" and "Setup_Type" in disp_hh.columns:
+            disp_hh = disp_hh[disp_hh["Setup_Type"] == hh_filter]
+        disp_hh = disp_hh.reset_index(drop=True)
+
+        st.caption("Click the selection box on the left of any row to view its tear-sheet chart below.")
+        hh_table_event = st.dataframe(
+            disp_hh,
+            use_container_width=True,
+            hide_index=True,
+            on_select="rerun",
+            selection_mode="single-row",
+            key="hh_watchlist_table",
+        )
+        hh_selected_rows = hh_table_event.selection.rows if hh_table_event else []
+
+        hh_exp1, hh_exp2 = st.columns([1, 2])
+        hh_csv = disp_hh[["Ticker"]].rename(columns={"Ticker": "Symbol"}).to_csv(index=False)
+        hh_exp1.download_button(
+            label="📥 Download HH/HL Watchlist CSV (Fidelity)",
+            data=hh_csv,
+            file_name="HH_HL_Setups.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+        hh_exp2.text_input(
+            "Copy & paste HH/HL tickers into Fidelity Watch List:",
+            value=", ".join(disp_hh["Ticker"].tolist()),
+            key="hh_copy_tickers",
+        )
+
+        if hh_selected_rows and "Ticker" in disp_hh.columns:
+            st.divider()
+            render_compound_tear_sheet(str(disp_hh.iloc[hh_selected_rows[0]]["Ticker"]), df_best, timeframe_label=selected_timeframe)
