@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from datetime import datetime, time
 from zoneinfo import ZoneInfo
 
@@ -30,7 +31,8 @@ def get_market_progress() -> tuple[bool, float, str]:
         return False, 0.0, today_str
 
     elapsed_minutes = (now_et - market_open).total_seconds() / 60.0
-    effective_minutes = max(elapsed_minutes, 15.0)
+    # Account for ~15-min Yahoo Finance intraday volume delay
+    effective_minutes = max(elapsed_minutes - 15.0, 15.0)
     progress = min(effective_minutes / 390.0, 1.0)
     return True, progress, today_str
 
@@ -72,6 +74,17 @@ def main() -> None:
     if not ntfy_topic:
         raise ValueError("Missing NTFY_TOPIC environment variable.")
 
+    if "--test" in sys.argv:
+        send_ntfy(
+            ntfy_topic,
+            "TEST BREAKOUT: NVDA crossed $140.00",
+            "Test alert from MarketSurge Breakout Watcher.\nYour Galaxy S24 ntfy channel is active and working.",
+            priority="urgent",
+            tags="rocket,white_check_mark",
+        )
+        print("[SENT] Test ntfy notification delivered.")
+        return
+
     is_open, session_progress, today_str = get_market_progress()
     if not is_open:
         print("Market is currently closed. Exiting.")
@@ -95,6 +108,7 @@ def main() -> None:
 
     tickers = df[ticker_col].dropna().astype(str).str.strip().unique().tolist()
     hist = yf.download(tickers, period="60d", interval="1d", group_by="ticker", progress=False, threads=True)
+    is_multi = isinstance(hist.columns, pd.MultiIndex)
 
     for _, row in df.iterrows():
         ticker = str(row[ticker_col]).strip()
@@ -107,7 +121,7 @@ def main() -> None:
             continue
 
         try:
-            t_df = hist[ticker].dropna() if len(tickers) > 1 else hist.dropna()
+            t_df = hist[ticker].dropna() if is_multi else hist.dropna()
         except KeyError:
             continue
 
@@ -165,7 +179,6 @@ def main() -> None:
 
     if state_changed or new_statuses != old_statuses:
         df["Alert_Status"] = new_statuses
-        # Place Alert_Status right after Company for immediate visibility
         cols = df.columns.tolist()
         cols.remove("Alert_Status")
         insert_idx = 2 if len(cols) >= 2 else len(cols)
